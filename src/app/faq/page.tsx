@@ -34,7 +34,7 @@ export default function FaqPage() {
             Still have questions? Join our Discord community for direct support.
           </p>
           <a
-            href="https://discord.gg/UJ8xHU2jQy"
+            href="https://discord.gg/swWz4s3gaM"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#5865F2] hover:bg-[#4752C4] text-white font-semibold transition-colors duration-200"
