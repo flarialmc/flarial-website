@@ -100,7 +100,7 @@ export default function Hero() {
           </motion.a>
 
           <motion.a
-            href="https://discord.gg/UJ8xHU2jQy"
+            href="https://discord.gg/swWz4s3gaM"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#5865F2] hover:bg-[#4752C4] text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-[#5865F2]/20"
