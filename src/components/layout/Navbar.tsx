@@ -40,7 +40,7 @@ export default function Navbar() {
                 Contributors
               </Link>
               <Link 
-                href="https://discord.gg/UJ8xHU2jQy"
+                href="https://discord.gg/swWz4s3gaM"
                 className="text-white hover:text-red-500 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -103,7 +103,7 @@ export default function Navbar() {
             Contributors
           </Link>
           <Link
-            href="https://discord.gg/UJ8xHU2jQy"
+            href="https://discord.gg/swWz4s3gaM"
             className="text-white block px-3 py-2 rounded-md hover:bg-red-500 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
