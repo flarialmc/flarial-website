@@ -9,6 +9,11 @@ concurrency:
   group: cf-pages-${{ github.ref }}
   cancel-in-progress: true
 
+# Opt every JS-based action in this workflow into Node 24 so we don't
+# inherit the deprecated Node 20 runtime that GH Actions is sunsetting.
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
