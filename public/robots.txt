@@ -1,16 +1,11 @@
 User-agent: *
 Allow: /
 
-# Sitemaps
+# AdSense crawler — keep this explicit so AdSense doesn't get accidentally blocked
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
 Sitemap: https://flarial.xyz/sitemap.xml
-
-# Block access to admin and API routes if they exist
-Disallow: /api/
-Disallow: /admin/
-
-# Allow Google and other search engines to crawl all public content
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
