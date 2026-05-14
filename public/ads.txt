@@ -1,3 +1,1 @@
-# Authorized Digital Sellers — replace pub-0000000000000000 with your AdSense publisher ID.
-# https://support.google.com/adsense/answer/7532444
-google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-5964528548733704, DIRECT, f08c47fec0942fa0
