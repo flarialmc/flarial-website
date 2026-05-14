@@ -6,12 +6,15 @@
 export function HeroBackground() {
   return (
     <>
-      {/* Mojang desert screenshot — full bleed */}
+      {/* Mojang desert screenshot — full bleed. image-set() picks the
+          narrow 720px webp on phones so the hero LCP isn't paying for
+          desktop pixels it'll never show. */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "url('/screenshots/desert.jpg')",
+          backgroundImage:
+            "image-set(url('/screenshots/desert-720.webp') 1x, url('/screenshots/desert.webp') 2x)",
           backgroundSize: "cover",
           backgroundPosition: "center 38%",
           opacity: 0.55,

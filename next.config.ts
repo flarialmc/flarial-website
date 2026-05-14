@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   /* Tighten the workspace root inference Next 16 complains about
      when multiple lockfiles are present on the dev machine. */
   turbopack: { root: __dirname },
+  experimental: {
+    /* Tree-shake icon library imports — only ship the icons we actually use */
+    optimizePackageImports: ["lucide-react", "framer-motion", "sonner"],
+  },
 };
 
 export default nextConfig;

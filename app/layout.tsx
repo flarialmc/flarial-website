@@ -4,21 +4,30 @@ import Script from "next/script";
 import "./globals.css";
 import { SiteFrame } from "./components/site/SiteFrame";
 
+/*
+  Limit font weights to the ones actually used in the design (grepped from
+  class usage). Each Google Font subset/weight is a separate @font-face,
+  so trimming unused weights drops both CSS and woff2 preload weight
+  without changing rendered glyphs.
+*/
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-display",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
 const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
