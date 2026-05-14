@@ -21,11 +21,11 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: d049abd61b495250aac07f7b39df1526
       PROJECT_NAME: flarial-website
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
         with:
           version: 10
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: pnpm
@@ -36,4 +36,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
           command: pages deploy out --project-name=${{ env.PROJECT_NAME }} --branch=pr-${{ github.event.pull_request.number }} --commit-dirty=true
