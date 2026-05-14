@@ -19,7 +19,7 @@ jobs:
       deployments: write
     env:
       CLOUDFLARE_ACCOUNT_ID: d049abd61b495250aac07f7b39df1526
-      PROJECT_NAME: flarial-website
+      PROJECT_NAME: flarial-api-site
     steps:
       - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
