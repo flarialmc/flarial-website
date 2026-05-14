@@ -1,0 +1,6 @@
+# Cloudflare Pages config — used by `wrangler pages deploy`
+# both locally and inside GitHub Actions.
+
+name = "flarial-website"
+pages_build_output_dir = "./out"
+compatibility_date = "2026-05-14"

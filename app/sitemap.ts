@@ -3,6 +3,8 @@ import { getAllChangelogs } from "./lib/changelog";
 
 const BASE = "https://flarial.xyz";
 
+export const dynamic = "force-static";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const entries = await getAllChangelogs();
