@@ -3,7 +3,6 @@
 import Link from "next/link";
 import * as React from "react";
 import { FlarialLogo } from "./FlarialLogo";
-import { HoverSoundsToggle } from "./HoverSoundsToggle";
 import { YoutubeIcon, DiscordIcon } from "./BrandIcons";
 import type { SVGProps } from "react";
 
@@ -20,7 +19,7 @@ const COLS = [
     label: "Community",
     links: [
       { href: "https://discord.gg/flarial", label: "Discord", external: true },
-      { href: "https://www.youtube.com/@flarialmc", label: "YouTube", external: true },
+      { href: "https://www.youtube.com/@flarialclient", label: "YouTube", external: true },
     ],
   },
   {
@@ -56,7 +55,7 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-2 pt-2">
             <SocialLink href="https://discord.gg/flarial" icon={DiscordIcon} label="Discord" />
-            <SocialLink href="https://www.youtube.com/@flarialmc" icon={YoutubeIcon} label="YouTube" />
+            <SocialLink href="https://www.youtube.com/@flarialclient" icon={YoutubeIcon} label="YouTube" />
           </div>
         </div>
         {COLS.map((col) => (
@@ -84,7 +83,6 @@ export function Footer() {
       <div className="border-t border-white/[0.04] py-5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11.5px] font-mono text-[var(--color-text-dim)]">
           <div>© {new Date().getFullYear()} Flarial</div>
-          <HoverSoundsToggle />
         </div>
       </div>
     </footer>

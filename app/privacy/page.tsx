@@ -42,8 +42,7 @@ export default function PrivacyPage() {
             </li>
             <li>
               <strong>Local storage</strong>: cosmetic preferences (favorite
-              modules, hover-sound toggle). Stored in your browser only — never
-              sent to us.
+              modules). Stored in your browser only — never sent to us.
             </li>
             <li>
               <strong>Discord widget</strong>: the homepage reads the public

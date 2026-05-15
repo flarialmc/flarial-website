@@ -28,16 +28,7 @@ export function AdSlot() {
     } catch {}
   }, [client, slot]);
 
-  if (!client || !slot) {
-    return (
-      <div
-        aria-hidden
-        className="w-full rounded-[var(--radius-md)] py-3 px-4 text-center font-mono text-[10.5px] uppercase tracking-widest text-[var(--color-text-dim)] border border-dashed border-white/[0.06]"
-      >
-        Ad slot · set NEXT_PUBLIC_ADSENSE_CLIENT + _SLOT to enable
-      </div>
-    );
-  }
+  if (!client || !slot) return null;
 
   return (
     <>

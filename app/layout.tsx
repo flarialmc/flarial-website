@@ -142,7 +142,7 @@ export default function RootLayout({
                   logo: `${SITE_URL}/icon.svg`,
                   sameAs: [
                     "https://discord.gg/flarial",
-                    "https://www.youtube.com/@flarialmc",
+                    "https://www.youtube.com/@flarialclient",
                   ],
                 },
                 {
