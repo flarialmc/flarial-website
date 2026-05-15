@@ -8,7 +8,7 @@ import { AndroidBetaModal } from "../components/site/AndroidBetaModal";
 
 type OS = "windows" | "android" | "macos" | "linux" | "unknown";
 
-const WINDOWS_URL = "https://github.com/flarialmc/launcher/releases/latest";
+const WINDOWS_URL = "http://cdn.flarial.xyz/Flarial.Launcher.exe";
 
 function detectOS(): OS {
   if (typeof navigator === "undefined") return "windows";
@@ -74,10 +74,9 @@ export function GigaDownload() {
             </span>
           </button>
         ) : (
-          <Link
+          <a
             href={WINDOWS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            download
             className="group relative flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-7 w-full px-5 sm:px-12 py-9 sm:py-12 rounded-[28px] text-white overflow-hidden flarial-aura"
             style={ctaStyle}
           >
@@ -93,7 +92,7 @@ export function GigaDownload() {
                 Windows 10 / 11 · 64-bit · Free
               </span>
             </span>
-          </Link>
+          </a>
         )}
       </motion.div>
 
