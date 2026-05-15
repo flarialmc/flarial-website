@@ -8,7 +8,7 @@ import { AndroidBetaModal } from "../components/site/AndroidBetaModal";
 
 type OS = "windows" | "android" | "macos" | "linux" | "unknown";
 
-const WINDOWS_URL = "https://cdn.flarial.xyz/Flarial.Launcher.exe";
+const WINDOWS_URL = "https://cdn.flarial.xyz/launcher/Flarial.Launcher.exe";
 
 function detectOS(): OS {
   if (typeof navigator === "undefined") return "windows";
