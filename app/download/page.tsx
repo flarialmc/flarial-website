@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { DiscordIcon } from "../components/site/BrandIcons";
-import { getLatestChangelog } from "../lib/changelog";
 import { GigaDownload } from "./GigaDownload";
 import { AdSlot } from "./AdSlot";
 
@@ -11,8 +10,7 @@ export const metadata: Metadata = {
   description: "Download Flarial for Windows or Android — free, forever.",
 };
 
-export default async function DownloadPage() {
-  const latest = await getLatestChangelog();
+export default function DownloadPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-20">
       <section className="text-center mb-10">
@@ -51,26 +49,6 @@ export default async function DownloadPage() {
         </Link>
       </section>
 
-      {latest ? (
-        <section className="mt-14">
-          <div className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[var(--color-text-dim)] mb-3">
-            What&apos;s new — {latest.tag}
-          </div>
-          <Link
-            href={`/changelog#${latest.slug}`}
-            className="block rounded-[var(--radius-xl)] p-6 transition-shadow"
-            style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}
-          >
-            <div className="font-display text-[20px] font-semibold text-white mb-2">{latest.title}</div>
-            <div className="text-[13px] text-[var(--color-text-mute)] leading-relaxed">
-              {latest.excerpt}
-            </div>
-            <div className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[var(--color-accent)]">
-              Full changelog <ArrowRight size={12} />
-            </div>
-          </Link>
-        </section>
-      ) : null}
     </div>
   );
 }

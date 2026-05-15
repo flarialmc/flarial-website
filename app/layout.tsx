@@ -98,6 +98,9 @@ export const metadata: Metadata = {
   },
   icons: { icon: "/icon.svg" },
   formatDetection: { telephone: false, address: false, email: false },
+  other: process.env.NEXT_PUBLIC_ADSENSE_CLIENT
+    ? { "google-adsense-account": process.env.NEXT_PUBLIC_ADSENSE_CLIENT }
+    : undefined,
 };
 
 export const viewport: Viewport = {

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const ENTRIES = [
   {
     q: "Is Flarial free?",
-    a: "Yes. No paid tier, no cosmetics paywall, no ads. Forever.",
+    a: "Yes. The client and launcher have no paid tier, no cosmetics paywall, and zero in-product ads — forever. This website runs a small ad to help cover hosting and CDN costs; the software you install does not.",
   },
   {
     q: "Is it safe? Will I get banned?",
