@@ -4,11 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Flarial Launcher · Privacy Policy",
   description:
-    "Privacy policy for the Flarial Launcher Android app (com.flarialmc.flarial_launcher) — what data is collected, permissions used, and how we handle Microsoft sign-in.",
+    "Privacy policy for the Flarial Launcher Android app (com.flarialmc.flarial_launcher) — what data is collected, ads, permissions, and how Microsoft sign-in works.",
   alternates: { canonical: "/privacy/launcher" },
 };
 
-const UPDATED = "May 15, 2026";
+const UPDATED = "May 17, 2026";
 
 export default function LauncherPrivacyPage() {
   return (
@@ -23,7 +23,7 @@ export default function LauncherPrivacyPage() {
         <p className="mt-5 text-[15px] leading-relaxed text-[var(--color-text-mute)]">
           Privacy policy for the Flarial Launcher Android app
           (<code className="font-mono text-[13px] text-[var(--color-accent)]">com.flarialmc.flarial_launcher</code>).
-          For our website and desktop client, see the{" "}
+          For our website, desktop launcher, and Minecraft client, see the{" "}
           <Link href="/privacy" className="text-[var(--color-accent)] underline-offset-4 hover:underline">
             main privacy policy
           </Link>.
@@ -50,64 +50,121 @@ export default function LauncherPrivacyPage() {
           </p>
         </Section>
 
-        <Section title="Data we collect">
+        <Section title="Beta-access program">
           <p>
-            The launcher is designed to collect as little as possible. Specifically:
+            The launcher gates access behind a Discord-authenticated beta
+            program. When you tap &quot;Request access&quot;:
           </p>
           <ul className="list-disc pl-6 space-y-2 mt-3 marker:text-[var(--color-accent)]">
             <li>
-              <strong>No analytics.</strong> The app does not include any
-              third-party analytics SDKs and does not track usage, sessions,
-              screen views, or device identifiers.
+              You complete a Discord OAuth flow. Discord returns an OAuth
+              authorization code to the app.
             </li>
             <li>
-              <strong>No advertising.</strong> The app contains no ads and no
-              advertising identifiers are read or transmitted.
+              The app sends the OAuth code, your Android{" "}
+              <code className="font-mono text-[13px] text-[var(--color-accent)]">ANDROID_ID</code>{" "}
+              (a 64-bit identifier scoped to your device + signing key + user),
+              and your phone&apos;s manufacturer and model string (e.g.
+              &quot;Google Pixel 8&quot;) to <code className="font-mono text-[13px] text-[var(--color-accent)]">api.flarial.xyz/beta/request</code>.
             </li>
             <li>
-              <strong>No account on our servers.</strong> Flarial does not
-              operate a user-account system for the launcher. We don&apos;t store
-              your email, username, or password.
+              The server uses the OAuth code to read your Discord user ID and
+              roles, then issues a device token. The app stores that token
+              locally and sends it as <code className="font-mono text-[13px] text-[var(--color-accent)]">X-Device-Token</code> when
+              polling <code className="font-mono text-[13px] text-[var(--color-accent)]">api.flarial.xyz/beta/status</code> for
+              approval (roughly once every five seconds while a request is
+              pending).
             </li>
             <li>
-              <strong>Crash logs.</strong> If the launcher crashes, a diagnostic
-              log may be generated locally and, with your action (e.g.
-              attaching it to a Discord bug report), shared with us so we can
-              fix the issue. Crash logs are not uploaded automatically.
+              We retain your Discord user ID, ANDROID_ID, phone model, and
+              issued device token while your beta request is active so we can
+              authorize subsequent launches without re-prompting. You can
+              request deletion via Discord.
+            </li>
+          </ul>
+        </Section>
+
+        <Section title="Ads">
+          <p>
+            The launcher displays a short interstitial advertisement on each
+            launch, served by the third-party provider{" "}
+            <ExtLink href="https://lootapp.ai">lootapp.ai</ExtLink>. The flow
+            is:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 mt-3 marker:text-[var(--color-accent)]">
+            <li>
+              The app fetches an ad URL from{" "}
+              <code className="font-mono text-[13px] text-[var(--color-accent)]">lootapp.ai/inapp?tid=1256848</code>{" "}
+              and renders it in an in-app WebView before Minecraft loads.
             </li>
             <li>
-              <strong>Client assets.</strong> The launcher downloads the latest
-              Flarial client binary and cosmetic assets from our servers over
-              HTTPS. These requests carry only the standard data any web
-              request includes (IP address, user-agent) and are used solely to
-              serve the file.
+              JavaScript and third-party cookies are enabled in that WebView so
+              the ad can render and measure correctly. lootapp.ai and its
+              partners may set cookies, read standard request data (your IP
+              address, user-agent), and use that data to serve and measure
+              ads.
+            </li>
+            <li>
+              A close button appears after the mandatory display window.
+            </li>
+            <li>
+              Data handling by lootapp.ai is governed by their own privacy
+              policy. We do not control which sub-networks or trackers they
+              choose to embed.
+            </li>
+          </ul>
+        </Section>
+
+        <Section title="What we do not collect">
+          <ul className="list-disc pl-6 space-y-2 marker:text-[var(--color-accent)]">
+            <li>
+              <strong>No third-party analytics SDK.</strong> The app does not
+              embed Firebase Analytics, Crashlytics, Google Analytics,
+              AppsFlyer, Adjust, Sentry, or similar.
+            </li>
+            <li>
+              <strong>No automatic crash upload.</strong> If the launcher
+              crashes, a diagnostic log may be generated locally. It is not
+              uploaded automatically — you can attach it to a Discord bug
+              report if you choose.
+            </li>
+            <li>
+              <strong>No advertising ID.</strong> The app does not read the
+              Google Advertising ID. (lootapp.ai may set its own cookies inside
+              its WebView; that is separate from device-level advertising IDs.)
+            </li>
+            <li>
+              <strong>No contacts, location, camera, microphone, or messages.</strong>{" "}
+              The launcher does not request those permissions.
             </li>
           </ul>
         </Section>
 
         <Section title="Microsoft / Xbox Live sign-in">
           <p>
-            To launch Minecraft: Bedrock Edition you must be signed in to your
-            Microsoft / Xbox Live account, the same as the official game.
-            Sign-in is handled by Microsoft&apos;s own authentication library
-            (XAL / MSAL) in a system WebView.
+            To play Minecraft: Bedrock Edition you must be signed in to your
+            Microsoft / Xbox Live account. That sign-in is handled by
+            Minecraft itself once it has loaded — the Flarial Launcher does
+            not collect your Microsoft credentials and does not see the
+            authentication tokens Minecraft uses. Microsoft&apos;s handling of
+            your account data is governed by the{" "}
+            <ExtLink href="https://privacy.microsoft.com/privacystatement">
+              Microsoft Privacy Statement
+            </ExtLink>.
           </p>
-          <ul className="list-disc pl-6 space-y-2 mt-3 marker:text-[var(--color-accent)]">
-            <li>
-              We never see and never store your Microsoft password.
-            </li>
-            <li>
-              The authentication token Microsoft returns is held on-device and
-              passed directly to Minecraft. It is not transmitted to Flarial
-              servers.
-            </li>
-            <li>
-              Microsoft&apos;s handling of your account data is governed by the{" "}
-              <ExtLink href="https://privacy.microsoft.com/privacystatement">
-                Microsoft Privacy Statement
-              </ExtLink>.
-            </li>
-          </ul>
+        </Section>
+
+        <Section title="What the client sends after the launcher hands off">
+          <p>
+            Once the launcher loads Flarial into Minecraft, the Flarial client
+            itself sends limited telemetry (module enable/disable events,
+            startup version pings, crash reports, and a VIP/online-users
+            stream) to <code className="font-mono text-[13px] text-[var(--color-accent)]">api.flarial.xyz</code>.
+            That is documented in the{" "}
+            <Link href="/privacy" className="text-[var(--color-accent)] underline-offset-4 hover:underline">
+              main privacy policy
+            </Link>.
+          </p>
         </Section>
 
         <Section title="Android permissions we declare">
@@ -118,72 +175,56 @@ export default function LauncherPrivacyPage() {
           </p>
           <ul className="list-disc pl-6 space-y-2 mt-3 marker:text-[var(--color-accent)]">
             <li>
-              <strong>INTERNET</strong>, <strong>ACCESS_NETWORK_STATE</strong>,
-              <strong> ACCESS_WIFI_STATE</strong>, <strong>CHANGE_WIFI_MULTICAST_STATE</strong> —
-              download the Flarial client and assets, check for updates, and
-              allow Minecraft&apos;s LAN multiplayer discovery to keep working.
+              <strong>INTERNET</strong>, <strong>ACCESS_NETWORK_STATE</strong> —
+              fetch the ad payload, talk to <code className="font-mono text-[13px] text-[var(--color-accent)]">api.flarial.xyz</code> for
+              beta access, and download the Flarial client and assets.
             </li>
             <li>
-              <strong>READ_EXTERNAL_STORAGE</strong>,
-              <strong> WRITE_EXTERNAL_STORAGE</strong>,
-              <strong> MANAGE_EXTERNAL_STORAGE</strong> — read your local
-              Minecraft installation, write client files, and import/export
-              your Flarial config. Files stay on your device.
+              <strong>WRITE_EXTERNAL_STORAGE</strong> — write the Flarial client
+              files into your local Minecraft installation. Files stay on your
+              device.
             </li>
             <li>
               <strong>SYSTEM_ALERT_WINDOW</strong> /
-              <strong> OVERLAY_WINDOW</strong> — draw the Flarial in-game
-              overlay (HUD, menu) on top of Minecraft.
-            </li>
-            <li>
-              <strong>FOREGROUND_SERVICE</strong>, <strong>WAKE_LOCK</strong> —
-              keep the launcher service alive while Minecraft is running so
-              the client doesn&apos;t get killed mid-session.
+              <strong> OVERLAY_WINDOW</strong> — render the launch-time ad
+              WebView as an overlay, and draw the Flarial in-game HUD on top
+              of Minecraft.
             </li>
             <li>
               <strong>POST_NOTIFICATIONS</strong> — show status notifications
               (download progress, ready-to-play, errors).
             </li>
-            <li>
-              <strong>VIBRATE</strong> — short haptic feedback inside the
-              launcher UI.
-            </li>
-            <li>
-              <strong>REQUEST_INSTALL_PACKAGES</strong> — install launcher
-              self-updates from <Link href="/download" className="text-[var(--color-accent)] underline-offset-4 hover:underline">flarial.xyz/download</Link> when
-              a new version is released.
-            </li>
-            <li>
-              <strong>QUERY_ALL_PACKAGES</strong> (plus an explicit
-              <code className="font-mono text-[13px] text-[var(--color-accent)] mx-1">&lt;queries&gt;</code> for
-              <code className="font-mono text-[13px] text-[var(--color-accent)] mx-1">com.mojang.minecraftpe</code>) — detect that
-              Minecraft: Bedrock Edition is installed so we know where to
-              inject the client.
-            </li>
           </ul>
           <p className="mt-3">
-            None of these permissions are used to read your contacts, location,
-            camera, microphone, or messages — the launcher does not request
-            those permissions at all.
+            We do not declare permissions for contacts, location, camera,
+            microphone, SMS, or call logs.
           </p>
         </Section>
 
         <Section title="Data sharing">
           <p>
-            We do not sell or share personal information. The only third party
-            involved in normal launcher operation is Microsoft, for the
-            Xbox Live sign-in flow described above. Our content-delivery
-            requests are served from standard CDN infrastructure and are
-            limited to file delivery.
+            We share data with two third parties in normal launcher operation:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 mt-3 marker:text-[var(--color-accent)]">
+            <li>
+              <strong>Discord</strong> — for the beta-access OAuth flow.
+            </li>
+            <li>
+              <strong>lootapp.ai</strong> — for the launch-time ad.
+            </li>
+          </ul>
+          <p className="mt-3">
+            We do not sell personal information.
           </p>
         </Section>
 
         <Section title="Children">
           <p>
             The Flarial Launcher is not directed at children under 13, and we
-            do not knowingly collect data from users under 13. If you believe a
-            child has provided us with personal information, contact us via
-            Discord and we&apos;ll remove it.
+            do not knowingly collect data from users under 13. The launcher
+            also shows third-party advertisements. If you believe a child has
+            provided us with personal information, contact us via Discord and
+            we&apos;ll remove it.
           </p>
         </Section>
 
@@ -196,11 +237,19 @@ export default function LauncherPrivacyPage() {
               disabled.
             </li>
             <li>
-              You can sign out of your Microsoft account from inside the
-              launcher or by removing the account in Android Settings.
+              You can revoke Flarial&apos;s Discord OAuth access at any time at{" "}
+              <ExtLink href="https://discord.com/settings/authorized-apps">
+                discord.com/settings/authorized-apps
+              </ExtLink>.
             </li>
             <li>
-              Uninstalling the app removes all locally-stored launcher data.
+              You can reset your Android device-scoped identifiers (including
+              ANDROID_ID, on devices where the OS supports it) via system
+              settings.
+            </li>
+            <li>
+              Uninstalling the app removes all locally-stored launcher data,
+              including the cached beta device token.
             </li>
           </ul>
         </Section>
