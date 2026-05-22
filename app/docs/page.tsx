@@ -183,13 +183,13 @@ const flow = [
   "Restrictions are cleared on Disconnect, Transfer, StartGame, or by sending an empty restriction set.",
 ];
 
-const safetyRules = [
-  "Only trust packets with the exact message id.",
-  "Keep payloads small; the client currently caps this path at 64 KiB.",
-  "Malformed JSON should log and return, never crash the client.",
-  "Resolve modules through aliases instead of depending on exact UI labels.",
-  "Do not call onEnable or onDisable directly from packet callbacks.",
-  "Clear restrictions when sessions change so stale server state cannot leak.",
+const serverImplementationNotes = [
+  "Send the packet with the exact message id: flarial_client_event:restrict_features.",
+  "Keep payloads small; avoid resending the same policy every tick.",
+  "Send valid JSON only. If you generate payloads dynamically, validate them before sending.",
+  "Use documented module keys/aliases instead of copying UI labels from the client.",
+  "Re-send or clear restrictions when players switch servers, worlds, or sessions.",
+  "To clear all restrictions, send an empty module list/object for the same header.",
 ];
 
 function CodeBlock({ children }: { children: string }) {
@@ -253,7 +253,7 @@ export default function DocsPage() {
             <a href="#examples" className="hover:text-white">Examples</a>
             <a href="#blockable-modules" className="hover:text-white">Blockable modules</a>
             <a href="#client-behavior" className="hover:text-white">Client behavior</a>
-            <a href="#safety" className="hover:text-white">Safety rules</a>
+            <a href="#safety" className="hover:text-white">Server implementation notes</a>
           </nav>
         </aside>
       </header>
@@ -347,17 +347,17 @@ export default function DocsPage() {
           </div>
         </Section>
 
-        <Section id="safety" eyebrow="06" title="Safety rules">
+        <Section id="safety" eyebrow="06" title="Server implementation notes">
           <ul className="grid gap-2">
-            {safetyRules.map((rule) => (
-              <li key={rule} className="flex gap-3">
+            {serverImplementationNotes.map((note) => (
+              <li key={note} className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]" />
-                <span>{rule}</span>
+                <span>{note}</span>
               </li>
             ))}
           </ul>
           <p>
-            Some older restrictions still live as direct server-IP checks in a few modules. Prefer packet-based restrictions for future server policy because they are centrally managed and do not require a client update for every policy change.
+            Packet-based restrictions are the preferred way to define server policy. They let server owners update restrictions without waiting for hardcoded client-side server checks or a new client release.
           </p>
         </Section>
       </div>
