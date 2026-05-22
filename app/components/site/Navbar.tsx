@@ -10,6 +10,7 @@ import { FlarialLogo } from "./FlarialLogo";
 
 const NAV = [
   { href: "/changelog", label: "Changelog" },
+  { href: "/docs", label: "Docs" },
   { href: "/download", label: "Download" },
   { href: "/faq", label: "FAQ" },
 ];
