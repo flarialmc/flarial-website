@@ -212,14 +212,14 @@ function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-28 rounded-[var(--radius-2xl)] p-5 sm:p-7" style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
+    <section id={id} className="scroll-mt-28 min-w-0 rounded-[var(--radius-2xl)] p-5 sm:p-7" style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
       <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-accent)]">
         {eyebrow}
       </div>
       <h2 className="mt-2 font-display text-[26px] sm:text-[34px] font-semibold tracking-[-0.02em] text-white">
         {title}
       </h2>
-      <div className="mt-5 space-y-4 text-[14px] sm:text-[15px] leading-relaxed text-[var(--color-text-mute)]">
+      <div className="mt-5 min-w-0 space-y-4 text-[14px] sm:text-[15px] leading-relaxed text-[var(--color-text-mute)]">
         {children}
       </div>
     </section>
@@ -228,12 +228,9 @@ function Section({
 
 export default function DocsPage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
+    <div className="mx-auto w-full max-w-6xl min-w-0 px-4 sm:px-6 py-12 sm:py-16">
       <header className="mb-10 grid gap-6 lg:grid-cols-[1fr_320px] lg:items-end">
         <div>
-          <div className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-[var(--color-accent)] mb-3">
-            Docs · First article · Synced from dll-css
-          </div>
           <h1 className="font-display text-[44px] sm:text-[68px] leading-[0.95] font-semibold tracking-[-0.03em] text-white">
             Packet-based module blocking.
           </h1>
@@ -258,18 +255,18 @@ export default function DocsPage() {
         </aside>
       </header>
 
-      <div className="grid gap-5">
+      <div className="grid grid-cols-1 gap-5">
         <Section id="overview" eyebrow="01" title="How it works">
           <p>
             Flarial listens for an inbound Bedrock <code className="text-white">ScriptMessagePacket</code>. If the packet has the expected Flarial header, the client parses the JSON payload and applies temporary server restrictions to matching modules.
           </p>
-          <ol className="grid gap-2">
+          <ol className="grid grid-cols-1 gap-2">
             {flow.map((item, index) => (
               <li key={item} className="flex gap-3">
                 <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[var(--color-accent)] text-[11px] font-bold text-white">
                   {index + 1}
                 </span>
-                <span>{item}</span>
+                <span className="min-w-0 flex-1">{item}</span>
               </li>
             ))}
           </ol>
@@ -287,12 +284,12 @@ export default function DocsPage() {
         </Section>
 
         <Section id="examples" eyebrow="03" title="Examples">
-          <div className="grid gap-4 lg:grid-cols-2">
-            <div className="space-y-3">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <div className="min-w-0 space-y-3">
               <h3 className="font-display text-[18px] font-semibold text-white">Block one module</h3>
               <CodeBlock>{restrictOnePayload}</CodeBlock>
             </div>
-            <div className="space-y-3">
+            <div className="min-w-0 space-y-3">
               <h3 className="font-display text-[18px] font-semibold text-white">Clear packet restrictions</h3>
               <CodeBlock>{clearPayload}</CodeBlock>
             </div>
@@ -311,7 +308,7 @@ export default function DocsPage() {
             <span className="font-display font-semibold">{blockableModules.length} blockable module keys</span>
           </div>
           <div className="overflow-hidden rounded-[var(--radius-xl)] border border-white/[0.06]">
-            <div className="grid grid-cols-[minmax(140px,0.8fr)_minmax(180px,1.1fr)_minmax(180px,1fr)] gap-3 bg-black/35 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-text-mute)]">
+            <div className="hidden sm:grid grid-cols-[minmax(140px,0.8fr)_minmax(180px,1.1fr)_minmax(180px,1fr)] gap-3 bg-black/35 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-text-mute)]">
               <span>Module</span>
               <span>Recommended key</span>
               <span>Accepted aliases</span>
@@ -329,15 +326,15 @@ export default function DocsPage() {
         </Section>
 
         <Section id="client-behavior" eyebrow="05" title="Client behavior">
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-[var(--radius-xl)] bg-black/25 p-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div className="min-w-0 rounded-[var(--radius-xl)] bg-black/25 p-4">
               <div className="mb-2 flex items-center gap-2 font-display font-semibold text-white">
                 <ShieldCheck size={16} className="text-[var(--color-accent)]" />
                 When blocked
               </div>
               <p>The module is marked server-restricted, disabled if currently active, and cannot be toggled back on while the restriction is active.</p>
             </div>
-            <div className="rounded-[var(--radius-xl)] bg-black/25 p-4">
+            <div className="min-w-0 rounded-[var(--radius-xl)] bg-black/25 p-4">
               <div className="mb-2 flex items-center gap-2 font-display font-semibold text-white">
                 <FileCode2 size={16} className="text-[var(--color-accent)]" />
                 When cleared
@@ -348,11 +345,11 @@ export default function DocsPage() {
         </Section>
 
         <Section id="safety" eyebrow="06" title="Server implementation notes">
-          <ul className="grid gap-2">
+          <ul className="grid grid-cols-1 gap-2">
             {serverImplementationNotes.map((note) => (
               <li key={note} className="flex gap-3">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-accent)]" />
-                <span>{note}</span>
+                <span className="min-w-0 flex-1">{note}</span>
               </li>
             ))}
           </ul>
