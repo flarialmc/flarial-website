@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type MouseEvent, type PointerEvent } from "react";
 import { cn } from "../util/cn";
 import { FlarialLogo } from "./FlarialLogo";
 
@@ -15,15 +15,44 @@ const NAV = [
   { href: "/faq", label: "FAQ" },
 ];
 
+const docsStorageKey = "flarial:last-docs-article";
+const docsSlugs = new Set([
+  "what-is-flarial",
+  "usage",
+  "compatibility",
+  "configs",
+  "modules-list",
+  "flarial-nametag-icon",
+  "module-blocking",
+  "scripting-api",
+]);
+
+function getRememberedDocsHref() {
+  if (typeof window === "undefined") {
+    return "/docs";
+  }
+
+  const slug = window.localStorage.getItem(docsStorageKey);
+  return slug && docsSlugs.has(slug) ? `/docs/${slug}/` : "/docs";
+}
+
 export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => void } = {}) {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const navRef = useRef<HTMLElement | null>(null);
+  const navItemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const lastTouchToggleAtRef = useRef(0);
 
   /* Two thresholds: a small one for the bg-blur tint, a bigger one (home only)
      for the slide-in reveal once the visitor leaves the hero. */
   const [scrolled, setScrolled] = useState(false);
   const [revealed, setRevealed] = useState(!isHome);
   const [mobile, setMobile] = useState(false);
+  const [docsHref, setDocsHref] = useState("/docs");
+  const [indicator, setIndicator] = useState({ x: 0, width: 0, opacity: 0 });
+  const activeIndex = NAV.findIndex(
+    (item) => pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href)),
+  );
 
   useEffect(() => {
     const onScroll = () => {
@@ -43,7 +72,56 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
 
   useEffect(() => {
     setMobile(false);
+    setDocsHref(getRememberedDocsHref());
   }, [pathname]);
+
+  useEffect(() => {
+    setDocsHref(getRememberedDocsHref());
+  }, []);
+
+  useLayoutEffect(() => {
+    const updateIndicator = () => {
+      const activeItem = activeIndex >= 0 ? navItemRefs.current[activeIndex] : null;
+      if (!activeItem) {
+        setIndicator((current) => ({ ...current, opacity: 0 }));
+        return;
+      }
+
+      setIndicator({
+        x: activeItem.offsetLeft,
+        width: activeItem.offsetWidth,
+        opacity: 1,
+      });
+    };
+
+    updateIndicator();
+    window.addEventListener("resize", updateIndicator);
+    return () => window.removeEventListener("resize", updateIndicator);
+  }, [activeIndex]);
+
+  const toggleMobileMenu = () => {
+    setMobile((v) => !v);
+  };
+
+  const handleMobilePointerDown = (event: PointerEvent<HTMLButtonElement>) => {
+    if (event.pointerType !== "touch" && event.pointerType !== "pen") {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+    lastTouchToggleAtRef.current = Date.now();
+    toggleMobileMenu();
+  };
+
+  const handleMobileClick = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    if (Date.now() - lastTouchToggleAtRef.current < 700) {
+      return;
+    }
+
+    toggleMobileMenu();
+  };
 
   return (
     <motion.header
@@ -51,7 +129,7 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
       animate={{ y: revealed ? 0 : "-110%" }}
       transition={{ type: "spring", stiffness: 200, damping: 30, mass: 0.9 }}
       className={cn(
-        "fixed top-0 inset-x-0 z-30 backdrop-blur-md",
+        "fixed top-0 inset-x-0 z-50 backdrop-blur-md",
         scrolled ? "bg-[var(--color-bg-base)]/82" : "bg-[var(--color-bg-base)]/60",
       )}
       style={{
@@ -66,26 +144,30 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
             Flarial
           </span>
         </Link>
-        <nav className="hidden md:flex items-center gap-1">
-          {NAV.map((item) => {
+        <nav ref={navRef} className="relative hidden md:flex items-center gap-1">
+          <motion.span
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 left-0 rounded-[var(--radius-md)]"
+            animate={indicator}
+            initial={false}
+            transition={{ type: "spring", stiffness: 420, damping: 34, mass: 0.8 }}
+            style={{ background: "var(--color-bg-nav)" }}
+          />
+          {NAV.map((item, index) => {
             const active = pathname === item.href || (item.href !== "/" && pathname?.startsWith(item.href));
+            const href = item.href === "/docs" ? docsHref : item.href;
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                ref={(node) => {
+                  navItemRefs.current[index] = node;
+                }}
+                href={href}
                 className={cn(
                   "relative px-4 py-2 rounded-[var(--radius-md)] font-display font-semibold text-[15px] tracking-[-0.01em] transition-colors",
                   active ? "text-white" : "text-[var(--color-text-mute)] hover:text-white",
                 )}
               >
-                {active ? (
-                  <motion.span
-                    layoutId="nav-active"
-                    className="absolute inset-0 rounded-[var(--radius-md)]"
-                    style={{ background: "var(--color-bg-nav)" }}
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                ) : null}
                 <span className="relative z-10">{item.label}</span>
               </Link>
             );
@@ -108,9 +190,10 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
           </Link>
           <button
             type="button"
-            onClick={() => setMobile((v) => !v)}
-            className="md:hidden grid place-items-center w-9 h-9 rounded-[var(--radius-md)] text-white"
-            style={{ background: "var(--color-bg-nav)" }}
+            onPointerDown={handleMobilePointerDown}
+            onClick={handleMobileClick}
+            className="relative z-10 md:hidden grid h-11 w-11 touch-manipulation select-none cursor-pointer place-items-center rounded-[var(--radius-md)] text-white"
+            style={{ background: "var(--color-bg-nav)", WebkitTapHighlightColor: "transparent" }}
             aria-label={mobile ? "Close menu" : "Open menu"}
             aria-expanded={mobile}
           >
@@ -133,7 +216,7 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
               {NAV.map((item) => (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={item.href === "/docs" ? docsHref : item.href}
                   className="px-3 py-2.5 rounded-[var(--radius-md)] font-mono text-[12px] uppercase tracking-widest text-white hover:bg-black/30"
                 >
                   {item.label}
