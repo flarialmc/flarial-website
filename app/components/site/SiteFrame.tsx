@@ -15,6 +15,9 @@ export function SiteFrame({ children }: { children: ReactNode }) {
     let lenis: { destroy?: () => void; raf?: (t: number) => void } | null = null;
     let raf = 0;
     let cancelled = false;
+    if (pathname.startsWith("/docs")) {
+      return;
+    }
     if (
       typeof window !== "undefined" &&
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -39,7 +42,7 @@ export function SiteFrame({ children }: { children: ReactNode }) {
       cancelAnimationFrame(raf);
       (lenis as unknown as { destroy?: () => void } | null)?.destroy?.();
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <>
