@@ -63,13 +63,13 @@ const clients = [
   },
   {
     name: "Lunar Client",
-    tag: "Mostly Java",
+    tag: "No native Bedrock",
     blurb:
-      "Lunar is best known as a Java Edition client. Its Bedrock story is limited and evolving (for example a separate \"Lunar for Minecraft: BE\" app and Hosted Worlds), so verify exactly what's offered before relying on it as a Bedrock client.",
+      "Lunar is a Java Edition client. There is no Lunar client for Minecraft Bedrock — if you play Bedrock or MCPE, Lunar isn't an option, so it's listed here only because people compare the names.",
     points: [
-      "Primarily a Java Edition client.",
-      "Bedrock offering is limited/separate — verify current scope.",
+      "Java Edition only — no Bedrock client.",
       "Known for cosmetics and a polished UI.",
+      "Not usable on Bedrock or MCPE.",
     ],
     accent: "#59e77b",
   },
@@ -92,10 +92,10 @@ const tableRows: { feature: string; cells: Cell[] }[] = [
   // columns: Flarial, Latite, Onix, Lunar, Badlion
   { feature: "Free", cells: [true, true, "Paid (reported)", true, true] },
   { feature: "Windows", cells: [true, true, true, true, true] },
-  { feature: "Android / mobile", cells: ["Beta", false, false, "Limited", false] },
+  { feature: "Android / mobile", cells: ["Beta", false, false, false, false] },
   { feature: "Open source", cells: [false, true, false, false, false] },
   { feature: "Scripting / plugins", cells: ["Lua marketplace", "JS/TS", "Community modules", "—", "—"] },
-  { feature: "Native Bedrock client", cells: [true, true, true, "Limited", false] },
+  { feature: "Native Bedrock client", cells: [true, true, true, false, false] },
 ];
 const columns = ["Flarial", "Latite", "Onix", "Lunar", "Badlion"];
 
