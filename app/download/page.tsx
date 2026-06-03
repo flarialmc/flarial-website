@@ -7,7 +7,15 @@ import { AdSlot } from "./AdSlot";
 
 export const metadata: Metadata = {
   title: "Download",
-  description: "Download Flarial for Windows or Android — free, forever.",
+  description:
+    "Download Flarial — free Minecraft Bedrock client for Windows 10/11 and Android (MCPE). Run the launcher, inject, and open the ClickGUI.",
+  alternates: { canonical: "/download" },
+  openGraph: {
+    title: "Download Flarial — Minecraft Bedrock Client",
+    description:
+      "Download Flarial — free Minecraft Bedrock client for Windows 10/11 and Android (MCPE).",
+    type: "website",
+  },
 };
 
 export default function DownloadPage() {

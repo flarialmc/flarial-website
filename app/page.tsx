@@ -1,6 +1,36 @@
+import type { Metadata } from "next";
 import { Showcase } from "./components/site/Showcase";
 import { HeroBackground } from "./components/site/HeroBackground";
 import { DownloadButton } from "./components/site/DownloadButton";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Flarial — The Minecraft Bedrock Client (Free, 140+ Modules)",
+  },
+  description:
+    "Flarial is the free Minecraft Bedrock client (MCPE client) for Windows 10/11 and Android — 140+ modules, a real-time ClickGUI, FPS boost, and HUD modules. Free, forever.",
+  alternates: { canonical: "/" },
+};
+
+/* Short, real-sentence feature points — terms used naturally, not stuffed. */
+const FEATURES: { title: string; body: string }[] = [
+  {
+    title: "ClickGUI",
+    body: "Toggle every module from a clean, in-game ClickGUI — open it with one keypress and tune settings live.",
+  },
+  {
+    title: "FPS boost",
+    body: "A bedrock utility client built for performance: an FPS boost and render tweaks that keep frames high on low-end PCs.",
+  },
+  {
+    title: "Windows 10/11 + Android",
+    body: "Run the same MCPE client on Minecraft Bedrock for Windows 10/11, with Android support in beta.",
+  },
+  {
+    title: "140+ modules",
+    body: "HUD modules, keystrokes, CPS counters, and quality-of-life tweaks — all TOS-compliant and free.",
+  },
+];
 
 export default function Home() {
   return (
@@ -25,6 +55,47 @@ export default function Home() {
 
       {/* ── Showcase ──────────────────────────────────────────────── */}
       <Showcase />
+
+      {/* ── SEO / topical content ─────────────────────────────────── */}
+      <section className="relative px-4 sm:px-6 mx-auto max-w-5xl pb-24">
+        <div className="max-w-2xl">
+          <div className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[var(--color-accent)] mb-3">
+            The basics
+          </div>
+          <h2 className="font-display text-[28px] sm:text-[40px] font-semibold tracking-tight text-white">
+            What is a Minecraft Bedrock client?
+          </h2>
+          <p className="mt-5 text-[15px] sm:text-[16px] leading-relaxed text-[var(--color-text-mute)]">
+            A Minecraft Bedrock client is a utility layer for Minecraft Bedrock
+            Edition that adds quality-of-life features the base game leaves out —
+            an FPS boost, on-screen HUD modules, and a ClickGUI for toggling
+            everything mid-game. Flarial is a free, TOS-compliant bedrock utility
+            client for Minecraft Bedrock Edition on Windows 10/11, with an Android
+            (MCPE) build in beta. It is not a cheat client — the default modules
+            are quality-of-life only.
+          </p>
+        </div>
+
+        <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+          {FEATURES.map((f) => (
+            <li
+              key={f.title}
+              className="rounded-[var(--radius-xl)] p-5"
+              style={{
+                background: "var(--color-bg-nav)",
+                boxShadow: "var(--shadow-rest)",
+              }}
+            >
+              <div className="font-display text-[15px] font-semibold text-white">
+                {f.title}
+              </div>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--color-text-mute)]">
+                {f.body}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       {/* ── Final CTA ─────────────────────────────────────────────── */}
       <section className="relative px-4 sm:px-6 mx-auto max-w-5xl pb-24 sm:pb-32">

@@ -41,13 +41,13 @@ import {
 
 export const usageArticle: DocsArticle = {
     slug: "usage",
-    title: "Usage",
-    summary: "Install, inject, and start configuring Flarial.",
+    title: "How to Install & Use Flarial",
+    summary: "Install Flarial, inject it, open the ClickGUI menu (press K), and use modules.",
     icon: Download,
     toc: [
       { title: "Download", href: "#download" },
       { title: "Inject", href: "#inject" },
-      { title: "Use", href: "#use" },
+      { title: "Open the menu & use modules", href: "#use" },
     ],
     render: () => (
       <>
@@ -154,12 +154,18 @@ export const usageArticle: DocsArticle = {
           </div>
         </section>
         <section className={sectionFrameClass} style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
-          <DocsHeading id="use">Use</DocsHeading>
+          <DocsHeading id="use">Open the menu &amp; use modules</DocsHeading>
           <p>
-            Once Flarial is injected and the welcome notification appears, you should be able to open the
-            ClickGUI by pressing <span className="font-semibold text-white">K</span> on your keyboard.
-            If your ClickGUI key is set to something else, use the key shown in the notification text:
+            <span className="font-semibold text-white">How to open the Flarial menu:</span> once Flarial
+            is injected and the welcome notification appears, open the ClickGUI by pressing{" "}
+            <span className="font-semibold text-white">K</span> on your keyboard. If your ClickGUI key
+            is set to something else, use the key shown in the notification text:
             <span className="font-semibold text-white"> Click {"{}"} to open the menu in-game</span>.
+          </p>
+          <p>
+            <span className="font-semibold text-white">How to use modules:</span> inside the ClickGUI,
+            browse the module categories, click a module to toggle it on or off, and expand it to adjust
+            its settings. Your toggles and settings are saved to your config automatically.
           </p>
           <div className="overflow-hidden rounded-[var(--radius-xl)] border border-white/[0.06] bg-black/20">
             <div className="relative min-h-[150px] bg-[linear-gradient(135deg,#477239,#5d8d47_35%,#7853a5_36%,#a96bd3_42%,#588544_43%,#426b35)] p-5">

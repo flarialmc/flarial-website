@@ -58,6 +58,13 @@ export const metadata: Metadata = {
     "Bedrock FPS",
     "Minecraft scripting",
     "Flarial download",
+    "Bedrock client",
+    "MCPE mods",
+    "Minecraft Bedrock client download",
+    "free bedrock client",
+    "Minecraft PE client",
+    "best bedrock client",
+    "bedrock launcher",
   ],
   category: "technology",
   alternates: {
@@ -152,8 +159,9 @@ export default function RootLayout({
                   "@type": "SoftwareApplication",
                   name: "Flarial",
                   applicationCategory: "GameApplication",
-                  operatingSystem: "Windows, Android",
-                  description: DESCRIPTION,
+                  operatingSystem: "Windows 10, Windows 11, Android",
+                  description:
+                    "Flarial is a free Minecraft Bedrock client (MCPE client) for Windows 10/11 and Android — a TOS-compliant bedrock utility client with 140+ modules, a real-time ClickGUI, and an FPS boost.",
                   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
                   aggregateRating: {
                     "@type": "AggregateRating",
