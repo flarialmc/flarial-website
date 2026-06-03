@@ -163,11 +163,6 @@ export default function RootLayout({
                   description:
                     "Flarial is a free Minecraft Bedrock client (MCPE client) for Windows 10/11 and Android — a TOS-compliant bedrock utility client with 140+ modules, a real-time ClickGUI, and an FPS boost.",
                   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-                  aggregateRating: {
-                    "@type": "AggregateRating",
-                    ratingValue: "4.8",
-                    ratingCount: "1000",
-                  },
                 },
               ],
             }),
