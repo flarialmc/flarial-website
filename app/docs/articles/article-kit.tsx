@@ -44,7 +44,7 @@ export {
 };
 
 export const sectionFrameClass =
-  "scroll-mt-28 space-y-3 rounded-[var(--radius-2xl)] p-5 sm:p-7";
+  "min-w-0 scroll-mt-28 space-y-3 rounded-[var(--radius-2xl)] p-4 sm:p-7";
 
 export function CodeBlock({ children }: { children: string }) {
   const tokenPattern = /"(?:\\.|[^"\\])*"|true|false|null|-?\d+(?:\.\d+)?|[{}[\]:,]/g;
@@ -88,7 +88,7 @@ export function CodeBlock({ children }: { children: string }) {
 
   return (
     <pre
-      className="overflow-x-scroll rounded-[var(--radius-xl)] border border-white/[0.06] bg-black/35 p-4 font-mono text-[12px] leading-relaxed text-[var(--color-text)] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+      className="max-w-full overflow-x-auto rounded-[var(--radius-xl)] border border-white/[0.06] bg-black/35 p-3 font-mono text-[11px] leading-relaxed text-[var(--color-text)] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-4 sm:text-[12px]"
     >
       <code className="whitespace-pre">{parts}</code>
     </pre>
@@ -113,13 +113,12 @@ export function InfoCard({
   children: ReactNode;
 }) {
   return (
-    <div className="min-w-0 rounded-[var(--radius-xl)] bg-black/25 p-4">
-      <div className="mb-2 flex items-center gap-2 font-display text-[16px] font-semibold text-white">
+    <div className="min-w-0 rounded-[var(--radius-xl)] bg-black/25 p-3 sm:p-4">
+      <div className="mb-2 flex min-w-0 items-center gap-2 font-display text-[15px] font-semibold text-white sm:text-[16px]">
         {icon}
-        {title}
+        <span className="min-w-0">{title}</span>
       </div>
       <div className="space-y-2">{children}</div>
     </div>
   );
 }
-

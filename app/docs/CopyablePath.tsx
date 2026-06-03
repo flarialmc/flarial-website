@@ -29,11 +29,11 @@ export function CopyablePath({ value }: { value: string }) {
     <button
       type="button"
       onClick={copyPath}
-      className="group flex w-full min-w-0 cursor-pointer items-center justify-between gap-3 rounded-[var(--radius-md)] bg-black/25 px-3 py-2 text-left transition-colors hover:bg-[var(--color-bg-subtle)]"
+      className="group flex w-full min-w-0 cursor-pointer items-center justify-between gap-2 rounded-[var(--radius-md)] bg-black/25 px-2.5 py-2 text-left transition-colors hover:bg-[var(--color-bg-subtle)] sm:gap-3 sm:px-3"
       aria-label={`Copy ${value}`}
     >
-      <code className="min-w-0 break-all font-mono text-[12px] text-[var(--color-accent-hi)]">{value}</code>
-      <span className="grid h-7 w-7 shrink-0 place-items-center rounded-[var(--radius-sm)] text-[var(--color-text-mute)] opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+      <code className="min-w-0 break-all font-mono text-[11px] leading-relaxed text-[var(--color-accent-hi)] sm:text-[12px]">{value}</code>
+      <span className="grid h-7 w-7 shrink-0 place-items-center rounded-[var(--radius-sm)] text-[var(--color-text-mute)] opacity-100 transition-opacity sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-visible:opacity-100">
         <Icon size={14} />
       </span>
     </button>

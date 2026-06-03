@@ -69,11 +69,11 @@ export const compatibilityArticle: DocsArticle = {
               <ul className="mt-3 grid gap-2">
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" />
-                  Windows 11
+                  Windows 11, 64-bit only
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent)]" />
-                  Windows 10
+                  Windows 10, 64-bit only
                 </li>
               </ul>
             </div>

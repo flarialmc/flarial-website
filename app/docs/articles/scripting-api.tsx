@@ -55,8 +55,8 @@ export const scriptingApiArticle: DocsArticle = {
     render: () => (
       <div className="grid gap-4">
         <section className={sectionFrameClass} style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
-          <div className="grid gap-5 md:grid-cols-[minmax(0,1.25fr)_minmax(240px,0.75fr)] md:items-center">
-            <div className="space-y-4">
+          <div className="grid min-w-0 gap-5 md:grid-cols-[minmax(0,1.25fr)_minmax(240px,0.75fr)] md:items-center">
+            <div className="min-w-0 space-y-4">
               <DocsHeading id="scripting-overview">Overview</DocsHeading>
               <p>
                 Flarial Scripting lets you extend the client with Lua scripts that behave like lightweight modules
@@ -71,22 +71,22 @@ export const scriptingApiArticle: DocsArticle = {
                 href="https://scripting.flarial.xyz/"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 py-2 font-display text-[14px] font-semibold text-white transition-transform hover:-translate-y-0.5"
+                className="inline-flex max-w-full items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 py-2 font-display text-[14px] font-semibold text-white transition-transform hover:-translate-y-0.5"
               >
-                Open Scripting Docs
+                <span className="min-w-0 truncate">Open Scripting Docs</span>
                 <ExternalLink size={15} />
               </Link>
             </div>
-            <div className="grid gap-3 rounded-[var(--radius-xl)] border border-white/[0.06] bg-black/25 p-4">
+            <div className="grid min-w-0 gap-2 rounded-[var(--radius-xl)] border border-white/[0.06] bg-black/25 p-3 sm:gap-3 sm:p-4">
               {[
                 ["Runtime", "Lua 5.4.7"],
                 ["Script types", "Modules and commands"],
                 ["Reload loop", ".lua reload"],
                 ["Editor helper", ".lua autocomplete"],
               ].map(([label, value]) => (
-                <div key={label} className="flex items-center justify-between gap-3 rounded-[var(--radius-md)] bg-black/25 px-3 py-2">
-                  <span className="text-[12px] text-[var(--color-text-mute)]">{label}</span>
-                  <span className="font-display text-[13px] font-semibold text-white">{value}</span>
+                <div key={label} className="grid min-w-0 gap-1 rounded-[var(--radius-md)] bg-black/25 px-3 py-2 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] sm:items-center sm:gap-3">
+                  <span className="min-w-0 text-[12px] text-[var(--color-text-mute)]">{label}</span>
+                  <span className="min-w-0 break-words font-display text-[13px] font-semibold text-white sm:text-right">{value}</span>
                 </div>
               ))}
             </div>
@@ -117,16 +117,16 @@ export const scriptingApiArticle: DocsArticle = {
             Flarial keeps scripts under Minecraft&apos;s local app data so they travel with the client state.
             Keep the whole <InlineCode>Scripts</InlineCode> folder open in your editor when using autocomplete.
           </p>
-          <div className="grid gap-3">
-            <div className="rounded-[var(--radius-xl)] bg-black/25 p-4">
+          <div className="grid min-w-0 gap-3">
+            <div className="min-w-0 rounded-[var(--radius-xl)] bg-black/25 p-3 sm:p-4">
               <div className="mb-2 font-display text-[15px] font-semibold text-white">Modules</div>
               <CopyablePath value="%localappdata%\Flarial\Client\Scripts\Modules" />
             </div>
-            <div className="rounded-[var(--radius-xl)] bg-black/25 p-4">
+            <div className="min-w-0 rounded-[var(--radius-xl)] bg-black/25 p-3 sm:p-4">
               <div className="mb-2 font-display text-[15px] font-semibold text-white">Commands</div>
               <CopyablePath value="%localappdata%\Flarial\Client\Scripts\Commands" />
             </div>
-            <div className="rounded-[var(--radius-xl)] bg-black/25 p-4">
+            <div className="min-w-0 rounded-[var(--radius-xl)] bg-black/25 p-3 sm:p-4">
               <div className="mb-2 font-display text-[15px] font-semibold text-white">Autocomplete</div>
               <CopyablePath value="%localappdata%\Flarial\Client\Scripts\AutoComplete" />
             </div>
@@ -152,11 +152,11 @@ export const scriptingApiArticle: DocsArticle = {
               "Run .lua reload in chat after edits, then enable the module from ClickGUI or run the command in-game.",
               "Move from the quick pattern here to the API docs when you need client, game, GUI, ImGui, filesystem, or utility APIs.",
             ].map((item, index) => (
-              <li key={item} className="grid grid-cols-[34px_minmax(0,1fr)] gap-3 rounded-[var(--radius-xl)] bg-black/25 p-4">
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-[var(--color-accent)] font-display text-[13px] font-semibold text-white">
+              <li key={item} className="grid grid-cols-[28px_minmax(0,1fr)] gap-2 rounded-[var(--radius-xl)] bg-black/25 p-3 sm:grid-cols-[34px_minmax(0,1fr)] sm:gap-3 sm:p-4">
+                <span className="grid h-7 w-7 place-items-center rounded-full bg-[var(--color-accent)] font-display text-[12px] font-semibold text-white sm:h-8 sm:w-8 sm:text-[13px]">
                   {index + 1}
                 </span>
-                <span className="self-center text-[14px] leading-relaxed text-[var(--color-text)]">{item}</span>
+                <span className="min-w-0 self-center text-[13px] leading-relaxed text-[var(--color-text)] sm:text-[14px]">{item}</span>
               </li>
             ))}
           </ol>
@@ -168,14 +168,14 @@ export const scriptingApiArticle: DocsArticle = {
             The full documentation covers the script object, client APIs, audio, network, events, player, server,
             GUI constraints, settings, ImGui draw lists, filesystem helpers, globals, objects, and utilities.
           </p>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid min-w-0 gap-3 sm:grid-cols-2">
             <Link
               href="https://scripting.flarial.xyz/"
               target="_blank"
               rel="noreferrer"
-              className="flex min-w-0 items-center justify-between gap-3 rounded-[var(--radius-xl)] bg-black/25 p-4 text-white transition-colors hover:bg-[var(--color-bg-subtle)]"
+              className="flex min-w-0 items-center justify-between gap-3 rounded-[var(--radius-xl)] bg-black/25 p-3 text-white transition-colors hover:bg-[var(--color-bg-subtle)] sm:p-4"
             >
-              <span>
+              <span className="min-w-0">
                 <span className="block font-display text-[16px] font-semibold">API documentation</span>
                 <span className="mt-1 block text-[12px] text-[var(--color-text-mute)]">Reference pages and exact signatures</span>
               </span>
@@ -185,9 +185,9 @@ export const scriptingApiArticle: DocsArticle = {
               href="https://marketplace.flarial.xyz/"
               target="_blank"
               rel="noreferrer"
-              className="flex min-w-0 items-center justify-between gap-3 rounded-[var(--radius-xl)] bg-black/25 p-4 text-white transition-colors hover:bg-[var(--color-bg-subtle)]"
+              className="flex min-w-0 items-center justify-between gap-3 rounded-[var(--radius-xl)] bg-black/25 p-3 text-white transition-colors hover:bg-[var(--color-bg-subtle)] sm:p-4"
             >
-              <span>
+              <span className="min-w-0">
                 <span className="block font-display text-[16px] font-semibold">Flarial Marketplace</span>
                 <span className="mt-1 block text-[12px] text-[var(--color-text-mute)]">Find reviewed community scripts</span>
               </span>
