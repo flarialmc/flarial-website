@@ -13,4 +13,7 @@ export type DocsArticle = {
   icon: typeof BookOpen;
   toc: TocItem[];
   render: () => ReactNode;
+  /* Optional sidebar group label — a divider is rendered above the first
+     article of each group (e.g. "Troubleshooting"). */
+  group?: string;
 };

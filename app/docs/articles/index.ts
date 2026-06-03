@@ -7,6 +7,15 @@ import { modulesListArticle } from "./modules-list";
 import { flarialNametagIconArticle } from "./flarial-nametag-icon";
 import { moduleBlockingArticle } from "./module-blocking";
 import { scriptingApiArticle } from "./scripting-api";
+import { troubleshootingCrashesArticle } from "./troubleshooting-crashes";
+import { troubleshootingInstallArticle } from "./troubleshooting-install";
+import { troubleshootingHudModulesArticle } from "./troubleshooting-hud-modules";
+import { troubleshootingMobileBetaArticle } from "./troubleshooting-mobile-beta";
+import { generalQuestionsArticle } from "./general-questions";
+
+/* Troubleshooting articles are generated from the Flarial support knowledge
+   base (bot-golang/kb on prod, the same source /aihelp uses). */
+const TROUBLESHOOTING = "Troubleshooting";
 
 export const docsArticles: DocsArticle[] = [
   whatIsFlarialArticle,
@@ -17,4 +26,9 @@ export const docsArticles: DocsArticle[] = [
   flarialNametagIconArticle,
   moduleBlockingArticle,
   scriptingApiArticle,
+  { ...troubleshootingCrashesArticle, group: TROUBLESHOOTING },
+  { ...troubleshootingInstallArticle, group: TROUBLESHOOTING },
+  { ...troubleshootingHudModulesArticle, group: TROUBLESHOOTING },
+  { ...troubleshootingMobileBetaArticle, group: TROUBLESHOOTING },
+  { ...generalQuestionsArticle, group: TROUBLESHOOTING },
 ];
