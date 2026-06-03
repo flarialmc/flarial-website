@@ -14,6 +14,7 @@ const COLS = [
       { href: "/changelog", label: "Changelog" },
       { href: "/partnerships", label: "Partnerships" },
       { href: "/faq", label: "FAQ" },
+      { href: "/docs", label: "Docs" },
     ],
   },
   {

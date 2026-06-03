@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllChangelogs } from "./lib/changelog";
+import { docsArticles } from "./docs/articles";
 
 const BASE = "https://flarial.xyz";
 
@@ -13,11 +14,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/`, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE}/download`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
     { url: `${BASE}/changelog`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/docs`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/privacy/launcher`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
+
+  const docsRoutes: MetadataRoute.Sitemap = docsArticles.map((article) => ({
+    url: `${BASE}/docs/${article.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
 
   const changelogRoutes: MetadataRoute.Sitemap = entries.map((e) => ({
     url: `${BASE}/changelog#${e.slug}`,
@@ -26,5 +35,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.4,
   }));
 
-  return [...staticRoutes, ...changelogRoutes];
+  return [...staticRoutes, ...docsRoutes, ...changelogRoutes];
 }

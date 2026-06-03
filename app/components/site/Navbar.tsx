@@ -25,6 +25,11 @@ const docsSlugs = new Set([
   "flarial-nametag-icon",
   "module-blocking",
   "scripting-api",
+  "troubleshooting-crashes",
+  "troubleshooting-install",
+  "troubleshooting-hud-modules",
+  "troubleshooting-mobile-beta",
+  "general-questions",
 ]);
 
 function getRememberedDocsHref() {

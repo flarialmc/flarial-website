@@ -6,6 +6,14 @@ import type { ReactNode } from "react";
 
 export function PageTransitions({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+
+  /* Docs navigation must feel instant — sliding the whole sidebar/TOC layout
+     on every article click reads as lag, not polish. Render children directly
+     with no enter/exit animation. */
+  if (pathname.startsWith("/docs")) {
+    return <div className="flex-1">{children}</div>;
+  }
+
   return (
     <AnimatePresence mode="popLayout" initial={false}>
       <motion.div
