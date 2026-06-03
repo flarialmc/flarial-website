@@ -122,24 +122,31 @@ export const flarialNametagIconArticle: DocsArticle = {
             {nametagIcons.map((logo) => (
               <div
                 key={logo.role}
-                className="min-w-0 rounded-[var(--radius-xl)] border border-white/[0.06] bg-black/20 p-4"
-                style={{ boxShadow: `inset 3px 0 0 ${logo.accent}` }}
+                className={[
+                  "group relative min-w-0 overflow-hidden rounded-[var(--radius-xl)] border border-white/[0.06] bg-black/20 p-4 transition-transform hover:-translate-y-0.5",
+                  logo.role === "Default" ? "md:col-span-2" : "",
+                ].join(" ")}
+                style={{ boxShadow: "var(--shadow-rest)" }}
               >
-                <div className="flex items-start gap-3">
-                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-[var(--radius-lg)] bg-black/30">
-                    <img src={logo.image} alt="" className="h-10 w-10 object-contain" />
+                <div
+                  className="absolute inset-y-0 left-0 w-1"
+                  style={{ background: logo.accent }}
+                  aria-hidden
+                />
+                <div className="flex min-w-0 items-start gap-3">
+                  <div
+                    className="grid h-12 w-12 shrink-0 place-items-center rounded-[var(--radius-md)] bg-black/25"
+                    style={{ color: logo.accent }}
+                  >
+                    <img src={logo.image} alt="" className="h-8 w-8 object-contain" />
                   </div>
-                  <div className="min-w-0">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="font-display text-[18px] font-semibold text-white">{logo.name}</h3>
-                      <span className="rounded-full bg-[var(--color-bg-subtle)] px-2.5 py-1 text-[11px] text-white">
-                        {logo.role}
-                      </span>
-                      <span className="rounded-full bg-black/25 px-2.5 py-1 text-[11px] text-[var(--color-text-mute)]">
-                        {logo.color}
-                      </span>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-display text-[16px] font-semibold leading-tight text-white">{logo.name}</h3>
+                    <div className="mt-2 flex flex-wrap items-center gap-2">
+                      <span className="rounded-full bg-[var(--color-bg-subtle)] px-2.5 py-1 text-[11px] text-white">{logo.role}</span>
+                      <span className="rounded-full bg-black/25 px-2.5 py-1 text-[11px] text-[var(--color-text-mute)]">{logo.color}</span>
                     </div>
-                    <p className="mt-2 text-[13px] leading-relaxed text-[var(--color-text-mute)]">{logo.details}</p>
+                    <p className="mt-2 text-[12px] leading-relaxed text-[var(--color-text-mute)]">{logo.details}</p>
                     {logo.href ? (
                       <Link
                         href={logo.href}
@@ -153,6 +160,11 @@ export const flarialNametagIconArticle: DocsArticle = {
                     ) : null}
                   </div>
                 </div>
+                <div
+                  className="pointer-events-none absolute -bottom-8 -right-8 h-20 w-20 rounded-full opacity-15 blur-2xl transition-opacity group-hover:opacity-25"
+                  style={{ background: logo.accent }}
+                  aria-hidden
+                />
               </div>
             ))}
           </div>
@@ -175,8 +187,8 @@ export const flarialNametagIconArticle: DocsArticle = {
                 The logo only lasts while your boost is active.
               </p>
             </div>
-            <div className="rounded-[var(--radius-xl)] bg-black/25 p-4">
-              <div className="font-display text-[16px] font-semibold text-white">Command sensitivity</div>
+            <div className="rounded-[var(--radius-xl)] border border-[rgba(255,35,58,0.28)] bg-[rgba(255,35,58,0.08)] p-4 shadow-[inset_3px_0_0_var(--color-accent)]">
+              <div className="font-display text-[16px] font-semibold text-[var(--color-accent-hi)]">Command sensitivity</div>
               <p className="mt-2">
                 <InlineCode>/claimrole</InlineCode> is case sensitive. Capital letters, spaces, and exact spelling matter.
               </p>

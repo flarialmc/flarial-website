@@ -41,7 +41,7 @@ export function Showcase() {
         </h2>
       </div>
 
-      <div className="grid lg:grid-cols-[1.6fr_1fr] gap-4">
+      <div className="grid items-stretch gap-4 lg:grid-cols-[1.6fr_1fr]">
         {/* Featured player */}
         <div
           className="relative aspect-video rounded-[var(--radius-xl)] overflow-hidden"
@@ -84,7 +84,7 @@ export function Showcase() {
                     size={36}
                     fill="white"
                     strokeWidth={0}
-                    className="ml-1.5"
+                    className="ml-1"
                   />
                 </div>
               </div>
@@ -101,11 +101,11 @@ export function Showcase() {
         </div>
 
         {/* Tile list */}
-        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+        <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:h-full lg:grid-cols-1 lg:grid-rows-4">
           {ITEMS.slice(0, 4).map((it) => {
             const isActive = it.id === active.id;
             return (
-              <li key={it.id}>
+              <li key={it.id} className="min-h-0">
                 <motion.button
                   type="button"
                   onClick={() => {
@@ -113,7 +113,7 @@ export function Showcase() {
                     setPlaying(false);
                   }}
                   whileHover={{ y: -2 }}
-                  className="w-full text-left rounded-[var(--radius-xl)] overflow-hidden flex items-center gap-3 transition-shadow"
+                  className="flex h-full w-full items-center gap-3 overflow-hidden rounded-[var(--radius-xl)] text-left transition-shadow"
                   style={{
                     background: isActive
                       ? "var(--color-bg-panel)"
@@ -124,7 +124,7 @@ export function Showcase() {
                   }}
                 >
                   <div
-                    className="relative shrink-0 w-28 h-[72px] sm:w-32 sm:h-[78px]"
+                    className="relative h-[72px] w-28 shrink-0 sm:h-[78px] sm:w-32 lg:h-full"
                     style={{
                       backgroundImage: `url('https://i.ytimg.com/vi/${it.id}/mqdefault.jpg')`,
                       backgroundSize: "cover",
@@ -147,7 +147,7 @@ export function Showcase() {
                       </span>
                     ) : null}
                   </div>
-                  <div className="flex-1 py-2 pr-3 min-w-0">
+                  <div className="min-w-0 flex-1 py-2 pr-3">
                     <div className="font-mono text-[9.5px] uppercase tracking-widest text-[var(--color-text-dim)]">
                       YouTube · {it.tag}
                     </div>

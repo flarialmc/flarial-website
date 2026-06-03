@@ -4,14 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useEffect, useLayoutEffect, useRef, useState, type MouseEvent, type PointerEvent } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type MouseEvent, type TouchEvent } from "react";
 import { cn } from "../util/cn";
 import { FlarialLogo } from "./FlarialLogo";
 
 const NAV = [
   { href: "/changelog", label: "Changelog" },
   { href: "/docs", label: "Docs" },
-  { href: "/download", label: "Download" },
+  { href: "/partnerships", label: "Partnerships" },
   { href: "/faq", label: "FAQ" },
 ];
 
@@ -103,12 +103,7 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
     setMobile((v) => !v);
   };
 
-  const handleMobilePointerDown = (event: PointerEvent<HTMLButtonElement>) => {
-    if (event.pointerType !== "touch" && event.pointerType !== "pen") {
-      return;
-    }
-
-    event.preventDefault();
+  const handleMobileTouchStart = (event: TouchEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     lastTouchToggleAtRef.current = Date.now();
     toggleMobileMenu();
@@ -129,7 +124,7 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
       animate={{ y: revealed ? 0 : "-110%" }}
       transition={{ type: "spring", stiffness: 200, damping: 30, mass: 0.9 }}
       className={cn(
-        "fixed top-0 inset-x-0 z-50 backdrop-blur-md",
+        "pointer-events-auto fixed top-0 inset-x-0 z-50 backdrop-blur-md",
         scrolled ? "bg-[var(--color-bg-base)]/82" : "bg-[var(--color-bg-base)]/60",
       )}
       style={{
@@ -137,7 +132,7 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
         transition: "background-color 200ms, border-color 200ms",
       }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4 lg:gap-6">
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
           <FlarialLogo className="w-8 h-8 sm:w-9 sm:h-9" />
           <span className="font-display font-bold text-[17px] sm:text-[19px] tracking-[-0.015em] text-white">
@@ -164,7 +159,7 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
                 }}
                 href={href}
                 className={cn(
-                  "relative px-4 py-2 rounded-[var(--radius-md)] font-display font-semibold text-[15px] tracking-[-0.01em] transition-colors",
+                  "relative rounded-[var(--radius-md)] px-3 py-2 font-display text-[14px] font-semibold tracking-[-0.01em] transition-colors lg:px-4 lg:text-[15px]",
                   active ? "text-white" : "text-[var(--color-text-mute)] hover:text-white",
                 )}
               >
@@ -177,8 +172,8 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
           <Link
             href="/download"
             className={cn(
-              "hidden sm:inline-flex items-center h-11 px-5 rounded-[var(--radius-md)]",
-              "font-display font-bold text-[14px] tracking-tight text-white",
+              "inline-flex h-10 items-center rounded-[var(--radius-md)] px-2.5 sm:h-11 sm:px-4 lg:px-5",
+              "font-display text-[12px] font-bold tracking-tight text-white sm:text-[14px]",
               "transition-shadow",
             )}
             style={{
@@ -190,10 +185,14 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
           </Link>
           <button
             type="button"
-            onPointerDown={handleMobilePointerDown}
+            onTouchStart={handleMobileTouchStart}
             onClick={handleMobileClick}
-            className="relative z-10 md:hidden grid h-11 w-11 touch-manipulation select-none cursor-pointer place-items-center rounded-[var(--radius-md)] text-white"
-            style={{ background: "var(--color-bg-nav)", WebkitTapHighlightColor: "transparent" }}
+            className="pointer-events-auto relative z-10 grid h-11 w-11 touch-manipulation select-none place-items-center rounded-[var(--radius-md)] text-white md:hidden"
+            style={{
+              background: "var(--color-bg-nav)",
+              WebkitAppearance: "none",
+              WebkitTapHighlightColor: "transparent",
+            }}
             aria-label={mobile ? "Close menu" : "Open menu"}
             aria-expanded={mobile}
           >
@@ -222,13 +221,6 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
                   {item.label}
                 </Link>
               ))}
-              <Link
-                href="/download"
-                className="mt-1 inline-flex items-center justify-center px-4 py-2.5 rounded-[var(--radius-md)] font-mono text-[12px] uppercase tracking-widest text-white"
-                style={{ background: "var(--color-accent)" }}
-              >
-                Download
-              </Link>
             </div>
           </motion.div>
         ) : null}
