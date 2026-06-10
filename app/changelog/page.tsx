@@ -3,14 +3,14 @@ import { getAllChangelogs, getChangelogTags } from "../lib/changelog";
 import { ChangelogTimeline } from "./ChangelogTimeline";
 
 export const metadata: Metadata = {
-  title: "Changelog",
+  title: "Changelog — Minecraft Bedrock Client Updates",
   description:
-    "Every Flarial update, week by week. Bedrock-version bumps, new modules, launcher fixes, and more.",
+    "Flarial's weekly Minecraft Bedrock client updates: latest Minecraft 1.21.x support, new modules, ClickGUI improvements, and launcher fixes. See what shipped this week.",
   alternates: { canonical: "/changelog" },
   openGraph: {
-    title: "Flarial Changelog",
+    title: "Flarial Changelog — Minecraft Bedrock Client Updates",
     description:
-      "Every Flarial update — Bedrock version bumps, new modules, fixes.",
+      "Weekly Minecraft Bedrock client updates — latest Minecraft 1.21.x version support, new modules, and launcher fixes.",
     type: "article",
   },
 };

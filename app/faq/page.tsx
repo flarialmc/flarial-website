@@ -4,15 +4,26 @@ import { FAQ } from "./FAQ";
 export const metadata: Metadata = {
   title: "FAQ",
   description: "Common questions about Flarial — install, safety, modules, and contributions.",
+  alternates: { canonical: "/faq" },
+  openGraph: {
+    title: "Flarial FAQ",
+    description:
+      "Is Flarial safe? Is it free? Common questions about the Minecraft Bedrock client — install, safety, modules, and contributions.",
+    type: "website",
+  },
 };
 
 const ENTRIES = [
+  {
+    q: "Is Flarial safe?",
+    a: "Yes. Flarial is a TOS-compliant utility client — the default module set is quality-of-life only (HUD, FPS boost, keystrokes), with no account risk on normal play. It is not a cheat client, the launcher and client are open source on GitHub, and there is no kill-aura or reach-cheat in the defaults. As with any Bedrock client, use the optional Combat tab at your own discretion: on ranked and anti-cheat servers, aggressive modules may be flagged.",
+  },
   {
     q: "Is Flarial free?",
     a: "Yes. The client and launcher have no paid tier, no cosmetics paywall, and zero in-product ads — forever. This website runs a small ad to help cover hosting and CDN costs; the software you install does not.",
   },
   {
-    q: "Is it safe? Will I get banned?",
+    q: "Will I get banned?",
     a: "Flarial does not include hacks like reach-cheats or kill-aura on official Realms / featured servers. The default module set is QoL-only. Use the Combat tab at your own discretion — on Hive, Hypixel-equivalent, and ranked servers, anti-cheat may flag aggressive modules.",
   },
   {
@@ -41,9 +52,26 @@ const ENTRIES = [
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: ENTRIES.map((e) => ({
+    "@type": "Question",
+    name: e.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: e.a,
+    },
+  })),
+};
+
 export default function FAQPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <header className="mb-10 max-w-2xl">
         <h1 className="font-display text-[40px] sm:text-[56px] leading-[0.98] font-semibold tracking-[-0.02em] text-white">
           FAQ.

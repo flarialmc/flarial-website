@@ -18,8 +18,18 @@ const COLS = [
     ],
   },
   {
-    label: "Community",
+    label: "Resources",
     links: [
+      { href: "/mcpe-client", label: "MCPE Client (Android)" },
+      { href: "/bedrock-launcher", label: "Bedrock Launcher" },
+      { href: "/best-minecraft-bedrock-client", label: "Best Bedrock Clients" },
+    ],
+  },
+  {
+    label: "Company",
+    links: [
+      { href: "/about", label: "About" },
+      { href: "/contact", label: "Contact" },
       { href: "https://discord.gg/flarial", label: "Discord", external: true },
       { href: "https://www.youtube.com/@flarialclient", label: "YouTube", external: true },
     ],
@@ -39,7 +49,7 @@ export function Footer() {
       className="mt-32 border-t border-white/[0.04] relative"
       style={{ background: "var(--color-bg-nav)" }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14 grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
         <div className="space-y-4">
           <div className="flex items-center gap-2.5">
             <FlarialLogo className="w-7 h-7" />

@@ -7,7 +7,15 @@ import { AdSlot } from "./AdSlot";
 
 export const metadata: Metadata = {
   title: "Download",
-  description: "Download Flarial for Windows or Android — free, forever.",
+  description:
+    "Download Flarial — free Minecraft Bedrock client for Windows 10/11 and Android (MCPE). Run the launcher, inject, and open the ClickGUI.",
+  alternates: { canonical: "/download" },
+  openGraph: {
+    title: "Download Flarial — Minecraft Bedrock Client",
+    description:
+      "Download Flarial — free Minecraft Bedrock client for Windows 10/11 and Android (MCPE).",
+    type: "website",
+  },
 };
 
 export default function DownloadPage() {
@@ -17,6 +25,12 @@ export default function DownloadPage() {
         <h1 className="font-display text-[52px] sm:text-[88px] leading-[0.95] font-semibold tracking-[-0.025em] text-white">
           Get Flarial.
         </h1>
+        <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-[var(--color-text-mute)]">
+          Download the free Flarial client and launcher for Minecraft Bedrock
+          Edition on Windows 10/11, with an Android (MCPE) build in beta. The
+          launcher handles updates and injection for you — install it once and
+          it keeps Flarial current every time you play.
+        </p>
       </section>
 
       {/* The real thing — massive primary download CTA */}
@@ -33,7 +47,52 @@ export default function DownloadPage() {
         <StepCard n={3} title="Open ClickGUI" body="Press K in-game. That's the same window you see in the showcase." />
       </section>
 
-      <section className="mt-10">
+      <section className="mt-16 max-w-2xl">
+        <div className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[var(--color-accent)] mb-3">
+          Before you download
+        </div>
+        <h2 className="font-display text-[24px] sm:text-[32px] font-semibold tracking-tight text-white">
+          What you&apos;re installing
+        </h2>
+        <div className="mt-5 space-y-4 text-[14.5px] leading-relaxed text-[var(--color-text-mute)]">
+          <p>
+            Flarial is a free, TOS-compliant quality-of-life client for
+            Minecraft Bedrock Edition — closer to OptiFine or Lunar Client than
+            to a cheat client. It adds an in-game ClickGUI, on-screen HUD modules
+            like keystrokes and a CPS counter, an FPS boost for low-end PCs, and
+            over 140 small tweaks you can toggle live. The default modules are
+            quality-of-life only.
+          </p>
+          <p>
+            You install the launcher rather than the client directly. The
+            launcher keeps Flarial updated, then injects it into Minecraft when
+            you click <strong className="text-white/90">Inject</strong> — so you
+            never have to re-download after an update. Windows 10 and 11 are
+            fully supported; the Android (MCPE) build is in beta.
+          </p>
+          <p>
+            Remember that individual servers set their own rules about client
+            mods and may detect or forbid them. Please read and respect each
+            server&apos;s rules. For setup help and troubleshooting, see the{" "}
+            <Link
+              href="/docs"
+              className="text-[var(--color-accent)] underline-offset-4 hover:underline"
+            >
+              documentation
+            </Link>{" "}
+            and{" "}
+            <Link
+              href="/faq"
+              className="text-[var(--color-accent)] underline-offset-4 hover:underline"
+            >
+              FAQ
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-12">
         <Link
           href="https://discord.gg/flarial"
           target="_blank"
