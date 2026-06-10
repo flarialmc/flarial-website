@@ -26,8 +26,10 @@ const COLS = [
     ],
   },
   {
-    label: "Community",
+    label: "Company",
     links: [
+      { href: "/about", label: "About" },
+      { href: "/contact", label: "Contact" },
       { href: "https://discord.gg/flarial", label: "Discord", external: true },
       { href: "https://www.youtube.com/@flarialclient", label: "YouTube", external: true },
     ],
