@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { format, parseISO } from "date-fns";
 import type { ChangelogEntry } from "../lib/changelog";
@@ -85,9 +86,20 @@ export function ChangelogTimeline({ entries, tags }: Props) {
                     {formatDate(entry.date)}
                   </span>
                 </div>
-                <h2 className="font-display text-[22px] sm:text-[28px] leading-[1.1] font-semibold tracking-[-0.015em] text-white mb-4">
-                  {entry.title}
-                </h2>
+                <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <h2 className="font-display text-[22px] sm:text-[28px] leading-[1.1] font-semibold tracking-[-0.015em] text-white">
+                    <Link href={`/changelog/${entry.slug}/`} className="transition-colors hover:text-[var(--color-accent-hi)]">
+                      {entry.title}
+                    </Link>
+                  </h2>
+                  <Link
+                    href={`/changelog/${entry.slug}/`}
+                    className="shrink-0 font-mono text-[10.5px] uppercase tracking-widest text-[var(--color-accent)] transition-colors hover:text-white"
+                    aria-label={`Open ${entry.title} changelog only`}
+                  >
+                    Link ↗
+                  </Link>
+                </div>
                 <div
                   className="prose-flarial text-[14.5px] leading-relaxed text-[var(--color-text)]"
                   dangerouslySetInnerHTML={{ __html: entry.body }}

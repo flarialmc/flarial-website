@@ -52,3 +52,10 @@ export async function getLatestChangelog(): Promise<ChangelogEntry | null> {
   const all = await getAllChangelogs();
   return all[0] ?? null;
 }
+
+export async function getChangelogBySlug(slug: string): Promise<ChangelogEntry | null> {
+  const safeSlug = path.basename(slug);
+  const filename = `${safeSlug}.md`;
+  if (!readDir().includes(filename)) return null;
+  return fileToEntry(filename);
+}
