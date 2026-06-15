@@ -85,21 +85,21 @@ export function TeamGrid({ members }: TeamGridProps) {
                 />
               </span>
               <span className="min-w-0">
-                <span className="inline-flex min-w-0 items-center gap-2">
+                <span className="inline-flex min-w-0 items-center gap-3">
                   <img src={selectedRoleIcon} alt={`${selectedRole.label} icon`} className="h-6 w-6" />
                   <span className="truncate font-display text-[24px] font-semibold leading-tight text-white">
                     {selectedMember.name}
                   </span>
                 </span>
                 {selectedDescription ? (
-                  <div className="-mt-1">
+                  <div className="mt-2">
                     <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
                       {selectedDescription}
                     </span>
                   </div>
                 ) : null}
                 {hasCommitData ? (
-                  <div className="mt-1">
+                  <div className={selectedMember.description ? "mt-1" : "mt-2"}>
                     <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
                       {selectedMember.commits!.toLocaleString()} commits
                     </span>
