@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { format, parseISO } from "date-fns";
 import { getAllChangelogs, getChangelogBySlug } from "../../lib/changelog";
 import { CopyChangelogLink } from "../CopyChangelogLink";
-import { HeroBackground } from "../../components/site/HeroBackground";
 import "../prose.css";
 
 interface Props {
@@ -40,12 +39,7 @@ export default async function ChangelogEntryPage({ params }: Props) {
   if (!entry) notFound();
 
   return (
-    <div className="relative overflow-hidden">
-      <div className="absolute inset-0 h-[620px] pointer-events-none opacity-55">
-        <HeroBackground />
-      </div>
-      <div className="absolute inset-x-0 top-0 h-[720px] pointer-events-none bg-gradient-to-b from-transparent via-[rgba(18,14,15,0.42)] to-[var(--color-bg-base)]" />
-      <div className="relative mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-16">
+    <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-16">
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <Link
           href="/changelog/"
@@ -91,7 +85,6 @@ export default async function ChangelogEntryPage({ params }: Props) {
           />
         </div>
       </article>
-      </div>
     </div>
   );
 }

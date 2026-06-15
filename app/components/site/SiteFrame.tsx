@@ -6,6 +6,7 @@ import { Toaster } from "sonner";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { PageTransitions } from "./PageTransitions";
+import { HeroBackground } from "./HeroBackground";
 
 export function SiteFrame({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -50,8 +51,18 @@ export function SiteFrame({ children }: { children: ReactNode }) {
       {/* Non-home pages need a spacer because the navbar is fixed.
           Home page navbar starts hidden so no spacer needed. */}
       {!isHome ? <div className="h-16 sm:h-20 shrink-0" aria-hidden /> : null}
-      <main className="relative z-[2] flex-1 flex flex-col">
-        <PageTransitions>{children}</PageTransitions>
+      <main className="relative z-[2] flex-1 flex flex-col overflow-hidden">
+        {!isHome ? (
+          <>
+            <div className="absolute inset-x-0 top-0 h-[620px] pointer-events-none opacity-55">
+              <HeroBackground />
+            </div>
+            <div className="absolute inset-x-0 top-0 h-[720px] pointer-events-none bg-gradient-to-b from-transparent via-[rgba(18,14,15,0.42)] to-[var(--color-bg-base)]" />
+          </>
+        ) : null}
+        <div className="relative z-10 flex flex-1 flex-col">
+          <PageTransitions>{children}</PageTransitions>
+        </div>
       </main>
       <Footer />
       <Toaster
