@@ -85,14 +85,14 @@ export function TeamGrid({ members }: TeamGridProps) {
                 />
               </span>
               <span className="min-w-0">
-                <span className="inline-flex min-w-0 items-center gap-3">
+                <span className="inline-flex min-w-0 items-center gap-2">
                   <img src={selectedRoleIcon} alt={`${selectedRole.label} icon`} className="h-6 w-6" />
                   <span className="truncate font-display text-[24px] font-semibold leading-tight text-white">
                     {selectedMember.name}
                   </span>
                 </span>
                 {selectedDescription ? (
-                  <div className="mt-1">
+                  <div className="mt-0.5">
                     <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
                       {selectedDescription}
                     </span>
@@ -175,14 +175,14 @@ export function TeamGrid({ members }: TeamGridProps) {
                   className="h-full w-full object-cover"
                 />
               </span>
-              <span className="min-w-0">
-                <span className="inline-flex min-w-0 items-center gap-2">
+              <span className="min-w-0 mt-1">
+                <span className="inline-flex min-w-0 items-end gap-2">
                   <img src={member.roleIconSrc ?? role.iconSrc} alt={`${role.label} icon`} className="h-5 w-5" />
-                  <span className="truncate font-display text-[14px] font-semibold text-white">
+                  <span className="truncate font-display text-[16px] font-semibold text-white mt-0.5">
                     {member.name}
                   </span>
                 </span>
-                <div className="mt-0.5">
+                <div className="mt-0">
                   <span className="font-mono text-[9.5px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
                     {typeof member.commits === "number"
                       ? `${member.commits.toLocaleString()} commits`
