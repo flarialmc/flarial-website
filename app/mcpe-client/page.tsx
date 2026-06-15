@@ -5,7 +5,7 @@ import { ArrowRight, Smartphone, Download, ShieldCheck, Apple, BookOpen } from "
 export const metadata: Metadata = {
   title: "Flarial for MCPE — Minecraft Bedrock Client for Android",
   description:
-    "Flarial is a Minecraft Bedrock (MCPE) client coming to Android. Learn the real mobile status, how the Android build works, the APK/launcher path, and the iOS situation.",
+    "Flarial is a Minecraft Bedrock (MCPE) client for Android. Learn how the Android build works, the Google Play install path, and the iOS situation.",
   keywords: [
     "mcpe client",
     "flarial client mobile",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Flarial for MCPE — Minecraft Bedrock Client for Android",
     description:
-      "The honest status of Flarial on Android: closed beta, how it installs, APK vs. launcher, and why iOS is not supported.",
+      "Flarial is released on Android through Google Play. Learn how it installs, APK safety, and why iOS is not supported.",
     type: "website",
     url: "https://flarial.xyz/mcpe-client",
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is there a Flarial client APK for Android?",
-    a: "Flarial mobile is distributed through the Android closed beta on Google Play, not as a loose APK from random sites. Only install from a link the Flarial team has published officially — any other \"Flarial APK\" is unofficial and unsafe.",
+    a: "Flarial mobile is distributed through Google Play, not as a loose APK from random sites. Only install from the official Google Play listing or links the Flarial team has published officially — any other \"Flarial APK\" is unofficial and unsafe.",
   },
   {
     q: "Does Flarial work on iOS (iPhone / iPad)?",
@@ -38,8 +38,8 @@ const faqs = [
     a: "No. The Android build works like the Windows client rather than a resource pack — it does things a texture or behavior pack simply cannot replicate.",
   },
   {
-    q: "How do I become a mobile tester?",
-    a: "Join the Discord and check the announcements and tester channels. If applications are open, follow the Android tester form. Tester access is limited and may be closed while the build is still in beta.",
+    q: "How do I install Flarial on Android?",
+    a: "Open the official Google Play listing for com.flarialmc.flarial_launcher, install Flarial Launcher, then launch Minecraft Bedrock through Flarial.",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function McpeClientPage() {
         operatingSystem: "Android",
         applicationCategory: "GameApplication",
         description:
-          "Flarial is a TOS-compliant Minecraft Bedrock (MCPE) utility client with 140+ modules and a ClickGUI, coming to Android.",
+          "Flarial is a TOS-compliant Minecraft Bedrock (MCPE) utility client with 140+ modules and a ClickGUI for Android.",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       },
       {
@@ -77,20 +77,20 @@ export default function McpeClientPage() {
       <header className="max-w-3xl">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-[var(--color-bg-nav)] px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-accent)]">
           <Smartphone size={13} />
-          Mobile · Android beta
+          Mobile · Android released
         </div>
         <h1 className="font-display text-[38px] font-semibold leading-[1.0] tracking-[-0.025em] text-white sm:text-[58px]">
           Flarial for MCPE — Minecraft Bedrock Client for Android.
         </h1>
         <p className="mt-5 text-[15px] leading-relaxed text-[var(--color-text-mute)] sm:text-[16px]">
           Flarial is a free, TOS-compliant Minecraft Bedrock utility client — the same kind of
-          quality-of-life client PC players use, now being built for{" "}
+          quality-of-life client PC players use, now released for{" "}
           <span className="text-white">Android (MCPE)</span>. This page covers the real mobile
           status, how the Android build installs, and the iOS situation, with no overpromising.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
-            href="/download/"
+            href="/download/?p=android"
             className="inline-flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-accent)] px-5 py-3 font-display text-[14px] font-semibold text-white shadow-[var(--shadow-glow)]"
           >
             <Download size={16} />
@@ -101,7 +101,7 @@ export default function McpeClientPage() {
             className="inline-flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-bg-nav)] px-5 py-3 font-display text-[14px] font-semibold text-white hover:brightness-110"
           >
             <BookOpen size={16} className="text-[var(--color-accent)]" />
-            Mobile &amp; beta docs
+            Mobile docs
           </Link>
         </div>
       </header>
@@ -112,15 +112,14 @@ export default function McpeClientPage() {
         </h2>
         <div className="rounded-[var(--radius-2xl)] p-5 sm:p-7" style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
           <p className="text-[14px] leading-relaxed text-[var(--color-text-mute)]">
-            Flarial mobile is being built <span className="text-white">Android-first</span> and is
-            currently in a <span className="text-white">closed beta</span>. It behaves like the
+            Flarial mobile is <span className="text-white">Android-first</span> and is
+            released through Google Play. It behaves like the
             Windows client — not a texture pack or behavior pack — so you get real modules and the
-            in-game menu rather than a cosmetic overlay. Android is still in beta, so there is no
-            public release date yet and tester access is limited.
+            in-game menu rather than a cosmetic overlay.
           </p>
           <ul className="mt-4 grid gap-3 text-[14px] text-[var(--color-text)]">
             {[
-              "Android-only for now — the build is distributed through the Google Play closed beta.",
+              "Android-only for now — the build is distributed through Google Play.",
               "Works like the desktop client, with the same module-based design and an in-game menu.",
               "Free, like the Windows client — no paid tier and no cosmetics paywall.",
               "TOS-compliant by default: the standard module set is quality-of-life, not combat hacks.",
@@ -148,8 +147,8 @@ export default function McpeClientPage() {
                 </Link>{" "}
                 and switch to the Android option, or tap “Get on Google Play.”
               </>,
-              "Join the Flarial Discord — the Android build is a closed beta, so you opt in through the published Google Play beta link.",
-              "Install from Google Play once you have access. Do not sideload a random \"Flarial APK\" from third-party sites; only use links the team has published.",
+              "Install Flarial Launcher from the official Google Play listing.",
+              "Do not sideload a random \"Flarial APK\" from third-party sites; only use Google Play or links the team has published.",
               "Launch Minecraft Bedrock through Flarial and open the in-game menu to configure your modules.",
             ].map((step, index) => (
               <li key={index} className="flex gap-3">
@@ -202,7 +201,7 @@ export default function McpeClientPage() {
           style={{ background: "var(--color-bg-nav)" }}
         >
           <span className="text-[14px]">
-            Ready to try it? Head to the download page for the Windows client and Android beta.
+            Ready to try it? Head to the download page for the Windows client or Android release.
           </span>
           <ArrowRight size={16} className="shrink-0 text-[var(--color-text-mute)]" />
         </Link>

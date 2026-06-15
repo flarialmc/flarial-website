@@ -6,7 +6,7 @@ import { SupportedVersions } from "../docs/SupportedVersions";
 export const metadata: Metadata = {
   title: "Flarial Launcher — Minecraft Bedrock Launcher for Windows & Android",
   description:
-    "The Flarial Launcher is a Minecraft Bedrock launcher that downloads supported versions, launches the game, and injects the client automatically. Free download for Windows, with Android in beta.",
+    "The Flarial Launcher is a Minecraft Bedrock launcher that downloads supported versions, launches the game, and injects the client automatically. Free download for Windows and Android.",
   keywords: [
     "bedrock launcher",
     "minecraft bedrock launcher",
@@ -56,7 +56,7 @@ export default function BedrockLauncherPage() {
           The Flarial Launcher is the recommended way to run the Bedrock client. It manages
           supported Minecraft versions, launches the game, and{" "}
           <span className="text-white">injects Flarial automatically</span> — no separate DLL
-          injector required. It is free for Windows, with an Android build in closed beta.
+          injector required. It is free for Windows and Android.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
@@ -162,12 +162,12 @@ export default function BedrockLauncherPage() {
         </div>
         <div className="rounded-[var(--radius-2xl)] p-5 sm:p-7" style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
           <p className="text-[14px] leading-relaxed text-[var(--color-text-mute)]">
-            The Android build is in closed beta and is distributed through Google Play, not as a
+            The Android build is released and distributed through Google Play, not as a
             loose APK. If you searched for a “Minecraft Bedrock launcher for Android,” read the{" "}
             <Link href="/mcpe-client/" className="font-semibold text-white underline decoration-[var(--color-accent)] decoration-2 underline-offset-4">
               Flarial for MCPE
             </Link>{" "}
-            page for the real mobile status and how to join the beta.
+            page for the mobile install path and APK safety notes.
           </p>
         </div>
       </section>
@@ -178,7 +178,7 @@ export default function BedrockLauncherPage() {
           className="flex items-center justify-between gap-3 rounded-[var(--radius-xl)] px-5 py-4 text-white transition-colors hover:brightness-110"
           style={{ background: "var(--color-bg-nav)" }}
         >
-          <span className="text-[14px]">Download the Flarial Launcher for Windows — free, forever.</span>
+          <span className="text-[14px]">Download the Flarial Launcher for Windows or Android — free, forever.</span>
           <ArrowRight size={16} className="shrink-0 text-[var(--color-text-mute)]" />
         </Link>
       </section>

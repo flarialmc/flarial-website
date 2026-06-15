@@ -42,7 +42,7 @@ import {
 export const usageArticle: DocsArticle = {
     slug: "usage",
     title: "How to Install & Use Flarial",
-    summary: "Install Flarial, inject it, open the ClickGUI menu (press K), and use modules.",
+    summary: "Install Flarial, inject it, open the ClickGUI menu, and use modules.",
     icon: Download,
     toc: [
       { title: "Download", href: "#download" },
@@ -158,8 +158,9 @@ export const usageArticle: DocsArticle = {
           <p>
             <span className="font-semibold text-white">How to open the Flarial menu:</span> once Flarial
             is injected and the welcome notification appears, open the ClickGUI by pressing{" "}
-            <span className="font-semibold text-white">K</span> on your keyboard. If your ClickGUI key
-            is set to something else, use the key shown in the notification text:
+            <span className="font-semibold text-white">K</span> on Windows or by tapping the{" "}
+            <span className="font-semibold text-white">Flarial icon</span> in-game on mobile. If your
+            ClickGUI key is set to something else, use the key shown in the notification text:
             <span className="font-semibold text-white"> Click {"{}"} to open the menu in-game</span>.
           </p>
           <p>
@@ -175,7 +176,7 @@ export const usageArticle: DocsArticle = {
                   Join our discord! https://flarial.xyz/discord
                 </div>
                 <div className="rounded-[var(--radius-md)] bg-[var(--color-accent)] px-5 py-2 font-display text-[16px] font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.28)]">
-                  Click K to open the menu in-game.
+                  Click K, or tap the Flarial icon on mobile, to open the menu in-game.
                 </div>
               </div>
             </div>

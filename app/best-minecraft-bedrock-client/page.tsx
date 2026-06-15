@@ -31,7 +31,7 @@ const clients = [
       "Flarial is a free, TOS-compliant Bedrock utility client with 140+ modules, a real-time ClickGUI, and a Lua scripting marketplace. Full disclosure: this is Flarial's own site, so treat this entry as the maker's pitch — the comparison table below keeps the criteria identical for everyone.",
     points: [
       "Free forever — no paid tier, no cosmetics paywall.",
-      "Windows plus an Android (MCPE) build in closed beta.",
+      "Windows plus an Android (MCPE) release on Google Play.",
       "140+ modules and a Lua scripting marketplace for custom modules.",
       "Quality-of-life by default; not a combat-hack client.",
     ],
@@ -92,7 +92,7 @@ const tableRows: { feature: string; cells: Cell[] }[] = [
   // columns: Flarial, Latite, Onix, Lunar, Badlion
   { feature: "Free", cells: [true, true, "Paid (reported)", true, true] },
   { feature: "Windows", cells: [true, true, true, true, true] },
-  { feature: "Android / mobile", cells: ["Beta", false, false, false, false] },
+  { feature: "Android / mobile", cells: [true, false, false, false, false] },
   { feature: "Open source", cells: [false, true, false, false, false] },
   { feature: "Scripting / plugins", cells: ["Lua marketplace", "JS/TS", "Community modules", "—", "—"] },
   { feature: "Native Bedrock client", cells: [true, true, true, false, false] },
