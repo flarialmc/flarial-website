@@ -33,7 +33,7 @@ const jetbrains = JetBrains_Mono({
 
 const SITE_URL = "https://flarial.xyz";
 const SITE_NAME = "Flarial";
-const EMBED_IMAGE = "/grafik-1.png";
+const EMBED_IMAGE = "/flarial-client-embed.png";
 const DESCRIPTION =
   "The Minecraft Bedrock client. 140+ modules, a real-time ClickGUI, and a scripting marketplace. Free, forever — for Windows and Android.";
 
