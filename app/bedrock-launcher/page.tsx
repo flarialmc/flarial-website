@@ -162,8 +162,8 @@ export default function BedrockLauncherPage() {
         </div>
         <div className="rounded-[var(--radius-2xl)] p-5 sm:p-7" style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
           <p className="text-[14px] leading-relaxed text-[var(--color-text-mute)]">
-            The Android build is released and distributed through Google Play, not as a
-            loose APK. If you searched for a “Minecraft Bedrock launcher for Android,” read the{" "}
+            The Android build is released as an official APK from Flarial. If you searched for a
+            “Minecraft Bedrock launcher for Android,” read the{" "}
             <Link href="/mcpe-client/" className="font-semibold text-white underline decoration-[var(--color-accent)] decoration-2 underline-offset-4">
               Flarial for MCPE
             </Link>{" "}

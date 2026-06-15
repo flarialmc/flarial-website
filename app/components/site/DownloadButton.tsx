@@ -35,13 +35,13 @@ export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
         </PrimaryLink>
 
         <PrimaryLink href={ANDROID_URL} h={h} padX={padX} className="order-1 sm:order-2">
-          <GooglePlayGlyph size={iconSize} />
+          <AndroidGlyph height={Math.round(iconSize * 1.25)} />
           <span className="relative text-left leading-tight">
             <span className={`block font-display font-semibold tracking-tight ${text}`}>
-              Get on Google Play
+              Download Android APK
             </span>
             <span className={`block font-mono uppercase tracking-[0.18em] text-white/70 ${meta}`}>
-              Android · Released · Free
+              Android - APK - Free
             </span>
           </span>
         </PrimaryLink>
@@ -188,18 +188,18 @@ function WindowsGlyph({ size }: { size: number }) {
   );
 }
 
-function GooglePlayGlyph({ size }: { size: number }) {
+function AndroidGlyph({ height }: { height: number }) {
   return (
     <svg
-      width={size}
-      height={size}
-      viewBox="0 0 50 50"
+      width={Math.round(height * 1.87)}
+      height={height}
+      viewBox="0 0 467.046 250.164"
       aria-hidden
       className="relative shrink-0 text-white"
     >
       <path
         fill="currentColor"
-        d="M 7.125 2 L 28.78125 23.5 L 34.71875 17.5625 L 8.46875 2.40625 C 8.03125 2.152344 7.5625 2.011719 7.125 2 Z M 5.3125 3 C 5.117188 3.347656 5 3.757813 5 4.21875 L 5 46 C 5 46.335938 5.070313 46.636719 5.1875 46.90625 L 27.34375 24.90625 Z M 36.53125 18.59375 L 30.1875 24.90625 L 36.53125 31.1875 L 44.28125 26.75 C 45.382813 26.113281 45.539063 25.304688 45.53125 24.875 C 45.519531 24.164063 45.070313 23.5 44.3125 23.09375 C 43.652344 22.738281 38.75 19.882813 36.53125 18.59375 Z M 28.78125 26.3125 L 6.9375 47.96875 C 7.300781 47.949219 7.695313 47.871094 8.0625 47.65625 C 8.917969 47.160156 26.21875 37.15625 26.21875 37.15625 L 34.75 32.25 Z"
+        d="M293.91 212.775c-6.025 0-10.926-4.905-10.926-10.93s4.901-10.926 10.926-10.926c6.026 0 10.927 4.9 10.927 10.926s-4.901 10.93-10.927 10.93m-120.774 0c-6.025 0-10.926-4.905-10.926-10.93s4.9-10.926 10.926-10.926c6.025 0 10.926 4.9 10.926 10.926s-4.9 10.93-10.926 10.93m124.693-65.82 21.838-37.822a4.548 4.548 0 0 0-1.663-6.206 4.549 4.549 0 0 0-6.206 1.663l-22.111 38.3c-16.91-7.716-35.9-12.015-56.164-12.015-20.264 0-39.254 4.299-56.163 12.015l-22.112-38.3a4.549 4.549 0 0 0-6.206-1.663 4.545 4.545 0 0 0-1.663 6.206l21.838 37.822c-37.499 20.395-63.146 58.358-66.898 103.209h262.408c-3.755-44.85-29.402-82.814-66.898-103.21"
       />
     </svg>
   );
