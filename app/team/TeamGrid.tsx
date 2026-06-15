@@ -92,7 +92,7 @@ export function TeamGrid({ members }: TeamGridProps) {
                   </span>
                 </span>
                 {selectedDescription ? (
-                  <div className="mt-0.5">
+                  <div className="-mt-1">
                     <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
                       {selectedDescription}
                     </span>
