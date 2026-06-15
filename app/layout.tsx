@@ -33,6 +33,7 @@ const jetbrains = JetBrains_Mono({
 
 const SITE_URL = "https://flarial.xyz";
 const SITE_NAME = "Flarial";
+const EMBED_IMAGE = "/grafik-1.png";
 const DESCRIPTION =
   "The Minecraft Bedrock client. 140+ modules, a real-time ClickGUI, and a scripting marketplace. Free, forever — for Windows and Android.";
 
@@ -79,9 +80,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/screenshots/desert.jpg",
-        width: 1280,
-        height: 720,
+        url: EMBED_IMAGE,
+        width: 2048,
+        height: 871,
         alt: "Flarial · Minecraft Bedrock client",
       },
     ],
@@ -90,7 +91,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_NAME} · The Minecraft Bedrock Client`,
     description: DESCRIPTION,
-    images: ["/screenshots/desert.jpg"],
+    images: [EMBED_IMAGE],
   },
   robots: {
     index: true,
@@ -111,7 +112,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#120e0f",
+  themeColor: "#ff233a",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
