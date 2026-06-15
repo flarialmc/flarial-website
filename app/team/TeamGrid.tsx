@@ -92,14 +92,14 @@ export function TeamGrid({ members }: TeamGridProps) {
                   </span>
                 </span>
                 {selectedDescription ? (
-                  <div className="mt-2">
+                  <div className="mt-1">
                     <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
                       {selectedDescription}
                     </span>
                   </div>
                 ) : null}
                 {hasCommitData ? (
-                  <div className={selectedMember.description ? "mt-1" : "mt-2"}>
+                  <div className="mt-1">
                     <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
                       {selectedMember.commits!.toLocaleString()} commits
                     </span>
@@ -182,7 +182,7 @@ export function TeamGrid({ members }: TeamGridProps) {
                     {member.name}
                   </span>
                 </span>
-                <div className="mt-1">
+                <div className="mt-0.5">
                   <span className="font-mono text-[9.5px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
                     {typeof member.commits === "number"
                       ? `${member.commits.toLocaleString()} commits`
