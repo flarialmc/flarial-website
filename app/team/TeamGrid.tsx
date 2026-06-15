@@ -4,9 +4,40 @@ import { useMemo, useState } from "react";
 
 export type TeamMember = {
   name: string;
-  commits: number;
-  repos: { name: string; commits: number }[];
+  role?: "Developer" | "Designer" | "Marketing";
+  commits?: number;
+  repos?: { name: string; commits: number }[];
+  avatarUrl?: string;
+  description?: string;
+  roleIconSrc?: string;
 };
+
+const ROLE_DETAILS = {
+  Developer: {
+    label: "Developer",
+    icon: "💻",
+    background: "var(--color-bg-panel)",
+    color: "#4cadd0",
+    iconSrc: "/team-icons/developer.png",
+    avatarFallback: "/team-icons/developer.png",
+  },
+  Designer: {
+    label: "Designer",
+    icon: "🎨",
+    background: "var(--color-bg-panel)",
+    color: "#3CFF7A",
+    iconSrc: "/team-icons/designer.png",
+    avatarFallback: "/team-icons/designer.png",
+  },
+  Marketing: {
+    label: "Marketing",
+    icon: "📣",
+    background: "var(--color-bg-panel)",
+    color: "#0A6DFF",
+    iconSrc: "/team-icons/marketing.png",
+    avatarFallback: "/team-icons/marketing.png",
+  },
+} as const;
 
 type TeamGridProps = {
   members: TeamMember[];
@@ -19,6 +50,18 @@ export function TeamGrid({ members }: TeamGridProps) {
     () => members.find((member) => member.name === selectedName) ?? members[0],
     [members, selectedName],
   );
+
+  const selectedRoleKey = (selectedMember.role ?? (typeof selectedMember.commits === "number" ? "Developer" : "Developer")) as keyof typeof ROLE_DETAILS;
+  const selectedRole = ROLE_DETAILS[selectedRoleKey];
+  const selectedRoleIcon = selectedMember.roleIconSrc ?? selectedRole.iconSrc;
+  const selectedAvatar = selectedMember.avatarUrl
+    ? selectedMember.avatarUrl
+    : selectedRoleKey === "Developer"
+      ? `https://github.com/${selectedMember.name}.png?size=112`
+      : selectedRole.avatarFallback;
+  const selectedDescription = selectedMember.description;
+  const hasCommitData = typeof selectedMember.commits === "number";
+  const hasRepoData = selectedMember.repos?.length ? true : false;
 
   return (
     <>
@@ -35,30 +78,46 @@ export function TeamGrid({ members }: TeamGridProps) {
             <div className="flex min-w-0 items-center gap-4">
               <span className="grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-[16px] bg-white/5">
                 <img
-                  src={`https://github.com/${selectedMember.name}.png?size=112`}
-                  alt=""
+                  src={selectedAvatar}
+                  alt="Role avatar"
                   loading="lazy"
                   className="h-full w-full object-cover"
                 />
               </span>
               <span className="min-w-0">
-                <span className="block truncate font-display text-[24px] font-semibold leading-tight text-white">
-                  {selectedMember.name}
+                <span className="inline-flex min-w-0 items-center gap-3">
+                  <img src={selectedRoleIcon} alt={`${selectedRole.label} icon`} className="h-6 w-6" />
+                  <span className="truncate font-display text-[24px] font-semibold leading-tight text-white">
+                    {selectedMember.name}
+                  </span>
                 </span>
-                <span className="mt-1 block font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
-                  {selectedMember.commits.toLocaleString()} commits
-                </span>
+                {selectedDescription ? (
+                  <div className="mt-2">
+                    <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
+                      {selectedDescription}
+                    </span>
+                  </div>
+                ) : null}
+                {hasCommitData ? (
+                  <div className={selectedMember.description ? "mt-1" : "mt-2"}>
+                    <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
+                      {selectedMember.commits!.toLocaleString()} commits
+                    </span>
+                  </div>
+                ) : null}
               </span>
             </div>
-            <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
-              Top repositories
-            </span>
+            {hasRepoData ? (
+              <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
+                Top repositories
+              </span>
+            ) : null}
           </div>
 
           <div className="mt-6 grid gap-3 lg:grid-cols-2">
-            {selectedMember.repos.length > 0 ? (
-              selectedMember.repos.slice(0, 8).map((repo) => {
-                const percent = selectedMember.commits > 0 ? Math.max((repo.commits / selectedMember.commits) * 100, 3) : 0;
+            {hasRepoData ? (
+              selectedMember.repos!.slice(0, 8).map((repo) => {
+                const percent = hasCommitData ? Math.max((repo.commits / selectedMember.commits!) * 100, 3) : 0;
 
                 return (
                   <div key={repo.name} className="min-w-0">
@@ -76,7 +135,9 @@ export function TeamGrid({ members }: TeamGridProps) {
               })
             ) : (
               <p className="text-[14px] text-[var(--color-text-mute)]">
-                No matched repository commits in the counted default branches.
+                {selectedMember.role === "Developer"
+                  ? "No matched repository commits in the counted default branches."
+                  : "This member is a role-only team member and is not represented by GitHub commit metrics."}
               </p>
             )}
           </div>
@@ -86,6 +147,13 @@ export function TeamGrid({ members }: TeamGridProps) {
       <section className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {members.map((member) => {
           const isSelected = member.name === selectedMember?.name;
+          const roleKey = (member.role ?? (typeof member.commits === "number" ? "Developer" : "Developer")) as keyof typeof ROLE_DETAILS;
+          const role = ROLE_DETAILS[roleKey];
+          const avatarSrc = member.avatarUrl
+            ? member.avatarUrl
+            : roleKey === "Developer"
+              ? `https://github.com/${member.name}.png?size=96`
+              : role.avatarFallback;
 
           return (
             <button
@@ -101,19 +169,26 @@ export function TeamGrid({ members }: TeamGridProps) {
             >
               <span className="relative grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-[14px] bg-white/5">
                 <img
-                  src={`https://github.com/${member.name}.png?size=96`}
-                  alt=""
+                  src={avatarSrc}
+                  alt="Role avatar"
                   loading="lazy"
                   className="h-full w-full object-cover"
                 />
               </span>
               <span className="min-w-0">
-                <span className="block truncate font-display text-[14px] font-semibold text-white">
-                  {member.name}
+                <span className="inline-flex min-w-0 items-center gap-2">
+                  <img src={member.roleIconSrc ?? role.iconSrc} alt={`${role.label} icon`} className="h-5 w-5" />
+                  <span className="truncate font-display text-[14px] font-semibold text-white">
+                    {member.name}
+                  </span>
                 </span>
-                <span className="mt-1 block font-mono text-[9.5px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
-                  {member.commits.toLocaleString()} commits
-                </span>
+                <div className="mt-1">
+                  <span className="font-mono text-[9.5px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
+                    {typeof member.commits === "number"
+                      ? `${member.commits.toLocaleString()} commits`
+                      : role.label}
+                  </span>
+                </div>
               </span>
             </button>
           );

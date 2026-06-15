@@ -15,6 +15,7 @@ interface ShowcaseItem {
   walkthroughs, and PvP highlights from different creators.
 */
 const ITEMS: ShowcaseItem[] = [
+  { id: "evLUpE7PhJs", title: "Flarial on YouTube", tag: "Featured · 2026" },
   { id: "diiROE9w2q4", title: "I tested the BEST Bedrock client (Flarial)", tag: "Review · 2025" },
   { id: "IjtrvkiJ9y4", title: "BEST legit Bedrock client · 1.21.132", tag: "Latest · 2026" },
   { id: "TQgZ0okKKUE", title: "The BEST legit PvP client for Bedrock", tag: "PvP · 2025" },
