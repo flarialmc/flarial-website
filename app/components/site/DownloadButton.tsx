@@ -35,7 +35,7 @@ export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
         </PrimaryLink>
 
         <PrimaryLink href={ANDROID_URL} h={h} padX={padX} className="order-1 sm:order-2">
-          <AndroidGlyph height={Math.round(iconSize * 1.25)} />
+          <AndroidGlyph size={Math.round(iconSize * 1.45)} />
           <span className="relative text-left leading-tight">
             <span className={`block font-display font-semibold tracking-tight ${text}`}>
               Download Android APK
@@ -188,18 +188,30 @@ function WindowsGlyph({ size }: { size: number }) {
   );
 }
 
-function AndroidGlyph({ height }: { height: number }) {
+function AndroidGlyph({ size }: { size: number }) {
   return (
     <svg
-      width={Math.round(height * 1.87)}
-      height={height}
-      viewBox="0 0 467.046 250.164"
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
       aria-hidden
       className="relative shrink-0 text-white"
     >
       <path
         fill="currentColor"
-        d="M293.91 212.775c-6.025 0-10.926-4.905-10.926-10.93s4.901-10.926 10.926-10.926c6.026 0 10.927 4.9 10.927 10.926s-4.901 10.93-10.927 10.93m-120.774 0c-6.025 0-10.926-4.905-10.926-10.93s4.9-10.926 10.926-10.926c6.025 0 10.926 4.9 10.926 10.926s-4.9 10.93-10.926 10.93m124.693-65.82 21.838-37.822a4.548 4.548 0 0 0-1.663-6.206 4.549 4.549 0 0 0-6.206 1.663l-22.111 38.3c-16.91-7.716-35.9-12.015-56.164-12.015-20.264 0-39.254 4.299-56.163 12.015l-22.112-38.3a4.549 4.549 0 0 0-6.206-1.663 4.545 4.545 0 0 0-1.663 6.206l21.838 37.822c-37.499 20.395-63.146 58.358-66.898 103.209h262.408c-3.755-44.85-29.402-82.814-66.898-103.21"
+        d="M7.7,16.2A2.7,2.7,0,0,0,5,18.9V30.3a2.8,2.8,0,0,0,1.2,2.3,2.6,2.6,0,0,0,1.5.4,2.7,2.7,0,0,0,2.2-1.1l.2-.3.3-.7v-12A2.7,2.7,0,0,0,7.7,16.2Z"
+      />
+      <path
+        fill="currentColor"
+        d="M29.6,6l1.9-3.4c0-.1.1-.1.1-.2a.8.8,0,0,0-.2-.4h-.5l-2,3.5a4.9,4.9,0,0,0-1.7-.6,13.6,13.6,0,0,0-3.6-.5H21.8a12.9,12.9,0,0,0-3.5,1L16.4,2.2A.5.5,0,0,0,16,2h-.2a.4.4,0,0,0-.1.3v.2L17.6,6h0a11.8,11.8,0,0,0-4.4,3.9l-.5.8-.6,1.4a8.9,8.9,0,0,0-.7,3.6H35.8A11.1,11.1,0,0,0,29.6,6ZM18.1,11.4A1.1,1.1,0,0,1,17,10.3a1.1,1.1,0,0,1,1.1-1,1.1,1.1,0,0,1,1,1A1.1,1.1,0,0,1,18.1,11.4Zm11.1,0a1,1,0,0,1-1-1.1,1,1,0,0,1,2,0A1,1,0,0,1,29.2,11.4Z"
+      />
+      <path
+        fill="currentColor"
+        d="M11.5,16.8V34.4a2.9,2.9,0,0,0,2.9,2.9h2v6A2.6,2.6,0,0,0,18,45.8h1.1l1-.2a2.7,2.7,0,0,0,1.7-2.5v-6h3.7v6a2.7,2.7,0,1,0,5.4,0v-6h2a3.5,3.5,0,0,0,1.7-.6,2.9,2.9,0,0,0,1.2-2.3V16.8Z"
+      />
+      <path
+        fill="currentColor"
+        d="M42.2,18.9a2.6,2.6,0,0,0-2.1-2.6h-.6a2.7,2.7,0,0,0-2.7,2.7V30.3a2.7,2.7,0,1,0,5.4,0Z"
       />
     </svg>
   );
