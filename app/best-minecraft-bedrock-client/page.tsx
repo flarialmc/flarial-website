@@ -31,7 +31,7 @@ const clients = [
       "Flarial is a free, TOS-compliant Bedrock utility client with 140+ modules, a real-time ClickGUI, and a Lua scripting marketplace. Full disclosure: this is Flarial's own site, so treat this entry as the maker's pitch — the comparison table below keeps the criteria identical for everyone.",
     points: [
       "Free forever — no paid tier, no cosmetics paywall.",
-      "Windows plus an Android (MCPE) release on Google Play.",
+      "Windows plus an official Android (MCPE) APK release.",
       "140+ modules and a Lua scripting marketplace for custom modules.",
       "Quality-of-life by default; not a combat-hack client.",
     ],
