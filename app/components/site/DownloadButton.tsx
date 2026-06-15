@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { DiscordIcon } from "./BrandIcons";
 
 /*
   Site-wide CTAs route to the /download subpage so visitors see the full
@@ -13,15 +14,16 @@ const DISCORD_URL = "https://discord.gg/flarial";
 
 export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
   const h = size === "lg" ? "h-[60px]" : "h-[52px]";
-  const padX = size === "lg" ? "px-6 sm:px-7" : "px-5";
+  const downloadPadX = "px-3 sm:px-4";
+  const secondaryPadX = size === "lg" ? "px-5 sm:px-6" : "px-4";
   const text = size === "lg" ? "text-[15.5px]" : "text-[13.5px]";
   const meta = size === "lg" ? "text-[10px]" : "text-[9.5px]";
   const iconSize = size === "lg" ? 20 : 18;
 
   return (
     <div className="flex flex-col items-center gap-5">
-      <div className="flex flex-col sm:flex-row items-stretch justify-center gap-3">
-        <PrimaryLink href={WINDOWS_URL} h={h} padX={padX} className="order-2 sm:order-1">
+      <div className="flex flex-col sm:flex-row items-stretch justify-center gap-2.5">
+        <PrimaryLink href={WINDOWS_URL} h={h} padX={downloadPadX} className="order-2 sm:order-1">
           <WindowsGlyph size={iconSize} />
           <span className="relative text-left leading-tight">
             <span className={`block font-display font-semibold tracking-tight ${text}`}>
@@ -33,7 +35,7 @@ export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
           </span>
         </PrimaryLink>
 
-        <PrimaryLink href={ANDROID_URL} h={h} padX={padX} className="order-1 sm:order-2">
+        <PrimaryLink href={ANDROID_URL} h={h} padX={downloadPadX} className="order-1 sm:order-2">
           <AndroidGlyph size={Math.round(iconSize * 1.45)} />
           <span className="relative text-left leading-tight">
             <span className={`block font-display font-semibold tracking-tight ${text}`}>
@@ -45,6 +47,27 @@ export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
           </span>
         </PrimaryLink>
       </div>
+
+      <SecondaryLink href={DISCORD_URL} h={h} padX={secondaryPadX}>
+        <span
+          className="relative shrink-0 grid place-items-center"
+          style={{ width: iconSize, height: iconSize }}
+        >
+          <DiscordIcon
+            width={iconSize * 1.18}
+            height={iconSize * 1.18}
+            className="block text-[#5865F2]"
+          />
+        </span>
+        <span className="relative text-left leading-tight">
+          <span className={`block font-display font-semibold tracking-tight ${text}`}>
+            Join Discord
+          </span>
+          <span className={`block font-mono uppercase tracking-[0.18em] text-white/55 ${meta}`}>
+            discord.gg/flarial
+          </span>
+        </span>
+      </SecondaryLink>
     </div>
   );
 }
@@ -89,6 +112,65 @@ function PrimaryLink({
   );
 }
 
+function SecondaryShell({
+  h,
+  padX,
+  children,
+  ...rest
+}: {
+  h: string;
+  padX: string;
+  children: React.ReactNode;
+} & React.HTMLAttributes<HTMLElement>) {
+  return (
+    <span
+      {...rest}
+      className={`group relative inline-flex items-center gap-3 ${padX} ${h} rounded-[14px] text-white overflow-hidden w-full sm:w-auto cursor-pointer`}
+      style={{
+        background: "var(--color-bg-nav)",
+        boxShadow: [
+          "0 0 0 1px rgba(255,255,255,0.06)",
+          "0 1px 0 rgba(255,255,255,0.06) inset",
+          "0 8px 24px rgba(0,0,0,0.55)",
+        ].join(", "),
+      }}
+    >
+      <span aria-hidden className="flarial-glint" />
+      {children}
+    </span>
+  );
+}
+
+function SecondaryLink({
+  href,
+  h,
+  padX,
+  children,
+}: {
+  href: string;
+  h: string;
+  padX: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      whileHover={{ y: -2 }}
+      whileTap={{ y: 1, scale: 0.985 }}
+      transition={{ type: "spring", stiffness: 200, damping: 26, mass: 0.85 }}
+    >
+      <Link
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+        className="block"
+      >
+        <SecondaryShell h={h} padX={padX}>
+          {children}
+        </SecondaryShell>
+      </Link>
+    </motion.div>
+  );
+}
 
 function WindowsGlyph({ size }: { size: number }) {
   return (
