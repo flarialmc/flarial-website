@@ -13,12 +13,11 @@ export function HeroBackground() {
         aria-hidden
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage:
-            "image-set(url('/screenshots/desert-720.webp') 1x, url('/screenshots/desert.webp') 2x)",
+          backgroundImage: "url('/grafik-1.png')",
           backgroundSize: "cover",
-          backgroundPosition: "center 38%",
-          opacity: 0.55,
-          filter: "saturate(0.9) contrast(1.05)",
+          backgroundPosition: "center center",
+          opacity: 0.62,
+          filter: "saturate(0.95) contrast(1.05)",
         }}
       />
 

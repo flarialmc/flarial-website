@@ -9,12 +9,12 @@ import {
 
 export const troubleshootingMobileBetaArticle: DocsArticle = {
   slug: "troubleshooting-mobile-beta",
-  title: "Troubleshooting: Mobile & Beta",
-  summary: "Android/iOS support status, beta tester access, and beta-specific issues.",
+  title: "Troubleshooting: Mobile",
+  summary: "Android/iOS support status, Google Play access, and mobile-specific issues.",
   icon: Smartphone,
   toc: [
     { title: "Android & iOS support", href: "#flarial-mobile-android-ios" },
-    { title: "Becoming a mobile tester", href: "#mobile-tester-no-pc" },
+    { title: "Installing on Android", href: "#mobile-tester-no-pc" },
     { title: "Modules missing in beta", href: "#modules-missing-in-beta" },
   ],
   render: () => (
@@ -32,7 +32,7 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
           </li>
         </ul>
         <p>
-          Flarial mobile is being built for Android first, and there is no iOS release yet. iOS is harder because
+          Flarial mobile is released for Android through Google Play, and there is no iOS release yet. iOS is harder because
           Apple does not allow the same client injection and modding path Flarial relies on, and the
           sideload or jailbreak requirements would limit how it could be installed. Mobile app-store policy
           also restricts arbitrary native-code loaders, so custom <InlineCode>lib.so</InlineCode> modules
@@ -45,8 +45,8 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
             which a texture or behavior pack could not replicate.
           </li>
           <li>
-            Flarial cannot patch or support an arbitrary Minecraft APK on request. Wait for the official
-            Android release path instead.
+            Flarial cannot patch or support an arbitrary Minecraft APK on request. Use the official
+            Google Play release path instead.
           </li>
           <li>
             There is no supported plan for loading arbitrary native modules (custom <InlineCode>lib.so</InlineCode>)
@@ -60,44 +60,36 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
       </section>
 
       <section className={sectionFrameClass} style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
-        <DocsHeading id="mobile-tester-no-pc">Becoming a mobile tester</DocsHeading>
+        <DocsHeading id="mobile-tester-no-pc">Installing on Android</DocsHeading>
         <p>You might be wondering:</p>
         <ul className="list-disc space-y-1 pl-5">
           <li>How do I get or download Flarial for Android?</li>
-          <li>How do I become a Flarial mobile tester?</li>
-          <li>When will Android be available publicly?</li>
-          <li>How do I answer tester application questions that ask about PC access if I do not have a PC?</li>
+          <li>Where is the official Google Play listing?</li>
+          <li>Do I still need tester access?</li>
+          <li>Can I install a standalone APK?</li>
         </ul>
         <p>
-          The Android tester flow is separate from normal PC usage. Tester access is limited, and applications
-          may be closed while the mobile build is still in beta. Android is still in beta, and there is no
-          official public release date.
+          Flarial for Android is available through the official Google Play listing. You do not need
+          to submit a tester application for the public Android release.
         </p>
         <ol className="list-decimal space-y-1 pl-5">
           <li>
-            Join the{" "}
+            Open the{" "}
             <a
-              href="https://discord.gg/flarial"
+              href="https://play.google.com/store/apps/details?id=com.flarialmc.flarial_launcher"
               className="font-semibold text-white underline decoration-[var(--color-accent)] decoration-2 underline-offset-4"
             >
-              Discord server
+              official Google Play listing
             </a>{" "}
-            and check the announcements channel and the tester/application channel pins to see where to start.
+            for Flarial Launcher.
           </li>
-          <li>
-            If tester applications are open, follow the Android tester form or the instructions in the tester
-            channel pins.
-          </li>
-          <li>
-            If the form asks whether you have a PC and you do not, answer honestly that you do not have one.
-          </li>
-          <li>After submitting, wait for the team to review your form.</li>
-          <li>If applications are closed, wait for a public release or a future tester opening.</li>
+          <li>Install Flarial Launcher from Google Play.</li>
+          <li>Launch Minecraft Bedrock through Flarial and open the in-game menu to configure modules.</li>
+          <li>Only use Google Play or official Flarial links. Avoid third-party APK mirrors.</li>
         </ol>
         <InfoCard icon={<Smartphone size={16} className="text-[var(--color-accent)]" />} title="Note">
           <p>
-            There is no guaranteed tester approval, download link, or exact release date. Only download Flarial
-            mobile from a link the team has published officially.
+            Only download Flarial mobile from Google Play or a link the team has published officially.
           </p>
         </InfoCard>
       </section>
@@ -123,7 +115,8 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
           <li>Confirm you are on the latest Flarial build for your Minecraft version.</li>
           <li>
             Remember that launcher options are not the same as in-game client modules. Modules are configured
-            from the in-game ClickGUI, usually opened with <InlineCode>K</InlineCode>. If a module or the beta
+            from the in-game ClickGUI, usually opened with <InlineCode>K</InlineCode> on Windows or the
+            Flarial icon on mobile. If a module or the beta
             DLL toggle was removed, it is currently unavailable rather than hidden in a setting.
           </li>
           <li>

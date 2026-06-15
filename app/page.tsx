@@ -24,7 +24,7 @@ const FEATURES: { title: string; body: string }[] = [
   },
   {
     title: "Windows 10/11 + Android",
-    body: "Run the same MCPE client on Minecraft Bedrock for Windows 10/11, with Android support in beta.",
+    body: "Run the same MCPE client on Minecraft Bedrock for Windows 10/11 and Android.",
   },
   {
     title: "140+ modules",
@@ -70,8 +70,8 @@ export default function Home() {
             Edition that adds quality-of-life features the base game leaves out —
             an FPS boost, on-screen HUD modules, and a ClickGUI for toggling
             everything mid-game. Flarial is a free, TOS-compliant bedrock utility
-            client for Minecraft Bedrock Edition on Windows 10/11, with an Android
-            (MCPE) build in beta. It is not a cheat client — the default modules
+            client for Minecraft Bedrock Edition on Windows 10/11 and Android
+            (MCPE). It is not a cheat client — the default modules
             are quality-of-life only.
           </p>
         </div>
