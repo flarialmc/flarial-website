@@ -3,25 +3,47 @@
 import { useEffect, useState } from "react";
 import { DiscordIcon } from "./BrandIcons";
 
+const DISCORD_INVITE_URL = "https://discord.com/api/v10/invites/flarial?with_counts=true";
+
 export function DiscordCommunity() {
   const [onlineCount, setOnlineCount] = useState<number | null>(null);
   const [memberCount, setMemberCount] = useState<number | null>(null);
   const [requestFailed, setRequestFailed] = useState(false);
 
   useEffect(() => {
-    fetch("/api/discord-status")
-      .then((response) => (response.ok ? response.json() : null))
-      .then((data) => {
-        if (data && typeof data.onlineCount === "number") {
-          setOnlineCount(data.onlineCount);
-        }
-        if (data && typeof data.memberCount === "number") {
-          setMemberCount(data.memberCount);
-        }
-      })
-      .catch(() => {
-        setRequestFailed(true);
-      });
+    let cancelled = false;
+
+    const loadStatus = () => {
+      fetch(DISCORD_INVITE_URL, { cache: "no-store" })
+        .then((response) => (response.ok ? response.json() : null))
+        .then((data) => {
+          if (cancelled) return;
+
+          const nextOnlineCount =
+            data && typeof data.approximate_presence_count === "number"
+              ? data.approximate_presence_count
+              : null;
+          const nextMemberCount =
+            data && typeof data.approximate_member_count === "number"
+              ? data.approximate_member_count
+              : null;
+
+          setOnlineCount(nextOnlineCount);
+          setMemberCount(nextMemberCount);
+          setRequestFailed(nextOnlineCount === null);
+        })
+        .catch(() => {
+          if (!cancelled) setRequestFailed(true);
+        });
+    };
+
+    loadStatus();
+    const interval = window.setInterval(loadStatus, 60_000);
+
+    return () => {
+      cancelled = true;
+      window.clearInterval(interval);
+    };
   }, []);
 
   return (
@@ -62,8 +84,8 @@ export function DiscordCommunity() {
         </div>
 
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-[var(--radius-lg)] p-5" style={{ background: "var(--color-bg-panel)" }}>
-            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--color-text-dim)]">
+          <div className="rounded-[var(--radius-lg)] border border-white/8 p-5" style={{ background: "rgba(48, 39, 40, 0.82)" }}>
+            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/70">
               Online now
             </div>
             <div className="mt-2 font-display text-[32px] font-semibold text-white tabular-nums">
@@ -74,8 +96,8 @@ export function DiscordCommunity() {
             </div>
           </div>
 
-          <div className="rounded-[var(--radius-lg)] p-5" style={{ background: "var(--color-bg-panel)" }}>
-            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--color-text-dim)]">
+          <div className="rounded-[var(--radius-lg)] border border-white/8 p-5" style={{ background: "rgba(48, 39, 40, 0.82)" }}>
+            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/70">
               Server size
             </div>
             <div className="mt-2 font-display text-[32px] font-semibold text-white">
@@ -86,8 +108,8 @@ export function DiscordCommunity() {
             </div>
           </div>
 
-          <div className="rounded-[var(--radius-lg)] p-5" style={{ background: "var(--color-bg-panel)" }}>
-            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--color-text-dim)]">
+          <div className="rounded-[var(--radius-lg)] border border-white/8 p-5" style={{ background: "rgba(48, 39, 40, 0.82)" }}>
+            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/70">
               Community activity
             </div>
             <div className="mt-2 font-display text-[32px] font-semibold text-white">
