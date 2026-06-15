@@ -4,24 +4,17 @@ import { useEffect, useState } from "react";
 import { DiscordIcon } from "./BrandIcons";
 
 export function DiscordCommunity() {
-  const [onlineCount, setOnlineCount] = useState<number | null>(null);
   const [memberCount, setMemberCount] = useState<number | null>(null);
-  const [requestFailed, setRequestFailed] = useState(false);
 
   useEffect(() => {
     fetch("/api/discord-status")
       .then((response) => (response.ok ? response.json() : null))
       .then((data) => {
-        if (data && typeof data.onlineCount === "number") {
-          setOnlineCount(data.onlineCount);
-        }
         if (data && typeof data.memberCount === "number") {
           setMemberCount(data.memberCount);
         }
       })
-      .catch(() => {
-        setRequestFailed(true);
-      });
+      .catch(() => {});
   }, []);
 
   return (
@@ -61,19 +54,7 @@ export function DiscordCommunity() {
           </a>
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-[var(--radius-lg)] p-5" style={{ background: "var(--color-bg-panel)" }}>
-            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--color-text-dim)]">
-              Online now
-            </div>
-            <div className="mt-2 font-display text-[32px] font-semibold text-white tabular-nums">
-              {onlineCount === null ? (requestFailed ? "unavailable" : "—") : onlineCount.toLocaleString()}
-            </div>
-            <div className="mt-1 text-[12px] text-[var(--color-text-mute)]">
-              active right now
-            </div>
-          </div>
-
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-2">
           <div className="rounded-[var(--radius-lg)] p-5" style={{ background: "var(--color-bg-panel)" }}>
             <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--color-text-dim)]">
               Server size

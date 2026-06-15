@@ -52,9 +52,8 @@ export default function PrivacyPage() {
               modules). Stored in your browser only — never sent to us.
             </li>
             <li>
-              <strong>Discord widget</strong>: the homepage reads the public
-              Discord widget for the &quot;online now&quot; count. No personal data is
-              exchanged.
+              <strong>Discord widget</strong>: the homepage reads public Discord
+              membership information. No personal data is exchanged.
             </li>
           </ul>
         </Section>

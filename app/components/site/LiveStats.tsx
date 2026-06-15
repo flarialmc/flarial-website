@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { MODULES } from "../../lib/modules";
 
@@ -11,27 +10,11 @@ interface Stat {
 }
 
 export function LiveStats() {
-  const [members, setMembers] = useState<number | null>(null);
-
-  useEffect(() => {
-    fetch("https://discord.com/api/guilds/1109996020471427152/widget.json")
-      .then((r) => (r.ok ? r.json() : null))
-      .then((j) => {
-        if (j && typeof j.presence_count === "number") setMembers(j.presence_count);
-      })
-      .catch(() => {});
-  }, []);
-
   const stats: Stat[] = [
     {
       label: "Modules",
       value: MODULES.length.toString(),
       hint: "and counting",
-    },
-    {
-      label: "Online now",
-      value: members === null ? "—" : members.toLocaleString(),
-      hint: "in Discord",
     },
     {
       label: "Platform",
