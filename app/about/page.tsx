@@ -29,7 +29,7 @@ export default function AboutPage() {
         <Section title="What Flarial is">
           <p>
             Flarial is a utility client for Minecraft Bedrock Edition on Windows
-            10/11, with an Android (MCPE) build in beta. It sits alongside the
+            10/11 and Android (MCPE). It sits alongside the
             game and adds the quality-of-life features the base game leaves out:
             an in-game ClickGUI, on-screen HUD modules like keystrokes and CPS
             counters, an FPS boost, and over 140 small tweaks you can toggle

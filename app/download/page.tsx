@@ -27,7 +27,7 @@ export default function DownloadPage() {
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-[var(--color-text-mute)]">
           Download the free Flarial client and launcher for Minecraft Bedrock
-          Edition on Windows 10/11, with an Android (MCPE) build in beta. The
+          Edition on Windows 10/11 and Android (MCPE). The
           launcher handles updates and injection for you — install it once and
           it keeps Flarial current every time you play.
         </p>
@@ -44,7 +44,7 @@ export default function DownloadPage() {
       <section className="mt-14 grid sm:grid-cols-3 gap-3 text-[13px]">
         <StepCard n={1} title="Run the launcher" body="Open Flarial Launcher — it handles updates and injection automatically." />
         <StepCard n={2} title="Launch Minecraft" body="Click Inject. The launcher waits for Minecraft to fully load." />
-        <StepCard n={3} title="Open ClickGUI" body="Press K in-game. That's the same window you see in the showcase." />
+        <StepCard n={3} title="Open ClickGUI" body="Press K in-game on Windows, or tap the Flarial icon in-game on mobile. That's the same window you see in the showcase." />
       </section>
 
       <section className="mt-16 max-w-2xl">
@@ -67,8 +67,8 @@ export default function DownloadPage() {
             You install the launcher rather than the client directly. The
             launcher keeps Flarial updated, then injects it into Minecraft when
             you click <strong className="text-white/90">Inject</strong> — so you
-            never have to re-download after an update. Windows 10 and 11 are
-            fully supported; the Android (MCPE) build is in beta.
+            never have to re-download after an update. Windows 10/11 and
+            Android (MCPE) are fully supported.
           </p>
           <p>
             Remember that individual servers set their own rules about client

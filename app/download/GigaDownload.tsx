@@ -1,111 +1,84 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { GooglePlayIcon } from "../components/site/BrandIcons";
-import { AndroidBetaModal } from "../components/site/AndroidBetaModal";
-
-type OS = "windows" | "android" | "macos" | "linux" | "unknown";
 
 const WINDOWS_URL = "https://cdn.flarial.xyz/launcher/Flarial.Launcher.exe";
-
-function detectOS(): OS {
-  if (typeof navigator === "undefined") return "windows";
-  const ua = navigator.userAgent.toLowerCase();
-  if (ua.includes("android")) return "android";
-  if (ua.includes("win")) return "windows";
-  if (ua.includes("mac")) return "macos";
-  if (ua.includes("linux")) return "linux";
-  return "unknown";
-}
-
-function paramOS(): OS | null {
-  if (typeof window === "undefined") return null;
-  const p = new URLSearchParams(window.location.search).get("p");
-  if (p === "windows" || p === "android" || p === "macos" || p === "linux") return p;
-  return null;
-}
+const ANDROID_URL = "https://play.google.com/store/apps/details?id=com.flarialmc.flarial_launcher";
 
 /*
-  The real download — massive primary CTA. Windows goes straight to the GitHub
-  release. Android opens the closed-beta Discord modal.
+  Equal-priority platform downloads. Windows goes straight to the launcher
+  download, and Android goes straight to the released Google Play listing.
 */
 export function GigaDownload() {
-  const [os, setOs] = useState<OS>("windows");
-  const [androidOpen, setAndroidOpen] = useState(false);
-
-  useEffect(() => {
-    setOs(paramOS() ?? detectOS());
-  }, []);
-
-  // Auto-open the beta modal if user came in with ?p=android
-  useEffect(() => {
-    if (os === "android") setAndroidOpen(true);
-  }, [os]);
-
-  const isAndroid = os === "android";
-
   return (
-    <div className="space-y-4">
-      <motion.div
-        whileHover={{ y: -3 }}
-        whileTap={{ y: 1, scale: 0.992 }}
-        transition={{ type: "spring", stiffness: 180, damping: 26, mass: 0.9 }}
+    <div className="grid gap-4 md:grid-cols-2">
+      <DownloadCard
+        href={WINDOWS_URL}
+        title="Download for Windows"
+        meta="Windows 10 / 11 · 64-bit · Free"
+        className="order-2 md:order-1"
+        download
       >
-        {isAndroid ? (
-          <button
-            type="button"
-            onClick={() => setAndroidOpen(true)}
-            className="group relative flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-7 w-full px-5 sm:px-12 py-9 sm:py-12 rounded-[28px] text-white overflow-hidden cursor-pointer flarial-aura"
-            style={ctaStyle}
-          >
-            <span aria-hidden className="flarial-glint" />
-            <IconTile>
-              <GooglePlayIcon width={48} height={48} className="block" />
-            </IconTile>
-            <span className="relative text-center sm:text-left leading-tight">
-              <span className="block font-display font-bold text-white tracking-[-0.02em] text-[28px] sm:text-[48px]">
-                Get on Google Play
-              </span>
-              <span className="block mt-2 font-mono uppercase tracking-[0.22em] text-white/80 text-[10.5px] sm:text-[12.5px]">
-                Android · Closed beta · Tap to join
-              </span>
-            </span>
-          </button>
-        ) : (
-          <a
-            href={WINDOWS_URL}
-            download
-            className="group relative flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-7 w-full px-5 sm:px-12 py-9 sm:py-12 rounded-[28px] text-white overflow-hidden flarial-aura"
-            style={ctaStyle}
-          >
-            <span aria-hidden className="flarial-glint" />
-            <IconTile>
-              <DownloadGlyph />
-            </IconTile>
-            <span className="relative text-center sm:text-left leading-tight">
-              <span className="block font-display font-bold text-white tracking-[-0.02em] text-[30px] sm:text-[48px]">
-                Download for Windows
-              </span>
-              <span className="block mt-2 font-mono uppercase tracking-[0.22em] text-white/80 text-[10.5px] sm:text-[12.5px]">
-                Windows 10 / 11 · 64-bit · Free
-              </span>
-            </span>
-          </a>
-        )}
-      </motion.div>
+        <WindowsGlyph />
+      </DownloadCard>
 
-      <div className="flex justify-center">
-        {isAndroid ? (
-          <PlatformSwitch href="?p=windows" label="Or download for Windows" />
-        ) : (
-          <PlatformSwitch href="?p=android" label="Or get on Google Play (Android beta)" />
-        )}
-      </div>
-
-      <AndroidBetaModal open={androidOpen} onClose={() => setAndroidOpen(false)} />
+      <DownloadCard
+        href={ANDROID_URL}
+        title="Get on Google Play"
+        meta="Android · Released · Free"
+        className="order-1 md:order-2"
+        external
+      >
+        <GooglePlayGlyph />
+      </DownloadCard>
     </div>
+  );
+}
+
+function DownloadCard({
+  href,
+  title,
+  meta,
+  className = "",
+  download,
+  external,
+  children,
+}: {
+  href: string;
+  title: string;
+  meta: string;
+  className?: string;
+  download?: boolean;
+  external?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      whileHover={{ y: -3 }}
+      whileTap={{ y: 1, scale: 0.992 }}
+      transition={{ type: "spring", stiffness: 180, damping: 26, mass: 0.9 }}
+      className={`min-w-0 ${className}`}
+    >
+      <a
+        href={href}
+        download={download ? true : undefined}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        className="group relative flex h-full min-h-[240px] flex-col items-center justify-center gap-5 overflow-hidden rounded-[28px] px-5 py-9 text-center text-white flarial-aura sm:px-8 sm:py-11"
+        style={ctaStyle}
+      >
+        <span aria-hidden className="flarial-glint" />
+        <IconTile>{children}</IconTile>
+        <span className="relative min-w-0 leading-tight">
+          <span className="block font-display text-[29px] font-bold tracking-[-0.02em] text-white sm:text-[38px]">
+            {title}
+          </span>
+          <span className="mt-2 block font-mono text-[10.5px] uppercase tracking-[0.22em] text-white/80 sm:text-[12px]">
+            {meta}
+          </span>
+        </span>
+      </a>
+    </motion.div>
   );
 }
 
@@ -122,7 +95,7 @@ const ctaStyle: React.CSSProperties = {
 function IconTile({ children }: { children: React.ReactNode }) {
   return (
     <span
-      className="relative grid place-items-center shrink-0 rounded-2xl"
+      className="relative grid shrink-0 place-items-center rounded-2xl"
       style={{
         width: 84,
         height: 84,
@@ -136,35 +109,36 @@ function IconTile({ children }: { children: React.ReactNode }) {
   );
 }
 
-function PlatformSwitch({ href, label }: { href: string; label: string }) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex items-center gap-2 px-5 h-10 rounded-[var(--radius-md)] font-mono text-[11px] uppercase tracking-widest text-[var(--color-text-mute)] hover:text-white transition-colors"
-      style={{ background: "var(--color-bg-nav)" }}
-    >
-      {label}
-    </Link>
-  );
-}
-
-function DownloadGlyph() {
+function WindowsGlyph() {
   return (
     <svg
       width={44}
       height={44}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      viewBox="0 0 4875 4875"
       aria-hidden
-      className="text-white"
+      className="block text-white"
     >
-      <path d="M12 3v13" />
-      <path d="m7 12 5 5 5-5" />
-      <path d="M5 21h14" />
+      <rect width="2311" height="2310" x="0" y="0" rx="190" fill="currentColor" />
+      <rect width="2311" height="2310" x="2564" y="0" rx="190" fill="currentColor" />
+      <rect width="2311" height="2311" x="0" y="2564" rx="190" fill="currentColor" />
+      <rect width="2311" height="2311" x="2564" y="2564" rx="190" fill="currentColor" />
+    </svg>
+  );
+}
+
+function GooglePlayGlyph() {
+  return (
+    <svg
+      width={48}
+      height={48}
+      viewBox="0 0 50 50"
+      aria-hidden
+      className="block text-white"
+    >
+      <path
+        fill="currentColor"
+        d="M 7.125 2 L 28.78125 23.5 L 34.71875 17.5625 L 8.46875 2.40625 C 8.03125 2.152344 7.5625 2.011719 7.125 2 Z M 5.3125 3 C 5.117188 3.347656 5 3.757813 5 4.21875 L 5 46 C 5 46.335938 5.070313 46.636719 5.1875 46.90625 L 27.34375 24.90625 Z M 36.53125 18.59375 L 30.1875 24.90625 L 36.53125 31.1875 L 44.28125 26.75 C 45.382813 26.113281 45.539063 25.304688 45.53125 24.875 C 45.519531 24.164063 45.070313 23.5 44.3125 23.09375 C 43.652344 22.738281 38.75 19.882813 36.53125 18.59375 Z M 28.78125 26.3125 L 6.9375 47.96875 C 7.300781 47.949219 7.695313 47.871094 8.0625 47.65625 C 8.917969 47.160156 26.21875 37.15625 26.21875 37.15625 L 34.75 32.25 Z"
+      />
     </svg>
   );
 }

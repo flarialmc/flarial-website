@@ -34,7 +34,7 @@ export const troubleshootingHudModulesArticle: DocsArticle = {
         <p className="font-display font-semibold text-white">Symptoms</p>
         <ul className="list-disc space-y-1 pl-5">
           <li>Flarial injects, but enabled HUD modules such as CPS or combo counters do not appear in-game.</li>
-          <li>The ClickGUI/settings menu does not open when you press <InlineCode>K</InlineCode>.</li>
+          <li>The ClickGUI/settings menu does not open when you press <InlineCode>K</InlineCode> on Windows or tap the Flarial icon on mobile.</li>
           <li>The modules menu stops working after joining a world or server.</li>
           <li>The issue comes and goes without an obvious settings change.</li>
         </ul>
@@ -43,7 +43,7 @@ export const troubleshootingHudModulesArticle: DocsArticle = {
         <p className="font-display font-semibold text-white">Fix</p>
         <ol className="list-decimal space-y-1 pl-5">
           <li>Close Minecraft completely and relaunch it with Flarial.</li>
-          <li>Join a world or server, then press <InlineCode>K</InlineCode> to open the ClickGUI/settings.</li>
+          <li>Join a world or server, then press <InlineCode>K</InlineCode> on Windows or tap the Flarial icon on mobile to open the ClickGUI/settings.</li>
           <li>If <InlineCode>K</InlineCode> still does nothing, run <InlineCode>.bind clickgui K</InlineCode> in chat, then press <InlineCode>K</InlineCode> again.</li>
           <li>Make sure the affected HUD modules are enabled and positioned on screen.</li>
           <li>If overlays still do not show, reset or delete your Flarial config, then relaunch Minecraft and re-enable the modules.</li>
