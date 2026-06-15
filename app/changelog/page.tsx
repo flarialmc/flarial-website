@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getAllChangelogs, getChangelogTags } from "../lib/changelog";
 import { ChangelogTimeline } from "./ChangelogTimeline";
+import { HeroBackground } from "../components/site/HeroBackground";
 
 export const metadata: Metadata = {
   title: "Changelog — Minecraft Bedrock Client Updates",
@@ -18,7 +19,12 @@ export const metadata: Metadata = {
 export default async function ChangelogPage() {
   const [entries, tags] = await Promise.all([getAllChangelogs(), getChangelogTags()]);
   return (
-    <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-16">
+    <div className="relative overflow-hidden">
+      <div className="absolute inset-0 h-[620px] pointer-events-none opacity-55">
+        <HeroBackground />
+      </div>
+      <div className="absolute inset-x-0 top-0 h-[720px] pointer-events-none bg-gradient-to-b from-transparent via-[rgba(18,14,15,0.42)] to-[var(--color-bg-base)]" />
+      <div className="relative mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-16">
       <header className="mb-10">
         <div className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[var(--color-accent)] mb-3">
           {entries.length} updates · {tags.length} tags
@@ -31,6 +37,7 @@ export default async function ChangelogPage() {
         </p>
       </header>
       <ChangelogTimeline entries={entries} tags={tags} />
+      </div>
     </div>
   );
 }
