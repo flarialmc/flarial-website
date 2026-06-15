@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Showcase } from "./components/site/Showcase";
 import { HeroBackground } from "./components/site/HeroBackground";
 import { DownloadButton } from "./components/site/DownloadButton";
+import { DiscordCommunity } from "./components/site/DiscordCommunity";
 
 export const metadata: Metadata = {
   title: {
@@ -52,6 +53,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <DiscordCommunity />
 
       {/* ── Showcase ──────────────────────────────────────────────── */}
       <Showcase />
