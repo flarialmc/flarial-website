@@ -35,13 +35,13 @@ export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
         </PrimaryLink>
 
         <PrimaryLink href={ANDROID_URL} h={h} padX={padX} className="order-1 sm:order-2">
-          <GooglePlayGlyph size={iconSize} />
+          <AndroidGlyph size={Math.round(iconSize * 1.45)} />
           <span className="relative text-left leading-tight">
             <span className={`block font-display font-semibold tracking-tight ${text}`}>
-              Get on Google Play
+              Download Android APK
             </span>
             <span className={`block font-mono uppercase tracking-[0.18em] text-white/70 ${meta}`}>
-              Android · Released · Free
+              Android - APK - Free
             </span>
           </span>
         </PrimaryLink>
@@ -188,18 +188,30 @@ function WindowsGlyph({ size }: { size: number }) {
   );
 }
 
-function GooglePlayGlyph({ size }: { size: number }) {
+function AndroidGlyph({ size }: { size: number }) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 50 50"
+      viewBox="0 0 48 48"
       aria-hidden
       className="relative shrink-0 text-white"
     >
       <path
         fill="currentColor"
-        d="M 7.125 2 L 28.78125 23.5 L 34.71875 17.5625 L 8.46875 2.40625 C 8.03125 2.152344 7.5625 2.011719 7.125 2 Z M 5.3125 3 C 5.117188 3.347656 5 3.757813 5 4.21875 L 5 46 C 5 46.335938 5.070313 46.636719 5.1875 46.90625 L 27.34375 24.90625 Z M 36.53125 18.59375 L 30.1875 24.90625 L 36.53125 31.1875 L 44.28125 26.75 C 45.382813 26.113281 45.539063 25.304688 45.53125 24.875 C 45.519531 24.164063 45.070313 23.5 44.3125 23.09375 C 43.652344 22.738281 38.75 19.882813 36.53125 18.59375 Z M 28.78125 26.3125 L 6.9375 47.96875 C 7.300781 47.949219 7.695313 47.871094 8.0625 47.65625 C 8.917969 47.160156 26.21875 37.15625 26.21875 37.15625 L 34.75 32.25 Z"
+        d="M7.7,16.2A2.7,2.7,0,0,0,5,18.9V30.3a2.8,2.8,0,0,0,1.2,2.3,2.6,2.6,0,0,0,1.5.4,2.7,2.7,0,0,0,2.2-1.1l.2-.3.3-.7v-12A2.7,2.7,0,0,0,7.7,16.2Z"
+      />
+      <path
+        fill="currentColor"
+        d="M29.6,6l1.9-3.4c0-.1.1-.1.1-.2a.8.8,0,0,0-.2-.4h-.5l-2,3.5a4.9,4.9,0,0,0-1.7-.6,13.6,13.6,0,0,0-3.6-.5H21.8a12.9,12.9,0,0,0-3.5,1L16.4,2.2A.5.5,0,0,0,16,2h-.2a.4.4,0,0,0-.1.3v.2L17.6,6h0a11.8,11.8,0,0,0-4.4,3.9l-.5.8-.6,1.4a8.9,8.9,0,0,0-.7,3.6H35.8A11.1,11.1,0,0,0,29.6,6ZM18.1,11.4A1.1,1.1,0,0,1,17,10.3a1.1,1.1,0,0,1,1.1-1,1.1,1.1,0,0,1,1,1A1.1,1.1,0,0,1,18.1,11.4Zm11.1,0a1,1,0,0,1-1-1.1,1,1,0,0,1,2,0A1,1,0,0,1,29.2,11.4Z"
+      />
+      <path
+        fill="currentColor"
+        d="M11.5,16.8V34.4a2.9,2.9,0,0,0,2.9,2.9h2v6A2.6,2.6,0,0,0,18,45.8h1.1l1-.2a2.7,2.7,0,0,0,1.7-2.5v-6h3.7v6a2.7,2.7,0,1,0,5.4,0v-6h2a3.5,3.5,0,0,0,1.7-.6,2.9,2.9,0,0,0,1.2-2.3V16.8Z"
+      />
+      <path
+        fill="currentColor"
+        d="M42.2,18.9a2.6,2.6,0,0,0-2.1-2.6h-.6a2.7,2.7,0,0,0-2.7,2.7V30.3a2.7,2.7,0,1,0,5.4,0Z"
       />
     </svg>
   );
