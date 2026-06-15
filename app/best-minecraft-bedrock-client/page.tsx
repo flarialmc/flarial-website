@@ -53,7 +53,7 @@ const clients = [
     name: "Onix Client",
     tag: "Windows",
     blurb:
-      "Onix is a long-running Windows-only Bedrock client known for a large module count (built-in plus community modules), a theme editor, and FPS-focused rendering options. It is commonly described as a paid client.",
+      "Onix is a long-running Windows-only Bedrock client known for a large module count (built-in plus community modules), a theme editor, and FPS-focused rendering options. It is a paid-only client with no free version.",
     points: [
       "Large module library plus community modules.",
       "Windows-only.",
