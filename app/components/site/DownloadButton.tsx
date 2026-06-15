@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { DiscordIcon } from "./BrandIcons";
 
 /*
   Site-wide CTAs route to the /download subpage so visitors see the full
@@ -111,6 +112,65 @@ function PrimaryLink({
   );
 }
 
+function SecondaryShell({
+  h,
+  padX,
+  children,
+  ...rest
+}: {
+  h: string;
+  padX: string;
+  children: React.ReactNode;
+} & React.HTMLAttributes<HTMLElement>) {
+  return (
+    <span
+      {...rest}
+      className={`group relative inline-flex items-center gap-3 ${padX} ${h} rounded-[14px] text-white overflow-hidden w-full sm:w-auto cursor-pointer`}
+      style={{
+        background: "var(--color-bg-nav)",
+        boxShadow: [
+          "0 0 0 1px rgba(255,255,255,0.06)",
+          "0 1px 0 rgba(255,255,255,0.06) inset",
+          "0 8px 24px rgba(0,0,0,0.55)",
+        ].join(", "),
+      }}
+    >
+      <span aria-hidden className="flarial-glint" />
+      {children}
+    </span>
+  );
+}
+
+function SecondaryLink({
+  href,
+  h,
+  padX,
+  children,
+}: {
+  href: string;
+  h: string;
+  padX: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <motion.div
+      whileHover={{ y: -2 }}
+      whileTap={{ y: 1, scale: 0.985 }}
+      transition={{ type: "spring", stiffness: 200, damping: 26, mass: 0.85 }}
+    >
+      <Link
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+        className="block"
+      >
+        <SecondaryShell h={h} padX={padX}>
+          {children}
+        </SecondaryShell>
+      </Link>
+    </motion.div>
+  );
+}
 
 function WindowsGlyph({ size }: { size: number }) {
   return (
