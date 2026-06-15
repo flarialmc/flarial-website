@@ -4,7 +4,7 @@ date: "2026-06-15"
 tag: "Release"
 ---
 
-## <:flarial:1058433624430612640> FLARIAL ANDROID! 📱 ##
+## ![Flarial](/flarial-icons/red-logo.png) FLARIAL ANDROID! 📱 ##
 
 We have seen much support from y'all ever since launch. This update brings bug fixes, new modules, HUD additions, and better version/update handling.
 
@@ -32,11 +32,11 @@ We have seen much support from y'all ever since launch. This update brings bug f
 - Fixed floating Flarial icon disabling bug
 - Fixed Android CMake/build issues
 
-## <:flarial_gold:1509611368708313158> PC Launcher 🖥️ ##
+## ![Flarial Gold](/flarial-icons/booster-logo.png) PC Launcher 🖥️ ##
 
 We have completely migrated over to a new codebase, with a fresh new UI. We call this the first rollout of Flarial v3. There are good things to come.
 
-## <:flarial_blurple:1134313727353688104> PC Client 💻 ##
+## ![Flarial Blurple](/flarial-icons/cyan-logo.png) PC Client 💻 ##
 
 - Ability to rename configs in the ClickGUI
 - Added a setting "No Pause" in client settings

@@ -92,3 +92,14 @@
 }
 
 /* Note: previous attempt to use :has-text() was invalid CSS — removed. */
+
+.prose-flarial h1 img,
+.prose-flarial h2 img,
+.prose-flarial h3 img {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  margin-right: 0.35em;
+  vertical-align: -0.22em;
+  object-fit: contain;
+}
