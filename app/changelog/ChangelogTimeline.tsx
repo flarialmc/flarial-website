@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { format, parseISO } from "date-fns";
 import type { ChangelogEntry } from "../lib/changelog";
 import { cn } from "../components/util/cn";
+import { CopyChangelogLink } from "./CopyChangelogLink";
 import "./prose.css";
 
 interface Props {
@@ -92,13 +93,20 @@ export function ChangelogTimeline({ entries, tags }: Props) {
                       {entry.title}
                     </Link>
                   </h2>
-                  <Link
-                    href={`/changelog/${entry.slug}/`}
-                    className="shrink-0 font-mono text-[10.5px] uppercase tracking-widest text-[var(--color-accent)] transition-colors hover:text-white"
-                    aria-label={`Open ${entry.title} changelog only`}
-                  >
-                    Link ↗
-                  </Link>
+                  <div className="flex shrink-0 items-center gap-3 font-mono text-[10.5px] uppercase tracking-widest">
+                    <CopyChangelogLink
+                      slug={entry.slug}
+                      title={entry.title}
+                      className="text-[var(--color-accent)] transition-colors hover:text-white"
+                    />
+                    <Link
+                      href={`/changelog/${entry.slug}/`}
+                      className="text-[var(--color-accent)] transition-colors hover:text-white"
+                      aria-label={`Open ${entry.title} changelog only`}
+                    >
+                      Open ↗
+                    </Link>
+                  </div>
                 </div>
                 <div
                   className="prose-flarial text-[14.5px] leading-relaxed text-[var(--color-text)]"

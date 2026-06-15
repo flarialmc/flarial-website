@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { format, parseISO } from "date-fns";
 import { getAllChangelogs, getChangelogBySlug } from "../../lib/changelog";
+import { CopyChangelogLink } from "../CopyChangelogLink";
 import "../prose.css";
 
 interface Props {
@@ -39,13 +40,18 @@ export default async function ChangelogEntryPage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12 sm:py-16">
-      <div className="mb-8">
+      <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <Link
           href="/changelog/"
           className="font-mono text-[11px] uppercase tracking-widest text-[var(--color-accent)] transition-colors hover:text-white"
         >
           ← All changelogs
         </Link>
+        <CopyChangelogLink
+          slug={entry.slug}
+          title={entry.title}
+          className="rounded-[var(--radius-md)] bg-[var(--color-bg-nav)] px-3 py-2 font-mono text-[11px] uppercase tracking-widest text-[var(--color-accent)] transition-colors hover:text-white"
+        />
       </div>
 
       <article
