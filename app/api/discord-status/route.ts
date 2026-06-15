@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-static";
+
 const DISCORD_WIDGET_URL = "https://discord.com/api/guilds/1109996020471427152/widget.json";
 
 export async function GET() {
