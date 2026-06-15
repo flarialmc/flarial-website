@@ -13,6 +13,7 @@ const NAV = [
   { href: "/docs", label: "Docs" },
   { href: "/partnerships", label: "Partnerships" },
   { href: "/faq", label: "FAQ" },
+  { href: "/team", label: "Team" },
 ];
 
 const docsStorageKey = "flarial:last-docs-article";
