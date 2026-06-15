@@ -115,17 +115,14 @@ export const flarialNametagIconArticle: DocsArticle = {
         <section className={sectionFrameClass} style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
           <DocsHeading id="logo-types">Logo types</DocsHeading>
           <p>
-            There are seven visible logo states in-game: six special role logos plus the red default logo that every
+            There are eight visible logo states in-game: seven special role logos plus the red default logo that every
             Flarial user gets automatically.
           </p>
           <div className="grid gap-3 md:grid-cols-2">
             {nametagIcons.map((logo) => (
               <div
                 key={logo.role}
-                className={[
-                  "group relative min-w-0 overflow-hidden rounded-[var(--radius-xl)] border border-white/[0.06] bg-black/20 p-4 transition-transform hover:-translate-y-0.5",
-                  logo.role === "Default" ? "md:col-span-2" : "",
-                ].join(" ")}
+                className="group relative min-w-0 overflow-hidden rounded-[var(--radius-xl)] border border-white/[0.06] bg-black/20 p-4 transition-transform hover:-translate-y-0.5"
                 style={{ boxShadow: "var(--shadow-rest)" }}
               >
                 <div
