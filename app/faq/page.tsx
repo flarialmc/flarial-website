@@ -40,7 +40,7 @@ const ENTRIES = [
   },
   {
     q: "Does Flarial work on Android / iOS?",
-    a: "Yes, Flarial is released on Android through Google Play. iOS is not supported and is not planned (Apple sandbox blocks injection).",
+    a: "Yes, Flarial is released on Android through the official APK download. iOS is not supported and is not planned (Apple sandbox blocks injection).",
   },
   {
     q: "Will Flarial keep getting updates?",
