@@ -91,20 +91,18 @@ export function TeamGrid({ members }: TeamGridProps) {
                     {selectedMember.name}
                   </span>
                 </span>
-                {selectedDescription ? (
-                  <div className="mt-2">
-                    <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
+                <span className="-mt-0.5 block space-y-0.5">
+                  {selectedDescription ? (
+                    <span className="block font-mono text-[10px] uppercase leading-none text-[var(--color-text-mute)]" style={{ letterSpacing: "0.2em" }}>
                       {selectedDescription}
                     </span>
-                  </div>
-                ) : null}
-                {hasCommitData ? (
-                  <div className={selectedMember.description ? "mt-1" : "mt-2"}>
-                    <span className="font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
+                  ) : null}
+                  {hasCommitData ? (
+                    <span className="block font-mono text-[10px] uppercase leading-none text-[var(--color-text-mute)]" style={{ letterSpacing: "0.2em" }}>
                       {selectedMember.commits!.toLocaleString()} commits
                     </span>
-                  </div>
-                ) : null}
+                  ) : null}
+                </span>
               </span>
             </div>
             {hasRepoData ? (
@@ -160,7 +158,7 @@ export function TeamGrid({ members }: TeamGridProps) {
               key={member.name}
               type="button"
               onClick={() => setSelectedName(member.name)}
-              className="group flex min-h-[80px] items-center gap-3 rounded-[20px] px-4 py-4 text-left transition duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+              className="group flex min-h-[74px] items-center gap-3 rounded-[20px] px-4 py-3 text-left transition duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
               style={{
                 background: isSelected ? "rgba(255, 48, 72, 0.16)" : "var(--color-bg-nav)",
                 boxShadow: isSelected ? "0 0 0 1px rgba(255, 48, 72, 0.42), var(--shadow-rest)" : "var(--shadow-rest)",
@@ -175,20 +173,20 @@ export function TeamGrid({ members }: TeamGridProps) {
                   className="h-full w-full object-cover"
                 />
               </span>
-              <span className="min-w-0">
+              <span className="flex min-w-0 flex-col gap-0">
                 <span className="inline-flex min-w-0 items-center gap-2">
                   <img src={member.roleIconSrc ?? role.iconSrc} alt={`${role.label} icon`} className="h-5 w-5" />
-                  <span className="truncate font-display text-[14px] font-semibold text-white">
+                  <span className="truncate font-display text-[14px] font-semibold leading-none text-white">
                     {member.name}
                   </span>
                 </span>
-                <div className="mt-1">
-                  <span className="font-mono text-[9.5px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.22em" }}>
+                <span className="-mt-0.5 block">
+                  <span className="font-mono text-[9.5px] uppercase leading-none text-[var(--color-text-mute)]" style={{ letterSpacing: "0.2em" }}>
                     {typeof member.commits === "number"
                       ? `${member.commits.toLocaleString()} commits`
                       : role.label}
                   </span>
-                </div>
+                </span>
               </span>
             </button>
           );
