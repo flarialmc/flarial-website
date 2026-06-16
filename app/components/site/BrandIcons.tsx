@@ -25,6 +25,14 @@ export function YoutubeIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function TikTokIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...props}>
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.31 0 .62.05.91.15V9.4a6.33 6.33 0 0 0-.91-.07A6.34 6.34 0 0 0 5 20.17a6.34 6.34 0 0 0 10.86-4.5V8.74a8.16 8.16 0 0 0 4.77 1.53V6.82a4.87 4.87 0 0 1-1.04-.13Z" />
+    </svg>
+  );
+}
+
 export function DiscordIcon(props: SVGProps<SVGSVGElement>) {
   /* SimpleIcons Discord SVG verbatim — 0 0 24 24, content roughly y=3.2→20.97 */
   return (

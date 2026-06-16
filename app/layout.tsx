@@ -154,6 +154,7 @@ export default function RootLayout({
                   sameAs: [
                     "https://discord.gg/flarial",
                     "https://www.youtube.com/@flarialclient",
+                    "https://www.tiktok.com/@flarialclient",
                   ],
                 },
                 {

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Mail, ArrowRight } from "lucide-react";
-import { DiscordIcon, YoutubeIcon } from "../components/site/BrandIcons";
+import { DiscordIcon, TikTokIcon, YoutubeIcon } from "../components/site/BrandIcons";
+
+const TIKTOK_URL = "https://www.tiktok.com/@flarialclient?_r=1&_t=ZS-97G7ZEzSUsK";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -46,6 +48,13 @@ export default function ContactPage() {
           icon={<YoutubeIcon width={18} height={18} className="text-[#FF0000]" />}
           title="YouTube"
           body="Showcases, tutorials, and update walkthroughs."
+        />
+        <ContactCard
+          href={TIKTOK_URL}
+          external
+          icon={<TikTokIcon width={18} height={18} className="text-white" />}
+          title="TikTok"
+          body="Short clips, previews, and quick Flarial updates."
         />
       </div>
 

@@ -24,6 +24,8 @@ const ITEMS: ShowcaseItem[] = [
   { id: "WH4ogltNDAI", title: "The BEST Bedrock client just updated", tag: "Highlights · 2025" },
 ];
 
+const TIKTOK_URL = "https://www.tiktok.com/@flarialclient?_r=1&_t=ZS-97G7ZEzSUsK";
+
 export function Showcase() {
   const [active, setActive] = useState<ShowcaseItem>(ITEMS[0]);
   const [playing, setPlaying] = useState(false);
@@ -175,7 +177,7 @@ export function Showcase() {
           More on YouTube
         </a>
         <a
-          href="https://www.tiktok.com/search?q=flarial+client"
+          href={TIKTOK_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[var(--radius-4xl)] font-mono text-[10.5px] uppercase tracking-widest text-[var(--color-text-mute)] hover:text-white transition-colors"

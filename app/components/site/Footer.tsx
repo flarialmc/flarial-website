@@ -3,8 +3,10 @@
 import Link from "next/link";
 import * as React from "react";
 import { FlarialLogo } from "./FlarialLogo";
-import { YoutubeIcon, DiscordIcon } from "./BrandIcons";
+import { YoutubeIcon, DiscordIcon, TikTokIcon } from "./BrandIcons";
 import type { SVGProps } from "react";
+
+const TIKTOK_URL = "https://www.tiktok.com/@flarialclient?_r=1&_t=ZS-97G7ZEzSUsK";
 
 const COLS = [
   {
@@ -33,6 +35,7 @@ const COLS = [
       { href: "/contact", label: "Contact" },
       { href: "https://discord.gg/flarial", label: "Discord", external: true },
       { href: "https://www.youtube.com/@flarialclient", label: "YouTube", external: true },
+      { href: TIKTOK_URL, label: "TikTok", external: true },
     ],
   },
   {
@@ -69,6 +72,7 @@ export function Footer() {
           <div className="flex items-center gap-2 pt-2">
             <SocialLink href="https://discord.gg/flarial" icon={DiscordIcon} label="Discord" />
             <SocialLink href="https://www.youtube.com/@flarialclient" icon={YoutubeIcon} label="YouTube" />
+            <SocialLink href={TIKTOK_URL} icon={TikTokIcon} label="TikTok" />
           </div>
         </div>
         {COLS.map((col) => (
