@@ -130,15 +130,28 @@ export function Navbar({ onOpenPalette: _ = () => {} }: { onOpenPalette?: () => 
       animate={{ y: revealed ? 0 : "-110%" }}
       transition={{ type: "spring", stiffness: 200, damping: 30, mass: 0.9 }}
       className={cn(
-        "pointer-events-auto fixed top-0 inset-x-0 z-50 backdrop-blur-md",
-        scrolled ? "bg-[var(--color-bg-base)]/82" : "bg-[var(--color-bg-base)]/60",
+        "pointer-events-auto fixed top-0 inset-x-0 z-50 overflow-visible",
       )}
-      style={{
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.04)" : "1px solid transparent",
-        transition: "background-color 200ms, border-color 200ms",
-      }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4 lg:gap-6">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-2 top-0 h-16 rounded-b-[28px] backdrop-blur-md sm:inset-x-4 sm:h-20 sm:rounded-b-[34px]"
+        style={{
+          background: scrolled ? "rgba(18,14,15,0.86)" : "rgba(18,14,15,0.72)",
+          boxShadow: scrolled ? "0 12px 30px rgba(0,0,0,0.22)" : "0 8px 22px rgba(0,0,0,0.14)",
+          transition: "background 200ms ease, box-shadow 200ms ease",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-2 top-0 h-16 rounded-b-[28px] sm:inset-x-4 sm:h-20 sm:rounded-b-[34px]"
+        style={{
+          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.045)" : "1px solid rgba(255,255,255,0.025)",
+          transition: "border-color 200ms ease",
+        }}
+      />
+
+      <div className="relative mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-4 sm:h-20 sm:gap-4 sm:px-6 lg:gap-6">
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
           <FlarialLogo className="w-8 h-8 sm:w-9 sm:h-9" />
           <span className="font-display font-bold text-[17px] sm:text-[19px] tracking-[-0.015em] text-white">
