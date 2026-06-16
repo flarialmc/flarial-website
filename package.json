@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/strip-nomodule.mjs",
+    "build": "node scripts/sync-module-list.mjs && next build && node scripts/strip-nomodule.mjs",
     "optimize-images": "node scripts/optimize-images.mjs",
-    "start": "next start"
+    "start": "next start",
+    "sync:modules": "node scripts/sync-module-list.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
