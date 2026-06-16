@@ -141,9 +141,6 @@ export function ModulesListCatalog({
                   <span className="rounded-full bg-[var(--color-bg-subtle)] px-2.5 py-1 text-[11px] text-white">
                     {module.category}
                   </span>
-                  <span className="rounded-full bg-black/25 px-2.5 py-1 text-[11px] text-[var(--color-text-mute)]">
-                    {module.settingsCount} settings
-                  </span>
                 </div>
               </div>
             ))}
