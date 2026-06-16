@@ -92,8 +92,8 @@ export const androidModuleDetails = [
     source: "Keystrokes",
   },
   {
-    name: "Reach",
-    description: "Displays your last hit distance.",
+    name: "Reach Counter",
+    description: "Displays your last hit distance only. This is not a reach cheat or reach extender.",
     icon: "/mod-icons/reach.png",
     settingsCount: 0,
     category: "HUD",
