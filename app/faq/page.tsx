@@ -42,6 +42,47 @@ const ENTRIES = [
     q: "Does Flarial work on Android / iOS?",
     a: "Yes, Flarial is released on Android through the official APK download. iOS is not supported and is not planned (Apple sandbox blocks injection).",
   },
+
+  {
+    q: "Flarial launched, but nothing shows or K does not open the menu. What do I do?",
+    a: "Close Minecraft completely, reopen it through the Flarial launcher, join a world or server, then press K. If K still does not open ClickGUI, run .bind clickgui K in chat and try again. Make sure your HUD modules are enabled and on-screen. If the UI is still invisible, reset or delete your Flarial config and relaunch; this resets your settings.",
+  },
+  {
+    q: "Why does my Minecraft version say unsupported or why does 26.21 not work?",
+    a: "Flarial has to be updated for specific Minecraft Bedrock builds. New or beta builds can be unsupported or unstable even if they launch. Check the launcher, Discord announcements, or support channels for the current supported version. If you are on a newer broken build, use the Flarial version switcher to install the supported version, restart the launcher, and avoid auto-updating until support is announced.",
+  },
+  {
+    q: "Why can’t I open the Flarial DLL directly?",
+    a: "The DLL is not an app or installer. It is a library that must be loaded by the Flarial launcher/injector. Do not double-click the DLL or try to register it with Windows. Download the official launcher from the Flarial website, launch Minecraft Bedrock if needed, then use the launcher to inject Flarial.",
+  },
+  {
+    q: "Why does the launcher say launch failed, connection failure, or get stuck downloading?",
+    a: "Most of these are network, DNS, antivirus, firewall, or CDN path issues. Restart the launcher once, then try another network such as a mobile hotspot. If that works, your normal network is blocking the path. You can also try Cloudflare DNS (1.1.1.1), Cloudflare WARP, or a reputable VPN, and make sure your antivirus/firewall allows the official Flarial launcher and cdn.flarial.xyz.",
+  },
+  {
+    q: "Why does Windows say Flarial is unsafe or delete the launcher?",
+    a: "Flarial can trigger SmartScreen or antivirus false positives because the launcher is unsigned or newly updated. Only download it from the official Flarial website/CDN. If SmartScreen appears, click More info, then Run anyway. If Defender or another antivirus quarantines it, only restore or allow it if the file came from the official source.",
+  },
+  {
+    q: "How do I install Flarial on Android, and does iOS work?",
+    a: "Use the official Android APK/download path from Flarial only; do not install random patched APKs or reposts. Android support may depend on the currently supported Minecraft version, so update or switch versions if staff announces that a build is required. iOS is not supported because Apple’s sandbox blocks the same client/modding approach, and we do not recommend jailbreak or sideload workarounds.",
+  },
+  {
+    q: "How do I import Flarial config files?",
+    a: "Press Win + R, paste %localappdata%\\Flarial\\Client\\Config, and press Enter. Put the downloaded .flarial config file in that folder, then relaunch Minecraft/Flarial or reopen the config menu. If it still does not show, make sure the file is actually a .flarial config and not a zip or wrapper file.",
+  },
+  {
+    q: "How do I move FPS, CPS, Keystrokes, or other HUD modules?",
+    a: "Join a world or server with Flarial injected, open the menu with K, then press L while the menu is open or click the pen/edit icon to enter HUD edit mode. Drag the HUD modules where you want them, then close edit mode. If K does not open the menu, fix ClickGUI first.",
+  },
+  {
+    q: "What should I do if Minecraft freezes or crashes after leaving a server or enabling Better Frames?",
+    a: "Close Minecraft and the Flarial launcher completely, reopen the launcher so it can pull the latest client update, then retest. If the issue started after enabling Better Frames or VSync Disabler, leave those disabled for now. If Minecraft cannot stay open, run .clearconfig if available or delete the Flarial config folder, then relaunch. If it still happens, use the last staff-recommended stable Minecraft version and send logs in support.",
+  },
+  {
+    q: "What should I include when reporting a crash or bug?",
+    a: "Include your Minecraft Bedrock version, Flarial launcher/client version, whether you are on Windows or Android, what you clicked right before it broke, enabled modules that might be related, screenshots or screen recordings, and any crash logs or launcher logs. For crashes, explain whether it happens on launch, injection, joining a world/server, leaving a server, or pressing a keybind.",
+  },
   {
     q: "Will Flarial keep getting updates?",
     a: "Yes — the changelog has been rolling weekly since 2023. The development team is volunteer-run; pace tracks Minecraft Bedrock releases.",
