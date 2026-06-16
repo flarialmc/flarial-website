@@ -22,7 +22,7 @@ export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
 
   return (
     <div className="flex flex-col items-center gap-5">
-      <div className="flex flex-col sm:flex-row items-stretch justify-center gap-2.5">
+      <div className="flex w-full max-w-[360px] flex-col items-stretch justify-center gap-2.5 sm:max-w-none sm:flex-row">
         <PrimaryLink href={WINDOWS_URL} h={h} padX={downloadPadX} className="order-2 sm:order-1">
           <WindowsGlyph size={iconSize} />
           <span className="relative text-left leading-tight">
@@ -90,11 +90,11 @@ function PrimaryLink({
       whileHover={{ y: -2 }}
       whileTap={{ y: 1, scale: 0.985 }}
       transition={{ type: "spring", stiffness: 200, damping: 26, mass: 0.85 }}
-      className={className}
+      className={`w-full sm:w-auto ${className}`}
     >
       <Link
         href={href}
-        className={`group relative inline-flex items-center gap-3 ${padX} ${h} rounded-[14px] text-white overflow-hidden w-full sm:w-auto`}
+        className={`group relative inline-flex w-full items-center gap-3 overflow-hidden rounded-[14px] text-white sm:w-auto ${padX} ${h}`}
         style={{
           background: "var(--color-accent)",
           boxShadow: [
@@ -125,7 +125,7 @@ function SecondaryShell({
   return (
     <span
       {...rest}
-      className={`group relative inline-flex items-center gap-3 ${padX} ${h} rounded-[14px] text-white overflow-hidden w-full sm:w-auto cursor-pointer`}
+      className={`group relative inline-flex w-full items-center gap-3 overflow-hidden rounded-[14px] text-white sm:w-auto ${padX} ${h} cursor-pointer`}
       style={{
         background: "var(--color-bg-nav)",
         boxShadow: [
@@ -157,6 +157,7 @@ function SecondaryLink({
       whileHover={{ y: -2 }}
       whileTap={{ y: 1, scale: 0.985 }}
       transition={{ type: "spring", stiffness: 200, damping: 26, mass: 0.85 }}
+      className="w-full max-w-[360px] sm:w-auto sm:max-w-none"
     >
       <Link
         href={href}

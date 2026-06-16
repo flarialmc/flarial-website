@@ -47,27 +47,27 @@ export function DiscordCommunity() {
   }, []);
 
   return (
-    <section className="relative px-4 sm:px-6 mx-auto max-w-5xl pb-24">
+    <section className="relative mx-auto max-w-5xl px-4 pb-20 sm:px-6 sm:pb-24">
       <div
-        className="rounded-[var(--radius-5xl)] border border-white/10 p-7 sm:p-10"
+        className="overflow-hidden rounded-[28px] border border-white/10 p-5 sm:rounded-[var(--radius-5xl)] sm:p-10"
         style={{
           background: "var(--color-bg-nav)",
           boxShadow: "var(--shadow-rest)",
         }}
       >
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex items-start gap-4">
-            <span className="grid h-14 w-14 place-items-center rounded-[20px] bg-[#5865F2] text-white">
-              <DiscordIcon width={28} height={28} />
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-start">
+            <span className="grid h-12 w-12 shrink-0 place-items-center rounded-[16px] bg-[#5865F2] text-white sm:h-14 sm:w-14 sm:rounded-[20px]">
+              <DiscordIcon width={24} height={24} className="sm:h-7 sm:w-7" />
             </span>
-            <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--color-accent)]">
+            <div className="min-w-0">
+              <div className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-[var(--color-accent)] sm:text-[10px] sm:tracking-[0.24em]">
                 Discord community
               </div>
-              <h2 className="mt-3 font-display text-[28px] sm:text-[34px] font-semibold tracking-tight text-white">
+              <h2 className="mt-2 font-display text-[25px] font-semibold leading-[1.05] tracking-tight text-white sm:mt-3 sm:text-[34px]">
                 Active support, updates, and player chat.
               </h2>
-              <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-[var(--color-text-mute)]">
+              <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-[var(--color-text-mute)] sm:text-[15px]">
                 Join Flarial&apos;s Discord server for live help, announcements, and an active Minecraft Bedrock community.
               </p>
             </div>
@@ -77,18 +77,18 @@ export function DiscordCommunity() {
             href="https://discord.gg/flarial"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-[16px] bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-black transition hover:bg-[#4d82ff]"
+            className="inline-flex w-full items-center justify-center rounded-[16px] bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-black transition hover:bg-[#4d82ff] sm:w-auto"
           >
             Join Discord
           </a>
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-[var(--radius-lg)] border border-white/8 p-5" style={{ background: "rgba(48, 39, 40, 0.82)" }}>
-            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/70">
+        <div className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="min-w-0 rounded-[var(--radius-lg)] border border-white/8 p-4 sm:p-5" style={{ background: "rgba(48, 39, 40, 0.82)" }}>
+            <div className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-white/70 sm:text-[10px] sm:tracking-[0.24em]">
               Online now
             </div>
-            <div className="mt-2 font-display text-[32px] font-semibold text-white tabular-nums">
+            <div className="mt-2 break-words font-display text-[28px] font-semibold text-white tabular-nums sm:text-[32px]">
               {onlineCount === null ? (requestFailed ? "unavailable" : "—") : onlineCount.toLocaleString()}
             </div>
             <div className="mt-1 text-[12px] text-[var(--color-text-mute)]">
@@ -96,11 +96,11 @@ export function DiscordCommunity() {
             </div>
           </div>
 
-          <div className="rounded-[var(--radius-lg)] border border-white/8 p-5" style={{ background: "rgba(48, 39, 40, 0.82)" }}>
-            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/70">
+          <div className="min-w-0 rounded-[var(--radius-lg)] border border-white/8 p-4 sm:p-5" style={{ background: "rgba(48, 39, 40, 0.82)" }}>
+            <div className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-white/70 sm:text-[10px] sm:tracking-[0.24em]">
               Server size
             </div>
-            <div className="mt-2 font-display text-[32px] font-semibold text-white">
+            <div className="mt-2 break-words font-display text-[28px] font-semibold text-white sm:text-[32px]">
               {memberCount === null ? "100k+" : memberCount.toLocaleString()}
             </div>
             <div className="mt-1 text-[12px] text-[var(--color-text-mute)]">
@@ -108,11 +108,11 @@ export function DiscordCommunity() {
             </div>
           </div>
 
-          <div className="rounded-[var(--radius-lg)] border border-white/8 p-5" style={{ background: "rgba(48, 39, 40, 0.82)" }}>
-            <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-white/70">
+          <div className="min-w-0 rounded-[var(--radius-lg)] border border-white/8 p-4 sm:p-5" style={{ background: "rgba(48, 39, 40, 0.82)" }}>
+            <div className="font-mono text-[9.5px] uppercase tracking-[0.18em] text-white/70 sm:text-[10px] sm:tracking-[0.24em]">
               Community activity
             </div>
-            <div className="mt-2 font-display text-[32px] font-semibold text-white">
+            <div className="mt-2 font-display text-[28px] font-semibold text-white sm:text-[32px]">
               24/7
             </div>
             <div className="mt-1 text-[12px] text-[var(--color-text-mute)]">

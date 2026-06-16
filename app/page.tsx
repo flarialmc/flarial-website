@@ -37,9 +37,9 @@ export default function Home() {
   return (
     <div className="relative">
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[82svh] w-full items-center justify-center overflow-hidden sm:min-h-screen">
         <HeroBackground />
-        <div className="relative px-4 sm:px-6 mx-auto max-w-5xl text-center py-16 sm:py-24">
+        <div className="relative mx-auto max-w-5xl px-4 py-14 text-center sm:px-6 sm:py-24">
           <h1
             className="font-display font-semibold tracking-[-0.045em] text-white mx-auto"
             style={{ fontSize: "clamp(2.75rem, 9vw, 8rem)", lineHeight: 0.95 }}
@@ -48,7 +48,7 @@ export default function Home() {
             <br />
             Bedrock Client<span className="text-[var(--color-accent)]">.</span>
           </h1>
-          <div className="mt-14 flex justify-center">
+          <div className="mt-10 flex justify-center sm:mt-14">
             <DownloadButton />
           </div>
         </div>
@@ -60,15 +60,15 @@ export default function Home() {
       <Showcase />
 
       {/* ── SEO / topical content ─────────────────────────────────── */}
-      <section className="relative px-4 sm:px-6 mx-auto max-w-5xl pb-24">
+      <section className="relative mx-auto max-w-5xl px-4 pb-20 sm:px-6 sm:pb-24">
         <div className="max-w-2xl">
           <div className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[var(--color-accent)] mb-3">
             The basics
           </div>
-          <h2 className="font-display text-[28px] sm:text-[40px] font-semibold tracking-tight text-white">
+          <h2 className="font-display text-[28px] font-semibold tracking-tight text-white sm:text-[40px]">
             What is a Minecraft Bedrock client?
           </h2>
-          <p className="mt-5 text-[15px] sm:text-[16px] leading-relaxed text-[var(--color-text-mute)]">
+          <p className="mt-5 text-[15px] leading-relaxed text-[var(--color-text-mute)] sm:text-[16px]">
             A Minecraft Bedrock client is a utility layer for Minecraft Bedrock
             Edition that adds quality-of-life features the base game leaves out —
             an FPS boost, on-screen HUD modules, and a ClickGUI for toggling
@@ -101,9 +101,9 @@ export default function Home() {
       </section>
 
       {/* ── Final CTA ─────────────────────────────────────────────── */}
-      <section className="relative px-4 sm:px-6 mx-auto max-w-5xl pb-24 sm:pb-32">
+      <section className="relative mx-auto max-w-5xl px-4 pb-20 sm:px-6 sm:pb-32">
         <div
-          className="rounded-[var(--radius-5xl)] p-10 sm:p-14 text-center relative overflow-hidden"
+          className="relative overflow-hidden rounded-[28px] p-6 text-center sm:rounded-[var(--radius-5xl)] sm:p-14"
           style={{ background: "var(--color-bg-nav)" }}
         >
           <div
@@ -115,7 +115,7 @@ export default function Home() {
               filter: "blur(30px)",
             }}
           />
-          <h2 className="relative font-display text-[34px] sm:text-[48px] font-semibold tracking-tight text-white leading-tight">
+          <h2 className="relative font-display text-[32px] font-semibold leading-tight tracking-tight text-white sm:text-[48px]">
             Ready when you are.
           </h2>
           <p className="relative mt-3 text-[14px] sm:text-[15px] text-[var(--color-text-mute)] max-w-md mx-auto">

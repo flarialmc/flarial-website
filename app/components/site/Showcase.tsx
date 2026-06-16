@@ -33,13 +33,13 @@ export function Showcase() {
   return (
     <section
       id="showcase"
-      className="relative px-4 sm:px-6 mx-auto max-w-7xl pb-24"
+      className="relative mx-auto max-w-7xl px-4 pb-20 sm:px-6 sm:pb-24"
     >
-      <div className="text-center mb-10">
-        <div className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[var(--color-accent)] mb-2">
+      <div className="mb-8 text-center sm:mb-10">
+        <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-accent)] sm:text-[10.5px] sm:tracking-[0.22em]">
           Seen on YouTube
         </div>
-        <h2 className="font-display text-[28px] sm:text-[40px] font-semibold tracking-tight text-white">
+        <h2 className="font-display text-[28px] font-semibold tracking-tight text-white sm:text-[40px]">
           See it in the wild.
         </h2>
       </div>
@@ -76,7 +76,7 @@ export function Showcase() {
             >
               <div className="absolute inset-0 grid place-items-center">
                 <div
-                  className="grid place-items-center w-20 h-20 sm:w-24 sm:h-24 rounded-full transition-transform group-hover:scale-110"
+                  className="grid h-16 w-16 place-items-center rounded-full transition-transform group-hover:scale-110 sm:h-24 sm:w-24"
                   style={{
                     background: "var(--color-accent)",
                     boxShadow:
@@ -84,18 +84,18 @@ export function Showcase() {
                   }}
                 >
                   <Play
-                    size={36}
+                    size={30}
                     fill="white"
                     strokeWidth={0}
                     className="ml-1"
                   />
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 bg-gradient-to-t from-black/80 to-transparent text-left">
-                <div className="font-mono text-[10.5px] uppercase tracking-widest text-white/75 mb-1">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-left sm:p-6">
+                <div className="mb-1 font-mono text-[9.5px] uppercase tracking-widest text-white/75 sm:text-[10.5px]">
                   YouTube · {active.tag}
                 </div>
-                <div className="font-display text-[18px] sm:text-[22px] font-semibold text-white">
+                <div className="font-display text-[16px] font-semibold leading-tight text-white sm:text-[22px]">
                   {active.title}
                 </div>
               </div>
@@ -127,7 +127,7 @@ export function Showcase() {
                   }}
                 >
                   <div
-                    className="relative h-[72px] w-28 shrink-0 sm:h-[78px] sm:w-32 lg:h-full"
+                    className="relative h-[68px] w-24 shrink-0 sm:h-[78px] sm:w-32 lg:h-full"
                     style={{
                       backgroundImage: `url('https://i.ytimg.com/vi/${it.id}/mqdefault.jpg')`,
                       backgroundSize: "cover",
@@ -151,10 +151,10 @@ export function Showcase() {
                     ) : null}
                   </div>
                   <div className="min-w-0 flex-1 py-2 pr-3">
-                    <div className="font-mono text-[9.5px] uppercase tracking-widest text-[var(--color-text-dim)]">
+                    <div className="truncate font-mono text-[9px] uppercase tracking-widest text-[var(--color-text-dim)] sm:text-[9.5px]">
                       YouTube · {it.tag}
                     </div>
-                    <div className="font-medium text-[12.5px] text-white leading-tight mt-0.5 line-clamp-2">
+                    <div className="mt-0.5 line-clamp-2 text-[12px] font-medium leading-tight text-white sm:text-[12.5px]">
                       {it.title}
                     </div>
                   </div>
