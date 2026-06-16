@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type SyntheticEvent } from "react";
 
 export type TeamMember = {
   name: string;
@@ -43,6 +43,12 @@ type TeamGridProps = {
   members: TeamMember[];
 };
 
+function replaceBrokenImage(event: SyntheticEvent<HTMLImageElement>, fallbackSrc: string) {
+  const image = event.currentTarget;
+  if (image.src.endsWith(fallbackSrc)) return;
+  image.src = fallbackSrc;
+}
+
 export function TeamGrid({ members }: TeamGridProps) {
   const [selectedName, setSelectedName] = useState(members[0]?.name ?? "");
 
@@ -82,6 +88,7 @@ export function TeamGrid({ members }: TeamGridProps) {
                   alt="Role avatar"
                   loading="lazy"
                   className="h-full w-full object-cover"
+                  onError={(event) => replaceBrokenImage(event, selectedRole.avatarFallback)}
                 />
               </span>
               <span className="min-w-0">
@@ -171,6 +178,7 @@ export function TeamGrid({ members }: TeamGridProps) {
                   alt="Role avatar"
                   loading="lazy"
                   className="h-full w-full object-cover"
+                  onError={(event) => replaceBrokenImage(event, role.avatarFallback)}
                 />
               </span>
               <span className="flex min-w-0 flex-col gap-0">

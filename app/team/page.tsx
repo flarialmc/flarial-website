@@ -46,7 +46,7 @@ const MEMBERS: TeamMember[] = [
   { name: "AkmalFairuz", role: "Developer", commits: 1, repos: [{ name: "dll-oss", commits: 1 }] },
   { name: "ApelBarakDev", role: "Developer", commits: 1, repos: [{ name: "dll-oss", commits: 1 }] },
   { name: "ISBP", role: "Developer", commits: 1, repos: [{ name: "dll-oss", commits: 1 }] },
-  { name: "zGqat", role: "Marketing", avatarUrl: "https://cdn.discordapp.com/attachments/779960572451487764/1516063682533130360/IMG_2014.PNG?ex=6a3147d5&is=6a2ff655&hm=e3c4cc998ed921a5600e59c922fb9eaf8a0012d5d7745e75b399ecc3c08b7b26" },
+  { name: "zGqat", role: "Marketing", avatarUrl: "/team/zgqat.png" },
   { name: "tedyy", role: "Marketing", avatarUrl: "https://cdn.discordapp.com/attachments/779960572451487764/1516072026031259729/6d3084519adcaed03805f3c5f0426748.webp?ex=6a314f9a&is=6a2ffe1a&hm=1ee6e13d04453c2f12437ab5512637afbef3f891ef4648bdbb9b8e6e130a7657" },
   { name: "zzAdii", role: "Marketing", avatarUrl: "https://cdn.discordapp.com/attachments/1400876732633841756/1516073574111383693/cea0a440eb6b48f16505052de1f46a9b.webp?ex=6a31510b&is=6a2fff8b&hm=93c9067220c5cb45a7d237480f725236bb3bda9e676c96fe4a66543f4078c046" },
 ];
