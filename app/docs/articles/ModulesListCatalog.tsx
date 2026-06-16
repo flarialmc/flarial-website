@@ -62,8 +62,23 @@ export function ModulesListCatalog({
     [androidGroups, windowsGroups],
   );
   const [activePlatform, setActivePlatform] = useState<PlatformKey>("windows");
+  const [searchQuery, setSearchQuery] = useState("");
   const activeCatalog = catalogs.find((catalog) => catalog.key === activePlatform) ?? catalogs[0];
+  const normalizedSearch = searchQuery.trim().toLowerCase();
+  const filteredGroups = useMemo(
+    () =>
+      activeCatalog.groups
+        .map((group) => ({
+          ...group,
+          modules: normalizedSearch
+            ? group.modules.filter((module) => module.name.toLowerCase().includes(normalizedSearch))
+            : group.modules,
+        }))
+        .filter((group) => group.modules.length > 0),
+    [activeCatalog.groups, normalizedSearch],
+  );
   const totalModules = countModules(activeCatalog.groups);
+  const visibleModules = countModules(filteredGroups);
 
   return (
     <div className="grid gap-4">
@@ -72,7 +87,9 @@ export function ModulesListCatalog({
         style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}
       >
         <div>
-          <span className="font-display font-semibold">{totalModules} modules</span>
+          <span className="font-display font-semibold">
+            {normalizedSearch ? `${visibleModules} of ${totalModules} modules` : `${totalModules} modules`}
+          </span>
           <p className="mt-1 max-w-xl text-[12px] leading-relaxed text-[var(--color-text-mute)]">
             Note that some modules may be disabled for specific versions due to bugs and glitches.
           </p>
@@ -110,7 +127,25 @@ export function ModulesListCatalog({
         </div>
       </div>
 
-      {activeCatalog.groups.map((group) => (
+      <div
+        className="rounded-[var(--radius-xl)] p-4"
+        style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}
+      >
+        <label htmlFor="module-search" className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--color-text-mute)]">
+          Search modules
+        </label>
+        <input
+          id="module-search"
+          type="search"
+          value={searchQuery}
+          onChange={(event) => setSearchQuery(event.target.value)}
+          placeholder={`Search ${activeCatalog.label} modules by name...`}
+          className="mt-2 w-full rounded-[var(--radius-lg)] border border-white/[0.08] bg-black/25 px-4 py-3 font-display text-[15px] text-white outline-none transition-colors placeholder:text-[var(--color-text-mute)] focus:border-[var(--color-accent)]"
+        />
+      </div>
+
+      {filteredGroups.length > 0 ? (
+        filteredGroups.map((group) => (
         <section
           key={`${activeCatalog.key}-${group.category}`}
           className={sectionFrameClass}
@@ -146,7 +181,15 @@ export function ModulesListCatalog({
             ))}
           </div>
         </section>
-      ))}
+        ))
+      ) : (
+        <div
+          className="rounded-[var(--radius-xl)] p-6 text-center text-[14px] text-[var(--color-text-mute)]"
+          style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}
+        >
+          No {activeCatalog.label} modules found for “{searchQuery.trim()}”.
+        </div>
+      )}
     </div>
   );
 }
