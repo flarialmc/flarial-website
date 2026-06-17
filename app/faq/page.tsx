@@ -105,6 +105,11 @@ const CATEGORIES: FAQCategory[] = [
         a: "Use the official Android APK/download path from Flarial only; do not install random patched APKs or reposts. Android support may depend on the currently supported Minecraft version, so update or switch versions if staff announces that a build is required. iOS is not supported because Apple’s sandbox blocks the same client/modding approach, and we do not recommend jailbreak or sideload workarounds.",
       },
       {
+        q: "How do I downgrade Minecraft on Android?",
+        short: "Follow the official support tutorial when Android needs an older supported Minecraft build.",
+        a: "If the current Android client requires an older supported Minecraft build, follow the support tutorial here: https://youtu.be/Lbu2rQDIPzU. Only use trusted sources and avoid random patched Minecraft APKs or reposted Flarial APKs.",
+      },
+      {
         q: "How do I become a Flarial mobile tester?",
         short: "Use official tester forms/pins only, and wait if applications are closed.",
         a: "If tester applications are open, use the official tester form or pinned tester instructions. If applications are closed, wait for a public release or the next tester opening. Do not use unofficial APK links. If the form asks whether you have a PC, answer honestly.",
