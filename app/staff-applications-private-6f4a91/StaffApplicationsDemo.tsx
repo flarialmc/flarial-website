@@ -178,7 +178,7 @@ export default function StaffApplicationsDemo() {
       <section className="relative mt-10 grid gap-4 md:grid-cols-4">
         <InfoCard icon={UserRound} title="Player-facing" text="The demo is only the applicant experience, not staff admin tools." />
         <InfoCard icon={FileText} title="Structured answers" text="Questions are grouped so staff can compare applications fairly." />
-        <InfoCard icon={MessageCircle} title="Discord result" text="In production, results would be sent to the applicant on Discord." />
+        <InfoCard icon={MessageCircle} title="Discord identity" text="Applicants start by verifying the Discord account staff will contact." />
         <InfoCard icon={Clock3} title="Review queue" text="Applicants know what happens after they click submit." />
       </section>
 
