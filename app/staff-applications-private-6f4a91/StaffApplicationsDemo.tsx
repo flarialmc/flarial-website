@@ -15,7 +15,7 @@ import {
   UsersRound,
 } from "lucide-react";
 
-const steps = ["Basics", "Experience", "Scenarios", "Review"] as const;
+const steps = ["Discord", "Basics", "Experience", "Scenarios", "Review"] as const;
 
 const sections = [
   {
@@ -129,9 +129,11 @@ function InfoCard({ icon: Icon, title, text }: { icon: typeof ShieldCheck; title
 
 export default function StaffApplicationsDemo() {
   const [step, setStep] = useState(0);
-  const activeSection = sections[step];
-  const progress = useMemo(() => Math.round(((step + 1) / (sections.length + 1)) * 100), [step]);
-  const isReview = step === sections.length;
+  const formStep = Math.max(0, step - 1);
+  const activeSection = sections[formStep];
+  const progress = useMemo(() => Math.round(((step + 1) / steps.length) * 100), [step]);
+  const isLogin = step === 0;
+  const isReview = step === steps.length - 1;
 
   return (
     <div className="relative mx-auto w-full max-w-7xl overflow-hidden px-4 py-12 sm:px-6 sm:py-16">
@@ -148,8 +150,8 @@ export default function StaffApplicationsDemo() {
             Apply to help the Flarial community.
           </h1>
           <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-[var(--color-text-mute)] sm:text-[16px]">
-            This demo shows the actual application process a player would see: a clean multi-step form, Flarial-styled
-            questions, review expectations, and a final submit screen. Discord login is skipped here for preview.
+            This private preview shows the application process a player would see: Discord identity first, then a clean
+            multi-step form, Flarial-styled questions, review expectations, and a final submit screen.
           </p>
         </div>
 
@@ -160,7 +162,7 @@ export default function StaffApplicationsDemo() {
             </div>
             <div>
               <div className="font-display text-xl font-semibold text-white">Application preview</div>
-              <div className="text-sm text-[var(--color-text-mute)]">No login needed in this demo.</div>
+              <div className="text-sm text-[var(--color-text-mute)]">Discord identity comes first.</div>
             </div>
           </div>
           <div className="mt-5 h-2 overflow-hidden rounded-full bg-black/30">
@@ -204,7 +206,32 @@ export default function StaffApplicationsDemo() {
         </nav>
 
         <section className="rounded-[32px] border border-white/[0.07] bg-[var(--color-bg-nav)] p-5 sm:p-7" style={{ boxShadow: "var(--shadow-rest)" }}>
-          {!isReview ? (
+          {isLogin ? (
+            <div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-accent)]">Step 1</div>
+              <h2 className="mt-1 font-display text-3xl font-semibold text-white">Connect Discord</h2>
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--color-text-mute)]">
+                The real system should use Discord OAuth so applicants cannot fake usernames. After login, the
+                application stores their stable Discord user ID and uses it for review status/results.
+              </p>
+              <div className="mt-6 rounded-[24px] border border-[var(--color-accent)]/25 bg-[var(--color-accent)]/10 p-5">
+                <div className="flex items-start gap-3">
+                  <ShieldCheck className="mt-1 shrink-0 text-[var(--color-accent)]" size={24} />
+                  <div>
+                    <h3 className="font-display text-xl font-semibold text-white">Discord authorization</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/72">
+                      For this private production preview, continue unlocks the form so staff can review the flow. When
+                      the API endpoint is added, this step becomes the real Discord OAuth redirect.
+                    </p>
+                  </div>
+                </div>
+                <button className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-[16px] bg-[#5865F2] px-4 py-3 font-display text-sm font-semibold text-white">
+                  Continue with Discord
+                  <ArrowRight size={16} />
+                </button>
+              </div>
+            </div>
+          ) : !isReview ? (
             <>
               <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
