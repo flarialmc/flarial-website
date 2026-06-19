@@ -15,6 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/download`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
     { url: `${BASE}/changelog`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE}/docs`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/fixfps`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/mcpe-client`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/best-minecraft-bedrock-client`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/bedrock-launcher`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
