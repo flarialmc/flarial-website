@@ -180,7 +180,7 @@ function AndroidInstallModal({
         </ol>
 
         <div className="mt-5 rounded-[var(--radius-xl)] border border-[rgba(255,35,58,0.28)] bg-black/25 p-4 text-[13px] leading-relaxed text-[var(--color-text-mute)]">
-          Only download Flarial from <span className="text-white">cdn.flarial.xyz</span> or official Flarial links.
+          Only download Flarial from <span className="text-white">flarial.xyz</span> or official Flarial links.
           Random APK mirrors can be fake or unsafe.
         </div>
 

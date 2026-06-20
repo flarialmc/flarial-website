@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is there a Flarial client APK for Android?",
-    a: "Yes. Flarial mobile is distributed as an official APK from Flarial. Only install from cdn.flarial.xyz or links the Flarial team has published officially — any other \"Flarial APK\" is unofficial and unsafe.",
+    a: "Yes. Flarial mobile is distributed as an official APK from Flarial. Only install from flarial.xyz or links the Flarial team has published officially — any other \"Flarial APK\" is unofficial and unsafe.",
   },
   {
     q: "Does Flarial work on iOS (iPhone / iPad)?",
@@ -147,8 +147,8 @@ export default function McpeClientPage() {
                 </Link>{" "}
                 and switch to the Android option, or tap “Download Android APK.”
               </>,
-              "Download Flarial.apk from the official Flarial CDN.",
-              "Do not sideload a random \"Flarial APK\" from third-party sites; only use cdn.flarial.xyz or links the team has published.",
+              "Download Flarial.apk from the official Flarial website.",
+              "Do not sideload a random \"Flarial APK\" from third-party sites; only use flarial.xyz or links the team has published.",
               "Launch Minecraft Bedrock through Flarial and open the in-game menu to configure your modules.",
             ].map((step, index) => (
               <li key={index} className="flex gap-3">
