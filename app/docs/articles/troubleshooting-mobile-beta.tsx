@@ -84,11 +84,11 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
           </li>
           <li>Open Flarial.apk from downloads and install it.</li>
           <li>Launch Minecraft Bedrock through Flarial and open the in-game menu to configure modules.</li>
-          <li>Only use cdn.flarial.xyz or official Flarial links. Avoid third-party APK mirrors.</li>
+          <li>Only use flarial.xyz or official Flarial links. Avoid third-party APK mirrors.</li>
         </ol>
         <InfoCard icon={<Smartphone size={16} className="text-[var(--color-accent)]" />} title="Note">
           <p>
-            Only download Flarial mobile from cdn.flarial.xyz or a link the team has published officially.
+            Only download Flarial mobile from flarial.xyz or a link the team has published officially.
           </p>
         </InfoCard>
       </section>
