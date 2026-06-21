@@ -2,7 +2,7 @@
 
 import { useMemo, useState, type SyntheticEvent } from "react";
 
-export type TeamRole = "Developer" | "Designer" | "Marketing" | "Administrator" | "Executive" | "Volunteer Support";
+export type TeamRole = "Developer" | "Designer" | "Marketing" | "Administrator" | "Executive" | "Volunteer Support" | "Contributor";
 
 export type TeamRoleBadge = {
   id: string;
@@ -80,9 +80,17 @@ const ROLE_DETAILS: Record<TeamRole, {
     iconSrc: "/team-icons/marketing.png",
     avatarFallback: "/team-icons/marketing.png",
   },
+  Contributor: {
+    label: "Contributor",
+    icon: "🤝",
+    background: "var(--color-bg-panel)",
+    color: "#f0b84f",
+    iconSrc: "/team-icons/developer.png",
+    avatarFallback: "/team-icons/developer.png",
+  },
 };
 
-const TEAM_ROLE_ORDER = ["Executive", "Administrator", "Developer", "Marketing", "Designer", "Volunteer Support"];
+const TEAM_ROLE_ORDER = ["Executive", "Administrator", "Developer", "Marketing", "Designer", "Volunteer Support", "Contributor"];
 
 type TeamGridProps = {
   members: TeamMember[];

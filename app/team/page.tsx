@@ -27,26 +27,9 @@ const LEGACY_MEMBERS: TeamMember[] = [
   { name: "treegfx", role: "Developer", commits: 289, repos: [{ name: "dll-oss", commits: 154 }, { name: "dll-gpl", commits: 134 }, { name: "scripting-wiki", commits: 1 }] },
   { name: "MBG1337", role: "Developer", commits: 284, repos: [{ name: "scripting-marketplace", commits: 163 }, { name: "scripts", commits: 28 }, { name: "website", commits: 25 }, { name: "dll-oss", commits: 16 }, { name: "dll-gpl", commits: 16 }, { name: "AbilityDuels", commits: 11 }, { name: "bot", commits: 7 }, { name: "newcdn", commits: 5 }] },
   { name: "wh8te", role: "Developer", commits: 238, repos: [{ name: "android", commits: 79 }, { name: "dll-css", commits: 64 }, { name: "dll-oss", commits: 49 }, { name: "dll-gpl", commits: 41 }, { name: "newcdn", commits: 4 }, { name: "akairo", commits: 1 }], description: "Executive", roleIconSrc: "https://cdn.discordapp.com/attachments/779960572451487764/1516070913857028106/download_2.png?ex=6a314e91&is=6a2ffd11&hm=29f083a4ac24f2bc50338dcbf312c807b270ef731155f5c03b976dc0cc063cdb" },
-  { name: "oHatless", role: "Developer", commits: 212, repos: [{ name: "dll-gpl", commits: 94 }, { name: "dll-oss", commits: 94 }, { name: "scripting-wiki", commits: 19 }, { name: "scripts", commits: 5 }] },
   { name: "EpiclyRaspberry", role: "Developer", commits: 202, repos: [{ name: "bot", commits: 100 }, { name: "android", commits: 28 }, { name: "dll-oss", commits: 23 }, { name: "scripting-wiki", commits: 17 }, { name: "api", commits: 17 }, { name: "dll-gpl", commits: 7 }, { name: "bot-golang", commits: 3 }, { name: "web-services", commits: 3 }] },
-  { name: "marioCST", role: "Developer", commits: 179, repos: [{ name: "Flarial-V2", commits: 89 }, { name: "dll-gpl", commits: 45 }, { name: "dll-oss", commits: 45 }] },
-  { name: "St0neHunter", role: "Developer", commits: 153, repos: [{ name: "dll-oss", commits: 78 }, { name: "dll-gpl", commits: 70 }, { name: "dll-css", commits: 3 }, { name: "scripts", commits: 1 }, { name: "newcdn", commits: 1 }] },
   { name: "Indig0r", role: "Developer", commits: 126, repos: [{ name: "dll-gpl", commits: 63 }, { name: "dll-oss", commits: 63 }] },
-  { name: "notchyves", role: "Developer", commits: 45, repos: [{ name: "dll-oss", commits: 19 }, { name: "dll-gpl", commits: 15 }, { name: "scripting-wiki", commits: 7 }, { name: "scripting-vscode-extension", commits: 3 }, { name: "Flarial-RP", commits: 1 }] },
   { name: "AnhNguyenlost13", role: "Developer", commits: 44, repos: [{ name: "dll-oss", commits: 44 }] },
-  { name: "Trixie0", role: "Developer", commits: 30, repos: [{ name: "dll-gpl", commits: 15 }, { name: "dll-oss", commits: 15 }] },
-  { name: "Roqsh-dev", role: "Developer", commits: 18, repos: [{ name: "dll-oss", commits: 18 }] },
-  { name: "Strebus", role: "Developer", commits: 13, repos: [{ name: "scripts", commits: 11 }, { name: "dll-gpl", commits: 1 }, { name: "dll-oss", commits: 1 }] },
-  { name: "MarialenaHax", role: "Developer", commits: 13, repos: [{ name: "dll-oss", commits: 13 }], avatarUrl: "https://cdn.discordapp.com/embed/avatars/0.png" },
-  { name: "Zgoly", role: "Developer", commits: 9, repos: [{ name: "scripts", commits: 4 }, { name: "dll-gpl", commits: 2 }, { name: "dll-oss", commits: 2 }, { name: "scripting-marketplace", commits: 1 }] },
-  { name: "BoredSathvik", role: "Developer", commits: 8, repos: [{ name: "dll-gpl", commits: 4 }, { name: "dll-oss", commits: 4 }] },
-  { name: "ambiennt", role: "Developer", commits: 6, repos: [{ name: "dll-oss", commits: 6 }] },
-  { name: "kmaba", role: "Developer", commits: 4, repos: [{ name: "dll-gpl", commits: 2 }, { name: "dll-oss", commits: 2 }] },
-  { name: "xBeastMode", role: "Developer", commits: 4, repos: [{ name: "dll-gpl", commits: 2 }, { name: "dll-oss", commits: 2 }] },
-  { name: "ItzCandra23", role: "Developer", commits: 2, repos: [{ name: "dll-oss", commits: 2 }] },
-  { name: "AkmalFairuz", role: "Developer", commits: 1, repos: [{ name: "dll-oss", commits: 1 }] },
-  { name: "ApelBarakDev", role: "Developer", commits: 1, repos: [{ name: "dll-oss", commits: 1 }] },
-  { name: "ISBP", role: "Developer", commits: 1, repos: [{ name: "dll-oss", commits: 1 }] },
 ];
 
 function normalizeMemberKey(member: TeamMember) {
@@ -119,6 +102,12 @@ export default function TeamPage() {
         <p className="mt-6 text-[15px] leading-relaxed text-[var(--color-text-mute)] sm:text-[16px]">
           A small group of developers, designers, and marketing members shipping Flarial weekly.
         </p>
+        <a
+          href="/team/contributors"
+          className="mt-6 inline-flex rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-display text-[13px] text-white transition-colors hover:border-white/20 hover:bg-white/[0.08]"
+        >
+          View general contributors
+        </a>
       </header>
 
       <TeamGrid members={MEMBERS} roleBadges={TEAM_ROLE_BADGES} />
