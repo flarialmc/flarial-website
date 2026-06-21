@@ -21,6 +21,7 @@ export type TeamMember = {
   roleIconSrc?: string;
   discordUserId?: string;
   discordUsername?: string;
+  githubUsername?: string;
   badges?: TeamRoleBadge[];
 };
 
@@ -122,7 +123,18 @@ function getRoleIcon(member: TeamMember, role = getRole(member)) {
   return member.roleIconSrc ?? member.badges?.[0]?.iconSrc ?? role.iconSrc;
 }
 
+function getGithubUsername(member: TeamMember) {
+  return member.githubUsername ?? (typeof member.commits === "number" ? member.name : undefined);
+}
+
+function getGithubUrl(member: TeamMember) {
+  const username = getGithubUsername(member);
+  return username ? `https://github.com/${username}` : undefined;
+}
+
 function getAvatar(member: TeamMember, size = 112) {
+  const githubUsername = getGithubUsername(member);
+  if (githubUsername) return `https://github.com/${githubUsername}.png?size=${size}`;
   if (member.avatarUrl) return member.avatarUrl;
   const roleKey = getRoleKey(member);
   const role = getRole(member);
@@ -161,6 +173,7 @@ export function TeamGrid({ members, roleBadges = [] }: TeamGridProps) {
   const selectedRoleIcon = selectedMember ? getRoleIcon(selectedMember, selectedRole) : selectedRole.iconSrc;
   const selectedAvatar = selectedMember ? getAvatar(selectedMember, 160) : selectedRole.avatarFallback;
   const selectedDescription = selectedMember?.description;
+  const selectedGithubUrl = selectedMember ? getGithubUrl(selectedMember) : undefined;
   const hasCommitData = typeof selectedMember?.commits === "number";
   const hasRepoData = selectedMember?.repos?.length ? true : false;
   const roleTrackedCount = members.filter((member) => member.badges?.length).length;
@@ -260,6 +273,17 @@ export function TeamGrid({ members, roleBadges = [] }: TeamGridProps) {
                     <span className="block font-mono text-[10px] uppercase leading-none text-[var(--color-text-mute)]" style={{ letterSpacing: "0.2em" }}>
                       @{selectedMember.discordUsername}
                     </span>
+                  ) : null}
+                  {selectedGithubUrl ? (
+                    <a
+                      href={selectedGithubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="block font-mono text-[10px] uppercase leading-none text-[var(--color-accent)] hover:text-white"
+                      style={{ letterSpacing: "0.18em" }}
+                    >
+                      GitHub profile ↗
+                    </a>
                   ) : null}
                   {selectedDescription ? (
                     <span className="block text-[12px] leading-relaxed text-[var(--color-text-mute)]">

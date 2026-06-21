@@ -102,15 +102,18 @@ export default function TeamPage() {
         <p className="mt-6 text-[15px] leading-relaxed text-[var(--color-text-mute)] sm:text-[16px]">
           A small group of developers, designers, and marketing members shipping Flarial weekly.
         </p>
-        <a
-          href="/team/contributors"
-          className="mt-6 inline-flex rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-display text-[13px] text-white transition-colors hover:border-white/20 hover:bg-white/[0.08]"
-        >
-          View general contributors
-        </a>
       </header>
 
       <TeamGrid members={MEMBERS} roleBadges={TEAM_ROLE_BADGES} />
+
+      <div className="mt-14 flex justify-center">
+        <a
+          href="/team/contributors"
+          className="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-display text-[13px] text-white transition-colors hover:border-white/20 hover:bg-white/[0.08]"
+        >
+          View general contributors
+        </a>
+      </div>
     </main>
   );
 }
