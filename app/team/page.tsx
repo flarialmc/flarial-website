@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DISCORD_ROLE_MEMBERS, TEAM_ROLE_BADGES, TEAM_SNAPSHOT_UPDATED_AT } from "./discord-role-snapshot";
+import { DISCORD_ROLE_MEMBERS, TEAM_ROLE_BADGES } from "./discord-role-snapshot";
 import { TeamGrid, type TeamMember, type TeamRoleBadge } from "./TeamGrid";
 
 export const metadata: Metadata = {
@@ -102,14 +102,14 @@ export default function TeamPage() {
           The people behind Flarial
         </div>
         <h1 className="font-display text-[52px] font-semibold leading-none text-white sm:text-[64px]">
-          Team.
+          Flarial’s Team
         </h1>
         <p className="mt-6 text-[15px] leading-relaxed text-[var(--color-text-mute)] sm:text-[16px]">
           A small group of developers, designers, and marketing members shipping Flarial weekly.
         </p>
       </header>
 
-      <TeamGrid members={MEMBERS} snapshotUpdatedAt={TEAM_SNAPSHOT_UPDATED_AT} roleBadges={TEAM_ROLE_BADGES} />
+      <TeamGrid members={MEMBERS} roleBadges={TEAM_ROLE_BADGES} />
     </main>
   );
 }

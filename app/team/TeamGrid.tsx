@@ -127,12 +127,7 @@ function getBadges(member: TeamMember): TeamRoleBadge[] {
   return [{ id: role.label, label: role.label, color: role.color, iconSrc: member.roleIconSrc ?? role.iconSrc }];
 }
 
-function formatSnapshotDate(value?: string) {
-  if (!value) return "Static team snapshot";
-  return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(new Date(value));
-}
-
-export function TeamGrid({ members, snapshotUpdatedAt, roleBadges = [] }: TeamGridProps) {
+export function TeamGrid({ members, roleBadges = [] }: TeamGridProps) {
   const [selectedName, setSelectedName] = useState(members[0]?.name ?? "");
   const [activeRole, setActiveRole] = useState("All");
 
@@ -179,8 +174,7 @@ export function TeamGrid({ members, snapshotUpdatedAt, roleBadges = [] }: TeamGr
                 {roleTrackedCount} members from live Flarial roles.
               </h2>
               <p className="mt-2 max-w-2xl text-[13px] leading-relaxed text-[var(--color-text-mute)]">
-                Stored as a static website snapshot so the page stays fast and does not scan the whole Discord server on every load.
-                Last refreshed {formatSnapshotDate(snapshotUpdatedAt)}.
+                Meet the people building, designing, supporting, and sharing Flarial.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-2">
