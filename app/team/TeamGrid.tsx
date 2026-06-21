@@ -2,7 +2,7 @@
 
 import { useMemo, useState, type SyntheticEvent } from "react";
 
-export type TeamRole = "Developer" | "Designer" | "Marketing" | "Administrator" | "Executives" | "Marketing Team" | "Volunteer Support";
+export type TeamRole = "Developer" | "Designer" | "Marketing" | "Administrator" | "Executive" | "Volunteer Support";
 
 export type TeamRoleBadge = {
   id: string;
@@ -56,21 +56,13 @@ const ROLE_DETAILS: Record<TeamRole, {
     iconSrc: "/team-icons/marketing.png",
     avatarFallback: "/team-icons/marketing.png",
   },
-  Executives: {
-    label: "Executives",
+  Executive: {
+    label: "Executive",
     icon: "👑",
     background: "var(--color-bg-panel)",
     color: "#992828",
     iconSrc: "/team-icons/developer.png",
     avatarFallback: "/team-icons/developer.png",
-  },
-  "Marketing Team": {
-    label: "Marketing Team",
-    icon: "📣",
-    background: "var(--color-bg-panel)",
-    color: "#397de4",
-    iconSrc: "/team-icons/marketing.png",
-    avatarFallback: "/team-icons/marketing.png",
   },
   Administrator: {
     label: "Administrator",
@@ -89,6 +81,8 @@ const ROLE_DETAILS: Record<TeamRole, {
     avatarFallback: "/team-icons/marketing.png",
   },
 };
+
+const TEAM_ROLE_ORDER = ["Executive", "Administrator", "Developer", "Marketing", "Designer", "Volunteer Support"];
 
 type TeamGridProps = {
   members: TeamMember[];
@@ -144,7 +138,9 @@ export function TeamGrid({ members, snapshotUpdatedAt, roleBadges = [] }: TeamGr
   const availableRoles = useMemo(() => {
     const labels = new Set<string>();
     members.forEach((member) => getBadges(member).forEach((badge) => labels.add(String(badge.label))));
-    return ["All", ...Array.from(labels).sort((a, b) => a.localeCompare(b))];
+    const ordered = TEAM_ROLE_ORDER.filter((role) => labels.has(role));
+    const extra = Array.from(labels).filter((role) => !TEAM_ROLE_ORDER.includes(role)).sort((a, b) => a.localeCompare(b));
+    return ["All", ...ordered, ...extra];
   }, [members]);
 
   const filteredMembers = useMemo(() => {
@@ -193,7 +189,6 @@ export function TeamGrid({ members, snapshotUpdatedAt, roleBadges = [] }: TeamGr
                   >
                     <span className="flex items-center gap-2">
                       {badge.iconSrc ? <img src={badge.iconSrc} alt="" className="h-5 w-5" /> : null}
-                      <span className="h-2.5 w-2.5 rounded-full" style={{ background: badge.color }} />
                       <span className="truncate font-display text-[12px] font-semibold text-white">{badge.label}</span>
                     </span>
                     <span className="mt-1 block font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.14em" }}>
