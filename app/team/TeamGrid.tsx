@@ -2,7 +2,7 @@
 
 import { useMemo, useState, type SyntheticEvent } from "react";
 
-export type TeamRole = "Developer" | "Designer" | "Marketing" | "Administrator" | "Marketing Team" | "Volunteer Support";
+export type TeamRole = "Developer" | "Designer" | "Marketing" | "Administrator" | "Executives" | "Marketing Team" | "Volunteer Support";
 
 export type TeamRoleBadge = {
   id: string;
@@ -55,6 +55,14 @@ const ROLE_DETAILS: Record<TeamRole, {
     color: "#0A6DFF",
     iconSrc: "/team-icons/marketing.png",
     avatarFallback: "/team-icons/marketing.png",
+  },
+  Executives: {
+    label: "Executives",
+    icon: "👑",
+    background: "var(--color-bg-panel)",
+    color: "#992828",
+    iconSrc: "/team-icons/developer.png",
+    avatarFallback: "/team-icons/developer.png",
   },
   "Marketing Team": {
     label: "Marketing Team",
