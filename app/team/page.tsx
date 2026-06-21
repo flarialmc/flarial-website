@@ -53,6 +53,13 @@ function normalizeMemberKey(member: TeamMember) {
   return member.name.toLowerCase();
 }
 
+const DEVELOPER_BADGE: TeamRoleBadge = {
+  id: "Developer",
+  label: "Developer",
+  color: "#4cadd0",
+  iconSrc: "/team-icons/developer.png",
+};
+
 function mergeBadges(current: TeamRoleBadge[] = [], incoming: TeamRoleBadge[] = []) {
   const seen = new Set<string>();
   return [...current, ...incoming].filter((badge) => {
@@ -61,6 +68,11 @@ function mergeBadges(current: TeamRoleBadge[] = [], incoming: TeamRoleBadge[] = 
     seen.add(key);
     return true;
   });
+}
+
+function withDeveloperBadge(member: TeamMember): TeamMember {
+  if (typeof member.commits !== "number") return member;
+  return { ...member, badges: mergeBadges(member.badges, [DEVELOPER_BADGE]) };
 }
 
 function mergeTeamMembers(...groups: TeamMember[][]): TeamMember[] {
@@ -72,11 +84,11 @@ function mergeTeamMembers(...groups: TeamMember[][]): TeamMember[] {
       const current = members.get(key);
 
       if (!current) {
-        members.set(key, { ...member, badges: mergeBadges([], member.badges) });
+        members.set(key, withDeveloperBadge({ ...member, badges: mergeBadges([], member.badges) }));
         continue;
       }
 
-      members.set(key, {
+      members.set(key, withDeveloperBadge({
         ...current,
         ...member,
         commits: current.commits ?? member.commits,
@@ -85,7 +97,7 @@ function mergeTeamMembers(...groups: TeamMember[][]): TeamMember[] {
         description: member.description ?? current.description,
         role: member.role ?? current.role,
         badges: mergeBadges(current.badges, member.badges),
-      });
+      }));
     }
   }
 
