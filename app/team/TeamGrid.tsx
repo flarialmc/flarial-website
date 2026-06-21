@@ -61,7 +61,7 @@ const ROLE_DETAILS: Record<TeamRole, {
     icon: "👑",
     background: "var(--color-bg-panel)",
     color: "#992828",
-    iconSrc: "/team-icons/developer.png",
+    iconSrc: "/team-icons/executive.png",
     avatarFallback: "/team-icons/developer.png",
   },
   Administrator: {
@@ -94,6 +94,12 @@ function replaceBrokenImage(event: SyntheticEvent<HTMLImageElement>, fallbackSrc
   const image = event.currentTarget;
   if (image.src.endsWith(fallbackSrc)) return;
   image.src = fallbackSrc;
+}
+
+function replaceBrokenRoleIcon(event: SyntheticEvent<HTMLImageElement>) {
+  const image = event.currentTarget;
+  if (image.src.endsWith("/team-icons/developer.png")) return;
+  image.src = "/team-icons/developer.png";
 }
 
 function getRoleKey(member?: TeamMember): TeamRole {
@@ -185,10 +191,10 @@ export function TeamGrid({ members, snapshotUpdatedAt, roleBadges = [] }: TeamGr
                     key={badge.id}
                     type="button"
                     onClick={() => setActiveRole(String(badge.label))}
-                    className="rounded-[18px] border border-white/[0.06] bg-black/25 p-3 text-left transition hover:-translate-y-0.5 hover:border-white/15"
+                    className="rounded-[18px] border border-white/[0.06] bg-black/25 p-3 text-left transition-colors hover:border-white/15 hover:bg-black/30"
                   >
                     <span className="flex items-center gap-2">
-                      {badge.iconSrc ? <img src={badge.iconSrc} alt="" className="h-5 w-5" /> : null}
+                      {badge.iconSrc ? <img src={badge.iconSrc} alt="" className="h-5 w-5 rounded-sm object-contain" onError={replaceBrokenRoleIcon} /> : null}
                       <span className="truncate font-display text-[12px] font-semibold text-white">{badge.label}</span>
                     </span>
                     <span className="mt-1 block font-mono text-[10px] uppercase text-[var(--color-text-mute)]" style={{ letterSpacing: "0.14em" }}>
@@ -242,7 +248,7 @@ export function TeamGrid({ members, snapshotUpdatedAt, roleBadges = [] }: TeamGr
               </span>
               <span className="min-w-0">
                 <span className="inline-flex min-w-0 items-center gap-3">
-                  <img src={selectedRoleIcon} alt={`${selectedRole.label} icon`} className="h-6 w-6" />
+                  <img src={selectedRoleIcon} alt={`${selectedRole.label} icon`} className="h-6 w-6 rounded-sm object-contain" onError={replaceBrokenRoleIcon} />
                   <span className="truncate font-display text-[26px] font-semibold leading-tight text-white">
                     {selectedMember.name}
                   </span>
@@ -268,7 +274,7 @@ export function TeamGrid({ members, snapshotUpdatedAt, roleBadges = [] }: TeamGr
                   className="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[12px] text-white"
                   style={{ borderColor: `${badge.color}66`, background: `${badge.color}1f` }}
                 >
-                  {badge.iconSrc ? <img src={badge.iconSrc} alt="" className="h-4 w-4" /> : null}
+                  {badge.iconSrc ? <img src={badge.iconSrc} alt="" className="h-4 w-4 rounded-sm object-contain" onError={replaceBrokenRoleIcon} /> : null}
                   {badge.label}
                 </span>
               ))}
@@ -320,7 +326,7 @@ export function TeamGrid({ members, snapshotUpdatedAt, roleBadges = [] }: TeamGr
               key={member.discordUserId ?? member.name}
               type="button"
               onClick={() => setSelectedName(member.name)}
-              className="group flex min-h-[92px] items-center gap-3 rounded-[22px] border px-4 py-3 text-left transition duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+              className="group flex min-h-[92px] items-center gap-3 rounded-[22px] border px-4 py-3 text-left transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
               style={{
                 borderColor: isSelected ? "rgba(255, 48, 72, 0.42)" : "rgba(255,255,255,0.06)",
                 background: isSelected ? "rgba(255, 48, 72, 0.16)" : "var(--color-bg-nav)",
@@ -348,7 +354,7 @@ export function TeamGrid({ members, snapshotUpdatedAt, roleBadges = [] }: TeamGr
                       className="inline-flex max-w-full items-center gap-1 rounded-full px-2 py-0.5 text-[9.5px] leading-none text-white"
                       style={{ background: `${badge.color}33` }}
                     >
-                      {badge.iconSrc ? <img src={badge.iconSrc} alt="" className="h-3 w-3" /> : null}
+                      {badge.iconSrc ? <img src={badge.iconSrc} alt="" className="h-3 w-3 rounded-sm object-contain" onError={replaceBrokenRoleIcon} /> : null}
                       <span className="truncate">{badge.label}</span>
                     </span>
                   ))}
