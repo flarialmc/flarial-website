@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { TeamGrid, type TeamMember } from "./TeamGrid";
+import { DISCORD_ROLE_MEMBERS, TEAM_ROLE_BADGES, TEAM_SNAPSHOT_UPDATED_AT } from "./discord-role-snapshot";
+import { TeamGrid, type TeamMember, type TeamRoleBadge } from "./TeamGrid";
 
 export const metadata: Metadata = {
   title: "Team",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   },
 };
 
-const MEMBERS: TeamMember[] = [
+const LEGACY_MEMBERS: TeamMember[] = [
   { name: "TheBarii", role: "Developer", commits: 3685, repos: [{ name: "dll-oss", commits: 1493 }, { name: "dll-gpl", commits: 1192 }, { name: "launcher", commits: 317 }, { name: "cdn", commits: 301 }, { name: "newcdn", commits: 174 }, { name: "akairo", commits: 69 }, { name: "api", commits: 44 }, { name: "Flarial-V2", commits: 27 }], description: "Executive", roleIconSrc: "https://cdn.discordapp.com/attachments/779960572451487764/1516070913857028106/download_2.png?ex=6a314e91&is=6a2ffd11&hm=29f083a4ac24f2bc50338dcbf312c807b270ef731155f5c03b976dc0cc063cdb" },
   { name: "Melvin1663", role: "Developer", commits: 1346, repos: [{ name: "dll-oss", commits: 587 }, { name: "dll-gpl", commits: 257 }, { name: "bot", commits: 251 }, { name: "dll-css", commits: 101 }, { name: "cdn", commits: 59 }, { name: "api", commits: 44 }, { name: "newcdn", commits: 23 }, { name: "flarial-website", commits: 8 }] },
   { name: "aShanki", role: "Developer", commits: 1291, repos: [{ name: "web-services", commits: 383 }, { name: "api-golang", commits: 244 }, { name: "dll-css", commits: 146 }, { name: "bot-golang", commits: 146 }, { name: "scripting-marketplace", commits: 121 }, { name: "flarial-website", commits: 72 }, { name: "android", commits: 49 }, { name: "cdn", commits: 39 }], description: "Executive", roleIconSrc: "https://cdn.discordapp.com/attachments/779960572451487764/1516070913857028106/download_2.png?ex=6a314e91&is=6a2ffd11&hm=29f083a4ac24f2bc50338dcbf312c807b270ef731155f5c03b976dc0cc063cdb" },
@@ -46,10 +47,52 @@ const MEMBERS: TeamMember[] = [
   { name: "AkmalFairuz", role: "Developer", commits: 1, repos: [{ name: "dll-oss", commits: 1 }] },
   { name: "ApelBarakDev", role: "Developer", commits: 1, repos: [{ name: "dll-oss", commits: 1 }] },
   { name: "ISBP", role: "Developer", commits: 1, repos: [{ name: "dll-oss", commits: 1 }] },
-  { name: "zGqat", role: "Marketing", avatarUrl: "/team/zgqat.png" },
-  { name: "tedyy", role: "Marketing", avatarUrl: "https://cdn.discordapp.com/attachments/779960572451487764/1516072026031259729/6d3084519adcaed03805f3c5f0426748.webp?ex=6a314f9a&is=6a2ffe1a&hm=1ee6e13d04453c2f12437ab5512637afbef3f891ef4648bdbb9b8e6e130a7657" },
-  { name: "zzAdii", role: "Marketing", avatarUrl: "https://cdn.discordapp.com/attachments/1400876732633841756/1516073574111383693/cea0a440eb6b48f16505052de1f46a9b.webp?ex=6a31510b&is=6a2fff8b&hm=93c9067220c5cb45a7d237480f725236bb3bda9e676c96fe4a66543f4078c046" },
 ];
+
+function normalizeMemberKey(member: TeamMember) {
+  return member.name.toLowerCase();
+}
+
+function mergeBadges(current: TeamRoleBadge[] = [], incoming: TeamRoleBadge[] = []) {
+  const seen = new Set<string>();
+  return [...current, ...incoming].filter((badge) => {
+    const key = badge.id || badge.label;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function mergeTeamMembers(...groups: TeamMember[][]): TeamMember[] {
+  const members = new Map<string, TeamMember>();
+
+  for (const group of groups) {
+    for (const member of group) {
+      const key = normalizeMemberKey(member);
+      const current = members.get(key);
+
+      if (!current) {
+        members.set(key, { ...member, badges: mergeBadges([], member.badges) });
+        continue;
+      }
+
+      members.set(key, {
+        ...current,
+        ...member,
+        commits: current.commits ?? member.commits,
+        repos: current.repos ?? member.repos,
+        avatarUrl: member.avatarUrl ?? current.avatarUrl,
+        description: member.description ?? current.description,
+        role: member.role ?? current.role,
+        badges: mergeBadges(current.badges, member.badges),
+      });
+    }
+  }
+
+  return Array.from(members.values());
+}
+
+const MEMBERS = mergeTeamMembers(LEGACY_MEMBERS, DISCORD_ROLE_MEMBERS);
 
 export default function TeamPage() {
   return (
@@ -66,7 +109,7 @@ export default function TeamPage() {
         </p>
       </header>
 
-      <TeamGrid members={MEMBERS} />
+      <TeamGrid members={MEMBERS} snapshotUpdatedAt={TEAM_SNAPSHOT_UPDATED_AT} roleBadges={TEAM_ROLE_BADGES} />
     </main>
   );
 }
