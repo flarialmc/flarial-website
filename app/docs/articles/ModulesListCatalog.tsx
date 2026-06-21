@@ -37,13 +37,6 @@ function countModules(groups: ModuleGroup[]) {
   return groups.reduce((total, group) => total + group.modules.length, 0);
 }
 
-function countSettings(groups: ModuleGroup[]) {
-  return groups.reduce(
-    (total, group) => total + group.modules.reduce((groupTotal, module) => groupTotal + module.settingsCount, 0),
-    0,
-  );
-}
-
 export function ModulesListCatalog({
   windowsGroups,
   androidGroups,
@@ -86,7 +79,6 @@ export function ModulesListCatalog({
   );
   const totalModules = countModules(activeCatalog.groups);
   const visibleModules = countModules(filteredGroups);
-  const totalSettings = countSettings(activeCatalog.groups);
 
   return (
     <div className="grid gap-4">
@@ -106,9 +98,6 @@ export function ModulesListCatalog({
             <div className="mt-3 flex flex-wrap gap-2">
               <span className="rounded-full bg-black/25 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/80">
                 {activeCatalog.groups.length} categories
-              </span>
-              <span className="rounded-full bg-black/25 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/80">
-                {totalSettings} exposed settings
               </span>
             </div>
           </div>
@@ -195,11 +184,6 @@ export function ModulesListCatalog({
                   <span className="rounded-full bg-[var(--color-bg-subtle)] px-2.5 py-1 text-[11px] text-white">
                     {module.category}
                   </span>
-                  {module.settingsCount > 0 ? (
-                    <span className="rounded-full bg-black/25 px-2.5 py-1 text-[11px] text-[var(--color-text-mute)]">
-                      {module.settingsCount} setting{module.settingsCount === 1 ? "" : "s"}
-                    </span>
-                  ) : null}
                 </div>
               </div>
             ))}
