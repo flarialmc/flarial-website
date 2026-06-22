@@ -8,6 +8,7 @@ Logo exports:
 - logos/flarial-logo-2048.png
 - logos/flarial-logo-4096.png
 - logos/flarial-wordmark-transparent.png
+- wordmarks/flarial-wordmark-black-bg.png
 
 Small logo variant hex codes:
 - Red: #FE4443, #C43C3A

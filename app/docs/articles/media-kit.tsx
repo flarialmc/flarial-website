@@ -36,6 +36,14 @@ const brandAssets = [
     downloads: [{ label: "PNG", href: "/media-kit/logo-variants/flarial-wordmark-transparent.png" }],
   },
   {
+    title: "Black background wordmark",
+    description: "Flarial wordmark with logo on a black background for dark thumbnails, cards, and embeds.",
+    href: "/media-kit/logo-variants/flarial-wordmark-black-bg.png",
+    preview: "/media-kit/logo-variants/flarial-wordmark-black-bg.png",
+    format: "PNG · 600×240",
+    downloads: [{ label: "PNG", href: "/media-kit/logo-variants/flarial-wordmark-black-bg.png" }],
+  },
+  {
     title: "Embed/banner artwork",
     description: "High-resolution Flarial banner artwork for posts, video descriptions, and embeds.",
     href: "/flarial-client-embed.png",
@@ -172,6 +180,7 @@ export const mediaKitArticle: DocsArticle = {
             <ul className="space-y-1.5">
               <li>• Primary SVG logo</li>
               <li>• Transparent logo-and-name wordmark</li>
+              <li>• Black background wordmark</li>
               <li>• High-resolution transparent PNG logo exports</li>
               <li>• High-resolution banner artwork</li>
               <li>• Client screenshots</li>
