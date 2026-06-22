@@ -57,6 +57,7 @@ export const mediaKitArticle: DocsArticle = {
     { title: "Download", href: "#download" },
     { title: "Brand assets", href: "#brand-assets" },
     { title: "Logo variants", href: "#logo-variants" },
+    { title: "Typography", href: "#typography" },
     { title: "Usage notes", href: "#usage-notes" },
   ],
   render: () => (
@@ -76,7 +77,7 @@ export const mediaKitArticle: DocsArticle = {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/media-kit/flarial-media-kit.zip"
-                className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-4 py-2 font-display text-sm font-semibold text-black transition hover:brightness-110"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-4 py-2 font-display text-sm font-semibold text-white shadow-[0_10px_30px_rgba(255,88,118,0.25)] transition hover:brightness-110"
               >
                 <Download size={16} />
                 Download media kit ZIP
@@ -98,6 +99,7 @@ export const mediaKitArticle: DocsArticle = {
               <li>• Primary SVG logo</li>
               <li>• High-resolution banner artwork</li>
               <li>• Flarial icon variants</li>
+              <li>• Space Grotesk typography notes</li>
             </ul>
           </div>
         </div>
@@ -165,6 +167,35 @@ export const mediaKitArticle: DocsArticle = {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section
+        className={sectionFrameClass}
+        style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}
+      >
+        <DocsHeading id="typography">Typography</DocsHeading>
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center">
+          <div className="space-y-3">
+            <p>
+              Flarial uses <strong className="font-display text-white">Space Grotesk</strong> as its primary
+              brand/display font. Use it for headings, thumbnails, banners, and creator graphics when you want
+              the artwork to feel close to the official Flarial site.
+            </p>
+            <Link
+              href="https://fonts.google.com/specimen/Space+Grotesk"
+              className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] px-4 py-2 font-display text-sm font-semibold text-white transition hover:bg-white/[0.06]"
+            >
+              Download Space Grotesk <ExternalLink size={14} />
+            </Link>
+          </div>
+          <div className="rounded-[var(--radius-xl)] border border-white/[0.08] bg-black/25 p-4">
+            <div className="font-display text-4xl font-semibold tracking-[-0.04em] text-white">Aa</div>
+            <div className="mt-3 font-display text-xl font-semibold text-white">Space Grotesk</div>
+            <p className="mt-2 text-sm text-[var(--color-text-mute)]">
+              Geometric, clean, and chunky enough for Flarial branding without turning into corporate soup.
+            </p>
+          </div>
         </div>
       </section>
 
