@@ -192,29 +192,13 @@ function WindowsGlyph({ size }: { size: number }) {
 
 function AndroidGlyph({ size }: { size: number }) {
   return (
-    <svg
+    <img
+      src="https://img.icons8.com/ios_filled/512/FFFFFF/google-play.png"
       width={size}
       height={size}
-      viewBox="0 0 48 48"
+      alt=""
       aria-hidden
-      className="relative shrink-0"
-    >
-      <path
-        fill="#00A0FF"
-        d="M9.8 6.2c-.7.4-1.1 1.1-1.1 2.1v31.4c0 1 .4 1.7 1.1 2.1L27 24 9.8 6.2Z"
-      />
-      <path
-        fill="#00E676"
-        d="M10.6 5.7c.5-.2 1.1-.1 1.8.3l20.3 11.6L27 24 10.6 5.7Z"
-      />
-      <path
-        fill="#FFEA00"
-        d="m32.7 17.6 4.8 2.7c2 1.1 2 2.5 0 3.6L32.7 26 27 24l5.7-6.4Z"
-      />
-      <path
-        fill="#FF3D00"
-        d="M10.6 42.3 27 24l5.7 2-20.3 11.9c-.7.4-1.3.6-1.8.4Z"
-      />
-    </svg>
+      className="relative shrink-0 object-contain"
+    />
   );
 }
