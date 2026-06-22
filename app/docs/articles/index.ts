@@ -5,6 +5,7 @@ import { compatibilityArticle } from "./compatibility";
 import { configsArticle } from "./configs";
 import { modulesListArticle } from "./modules-list";
 import { flarialNametagIconArticle } from "./flarial-nametag-icon";
+import { mediaKitArticle } from "./media-kit";
 import { moduleBlockingArticle } from "./module-blocking";
 import { scriptingApiArticle } from "./scripting-api";
 import { troubleshootingCrashesArticle } from "./troubleshooting-crashes";
@@ -24,6 +25,7 @@ export const docsArticles: DocsArticle[] = [
   configsArticle,
   modulesListArticle,
   flarialNametagIconArticle,
+  mediaKitArticle,
   moduleBlockingArticle,
   scriptingApiArticle,
   { ...troubleshootingCrashesArticle, group: TROUBLESHOOTING },
