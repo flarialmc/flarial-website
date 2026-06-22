@@ -26,7 +26,7 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
           <li>Does Flarial mobile work on iPhone or iPad?</li>
           <li>Is Flarial mobile Android-only?</li>
           <li>Is the Android build a texture pack or behavior pack?</li>
-          <li>Can Flarial be made compatible with an arbitrary Minecraft APK?</li>
+          <li>Can Flarial be made compatible with arbitrary Minecraft installs?</li>
           <li>
             Will mobile support custom <InlineCode>lib.so</InlineCode> mods or third-party native modules?
           </li>
@@ -45,7 +45,7 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
             which a texture or behavior pack could not replicate.
           </li>
           <li>
-            Flarial cannot patch or support an arbitrary Minecraft APK on request. Use the official Google Play release path instead.
+            Flarial cannot patch or support arbitrary Minecraft installs on request. Use the official Google Play release path instead.
           </li>
           <li>
             There is no supported plan for loading arbitrary native modules (custom <InlineCode>lib.so</InlineCode>)
@@ -65,7 +65,7 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
           <li>How do I get or download Flarial for Android?</li>
           <li>Where is the official Android Google Play listing?</li>
           <li>Do I still need tester access?</li>
-          <li>Should I install a standalone APK?</li>
+          <li>Should I install from a third-party mirror?</li>
         </ul>
         <p>
           Flarial for Android is available through the official Google Play listing. You do not need
@@ -84,7 +84,7 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
           </li>
           <li>Install Flarial Launcher from Google Play and open it.</li>
           <li>Launch Minecraft Bedrock through Flarial and open the in-game menu to configure modules.</li>
-          <li>Only use Google Play or official Flarial links. Avoid third-party APK mirrors.</li>
+          <li>Only use Google Play or official Flarial links. Avoid third-party mirrors.</li>
         </ol>
         <InfoCard icon={<Smartphone size={16} className="text-[var(--color-accent)]" />} title="Note">
           <p>

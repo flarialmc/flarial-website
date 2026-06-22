@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "Is Flarial on Google Play for Android?",
-    a: "Yes. Flarial mobile is distributed through the official Google Play listing. Only install from Google Play or links the Flarial team has published officially — random \"Flarial APK\" mirrors are unofficial and unsafe.",
+    a: "Yes. Flarial mobile is distributed through the official Google Play listing. Only install from Google Play or links the Flarial team has published officially — random third-party mirrors are unofficial and unsafe.",
   },
   {
     q: "Does Flarial work on iOS (iPhone / iPad)?",
@@ -148,7 +148,7 @@ export default function McpeClientPage() {
                 and switch to the Android option, or tap “Get it on Google Play.”
               </>,
               "Install Flarial Launcher from the official Google Play listing.",
-              "Do not sideload a random \"Flarial APK\" from third-party sites; only use Google Play or links the team has published.",
+              "Do not install random third-party builds from other sites; only use Google Play or links the team has published.",
               "Launch Minecraft Bedrock through Flarial and open the in-game menu to configure your modules.",
             ].map((step, index) => (
               <li key={index} className="flex gap-3">
@@ -165,8 +165,7 @@ export default function McpeClientPage() {
               App safety
             </div>
             <p className="mt-1 text-[14px] leading-relaxed text-[var(--color-text-mute)]">
-              The official Android app is published through Google Play. Files labeled
-              “Flarial client APK” on other sites are not from us — installing them is a security risk.
+              The official Android app is published through Google Play. Files claiming to be Flarial on other sites are not from us — installing them is a security risk.
             </p>
           </div>
         </div>

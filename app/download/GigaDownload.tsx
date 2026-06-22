@@ -174,7 +174,7 @@ function AndroidInstallModal({
 
         <div className="mt-5 rounded-[var(--radius-xl)] border border-[rgba(255,35,58,0.28)] bg-black/25 p-4 text-[13px] leading-relaxed text-[var(--color-text-mute)]">
           Only install Flarial from the official <span className="text-white">Google Play</span> listing or official Flarial links.
-          Random APK mirrors can be fake, outdated, or unsafe.
+          Random third-party mirrors can be fake, outdated, or unsafe.
         </div>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-[1fr_auto]">

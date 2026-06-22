@@ -41,7 +41,7 @@ const CATEGORIES: FAQCategory[] = [
       {
         q: "Do I need real Minecraft Bedrock installed?",
         short: "Yes. Flarial does not replace owning or installing Minecraft Bedrock.",
-        a: "Yes. Flarial is a client for Minecraft Bedrock and expects a legitimate Bedrock installation from Microsoft, Xbox, or Google Play depending on platform. It is not a free Minecraft download, cracked launcher, APK patcher, or replacement for owning the game.",
+        a: "Yes. Flarial is a client for Minecraft Bedrock and expects a legitimate Bedrock installation from Microsoft, Xbox, or Google Play depending on platform. It is not a free Minecraft download, cracked launcher, mobile app patcher, or replacement for owning the game.",
       },
       {
         q: "Will Flarial keep getting updates?",
@@ -102,12 +102,12 @@ const CATEGORIES: FAQCategory[] = [
       {
         q: "How do I install Flarial on Android, and does iOS work?",
         short: "Use the official Google Play listing; iOS is not supported.",
-        a: "Install Flarial for Android from the official Google Play listing or official Flarial links only; do not install random patched APKs or reposts. Android support may depend on the currently supported Minecraft version, so update or switch versions if staff announces that a build is required. iOS is not supported because Apple’s sandbox blocks the same client/modding approach, and we do not recommend jailbreak or sideload workarounds.",
+        a: "Install Flarial for Android from the official Google Play listing or official Flarial links only; do not install random patched apps or reposts. Android support may depend on the currently supported Minecraft version, so update or switch versions if staff announces that a build is required. iOS is not supported because Apple’s sandbox blocks the same client/modding approach, and we do not recommend jailbreak or sideload workarounds.",
       },
       {
         q: "How do I become a Flarial mobile tester?",
         short: "Use official tester forms/pins only, and wait if applications are closed.",
-        a: "If tester applications are open, use the official tester form or pinned tester instructions. If applications are closed, wait for a public release or the next tester opening. Do not use unofficial APK links or third-party mirrors. If the form asks whether you have a PC, answer honestly.",
+        a: "If tester applications are open, use the official tester form or pinned tester instructions. If applications are closed, wait for a public release or the next tester opening. Do not use unofficial Android app links or third-party mirrors. If the form asks whether you have a PC, answer honestly.",
       },
     ],
   },
