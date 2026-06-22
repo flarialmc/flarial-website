@@ -83,18 +83,25 @@ export function ModulesListCatalog({
   return (
     <div className="grid gap-4">
       <div
-        className="flex flex-col gap-3 rounded-[var(--radius-xl)] p-4 text-white lg:flex-row lg:items-center lg:justify-between"
+        className="relative overflow-hidden rounded-[var(--radius-xl)] p-4 text-white"
         style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}
       >
-        <div>
-          <span className="font-display font-semibold">
-            {normalizedSearch ? `${visibleModules} of ${totalModules} modules` : `${totalModules} modules`}
-          </span>
-          <p className="mt-1 max-w-xl text-[12px] leading-relaxed text-[var(--color-text-mute)]">
-            Note that some modules may be disabled for specific versions due to bugs and glitches.
-          </p>
-        </div>
-        <div className="grid gap-2 sm:grid-cols-2">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(254,68,67,0.16),transparent_34rem)]" />
+        <div className="relative flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <span className="font-display text-[20px] font-semibold">
+              {normalizedSearch ? `${visibleModules} of ${totalModules} modules` : `${totalModules} ${activeCatalog.label} modules`}
+            </span>
+            <p className="mt-1 max-w-xl text-[12px] leading-relaxed text-[var(--color-text-mute)]">
+              Switch between the desktop and Android catalogs. Some modules may be disabled for specific Minecraft versions due to bugs or engine changes.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <span className="rounded-full bg-black/25 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-white/80">
+                {activeCatalog.groups.length} categories
+              </span>
+            </div>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-2">
           {catalogs.map((catalog) => {
             const active = catalog.key === activePlatform;
 
@@ -107,7 +114,7 @@ export function ModulesListCatalog({
                 className={[
                   "rounded-[var(--radius-lg)] border px-4 py-3 text-left transition-colors",
                   active
-                    ? "border-[var(--color-accent)] bg-[var(--color-bg-subtle)] text-white"
+                    ? "border-[var(--color-accent)] bg-[var(--color-bg-subtle)] text-white shadow-[0_0_0_1px_rgba(254,68,67,0.18)]"
                     : "border-white/[0.06] bg-black/20 text-[var(--color-text-mute)] hover:border-white/15 hover:text-white",
                 ].join(" ")}
               >
@@ -124,6 +131,7 @@ export function ModulesListCatalog({
               </button>
             );
           })}
+          </div>
         </div>
       </div>
 

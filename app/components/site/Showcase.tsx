@@ -151,7 +151,7 @@ export function Showcase() {
                     ) : null}
                   </div>
                   <div className="min-w-0 flex-1 py-2 pr-3">
-                    <div className="truncate font-mono text-[9px] uppercase tracking-widest text-[var(--color-text-dim)] sm:text-[9.5px]">
+                    <div className="truncate font-mono text-[9px] uppercase tracking-widest text-white/70 sm:text-[9.5px]">
                       YouTube · {it.tag}
                     </div>
                     <div className="mt-0.5 line-clamp-2 text-[12px] font-medium leading-tight text-white sm:text-[12.5px]">
@@ -170,7 +170,7 @@ export function Showcase() {
           href="https://www.youtube.com/results?search_query=flarial+client"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[var(--radius-4xl)] font-mono text-[10.5px] uppercase tracking-widest text-[var(--color-text-mute)] hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[var(--radius-4xl)] font-mono text-[10.5px] uppercase tracking-widest text-white/70 hover:text-white transition-colors"
           style={{ background: "var(--color-bg-nav)" }}
         >
           <ExternalLink size={11} />
@@ -180,7 +180,7 @@ export function Showcase() {
           href={TIKTOK_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[var(--radius-4xl)] font-mono text-[10.5px] uppercase tracking-widest text-[var(--color-text-mute)] hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[var(--radius-4xl)] font-mono text-[10.5px] uppercase tracking-widest text-white/70 hover:text-white transition-colors"
           style={{ background: "var(--color-bg-nav)" }}
         >
           <ExternalLink size={11} />
