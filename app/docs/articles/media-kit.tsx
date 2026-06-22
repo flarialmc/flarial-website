@@ -56,6 +56,44 @@ const iconVariants = [
   { name: "Gamer", href: "/flarial-icons/gamer-logo.png" },
 ];
 
+const clientScreenshots = [
+  {
+    title: "Module list",
+    description: "Minecraft main menu with Flarial's module list and toggles open.",
+    href: "/media-kit/client-screenshots/client-module-list.jpg",
+  },
+  {
+    title: "Keybind settings",
+    description: "In-game module settings with keybind controls and shortcuts visible.",
+    href: "/media-kit/client-screenshots/client-keybind-settings.jpg",
+  },
+  {
+    title: "Launcher home",
+    description: "Flarial launcher home screen with launch and settings actions.",
+    href: "/media-kit/client-screenshots/launcher-home.jpg",
+  },
+  {
+    title: "Mobile gameplay",
+    description: "Gameplay view with mobile controls and Flarial client buttons visible.",
+    href: "/media-kit/client-screenshots/gameplay-mobile-controls.jpg",
+  },
+  {
+    title: "Loading tip",
+    description: "Minecraft loading screen with a Flarial tip about opening mods.",
+    href: "/media-kit/client-screenshots/loading-client-tip.jpg",
+  },
+  {
+    title: "HUD modules",
+    description: "Gameplay HUD example with coordinates, FPS, keystrokes, and controls.",
+    href: "/media-kit/client-screenshots/hud-modules-gameplay.jpg",
+  },
+  {
+    title: "Keystrokes layout",
+    description: "Flarial keystrokes module settings with layout and scale controls.",
+    href: "/media-kit/client-screenshots/keystrokes-layout-settings.jpg",
+  },
+];
+
 export const mediaKitArticle: DocsArticle = {
   slug: "media-kit",
   title: "Media Kit",
@@ -64,6 +102,7 @@ export const mediaKitArticle: DocsArticle = {
   toc: [
     { title: "Download", href: "#download" },
     { title: "Brand assets", href: "#brand-assets" },
+    { title: "Client screenshots", href: "#client-screenshots" },
     { title: "Logo variants", href: "#logo-variants" },
     { title: "Typography", href: "#typography" },
     { title: "Usage notes", href: "#usage-notes" },
@@ -107,6 +146,7 @@ export const mediaKitArticle: DocsArticle = {
               <li>• Primary SVG logo</li>
               <li>• High-resolution transparent PNG logo exports</li>
               <li>• High-resolution banner artwork</li>
+              <li>• Client screenshots</li>
               <li>• Flarial icon variants</li>
               <li>• Space Grotesk typography notes</li>
             </ul>
@@ -151,6 +191,47 @@ export const mediaKitArticle: DocsArticle = {
                     </Link>
                   ))}
                 </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className={sectionFrameClass}
+        style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}
+      >
+        <DocsHeading id="client-screenshots">Client screenshots</DocsHeading>
+        <p>
+          Use these high-resolution client screenshots for videos, thumbnails, articles, social posts, and
+          creator graphics that need real Flarial UI/gameplay examples.
+        </p>
+        <div className="grid gap-4 md:grid-cols-2">
+          {clientScreenshots.map((screenshot) => (
+            <div key={screenshot.href} className="overflow-hidden rounded-[var(--radius-xl)] bg-black/25">
+              <div className="relative aspect-[20/9] bg-black/35">
+                <Image
+                  src={screenshot.href}
+                  alt={screenshot.title}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="space-y-3 p-4">
+                <div>
+                  <div className="font-display text-[17px] font-semibold text-white">{screenshot.title}</div>
+                  <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-accent)]">
+                    JPG · 2400×1080
+                  </div>
+                </div>
+                <p className="text-sm">{screenshot.description}</p>
+                <Link
+                  href={screenshot.href}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-white/[0.06] hover:text-[var(--color-accent)]"
+                >
+                  Download JPG <ExternalLink size={13} />
+                </Link>
               </div>
             </div>
           ))}
