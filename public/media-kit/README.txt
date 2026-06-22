@@ -9,6 +9,16 @@ Logo exports:
 - logos/flarial-logo-4096.png
 - logos/flarial-wordmark-transparent.png
 
+Small logo variant hex codes:
+- Red: #FE4443, #C43C3A
+- Cyan: #72D4FF, #33B1E9
+- White: #FFFFFF
+- Media: #007556, #006348
+- Partner: #FFD942, #EEC40F
+- Booster: #F47FFF, #D76BE9
+- Supporter: #FF3C8B, #C5356E
+- Gamer: #A750CA, #9039B3
+
 Wordmark background variants:
 - wordmarks/flarial-wordmark-scenic-bg.png
 - wordmarks/flarial-wordmark-light-bg.png

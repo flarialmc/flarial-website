@@ -54,14 +54,14 @@ const brandAssets = [
 ];
 
 const iconVariants = [
-  { name: "Red", href: "/flarial-icons/red-logo.png" },
-  { name: "Cyan", href: "/flarial-icons/cyan-logo.png" },
-  { name: "White", href: "/flarial-icons/white-logo.png" },
-  { name: "Media", href: "/flarial-icons/media-logo.png" },
-  { name: "Partner", href: "/flarial-icons/partner-logo.png" },
-  { name: "Booster", href: "/flarial-icons/booster-logo.png" },
-  { name: "Supporter", href: "/flarial-icons/supporter-logo.png" },
-  { name: "Gamer", href: "/flarial-icons/gamer-logo.png" },
+  { name: "Red", href: "/flarial-icons/red-logo.png", hex: ["#FE4443", "#C43C3A"] },
+  { name: "Cyan", href: "/flarial-icons/cyan-logo.png", hex: ["#72D4FF", "#33B1E9"] },
+  { name: "White", href: "/flarial-icons/white-logo.png", hex: ["#FFFFFF"] },
+  { name: "Media", href: "/flarial-icons/media-logo.png", hex: ["#007556", "#006348"] },
+  { name: "Partner", href: "/flarial-icons/partner-logo.png", hex: ["#FFD942", "#EEC40F"] },
+  { name: "Booster", href: "/flarial-icons/booster-logo.png", hex: ["#F47FFF", "#D76BE9"] },
+  { name: "Supporter", href: "/flarial-icons/supporter-logo.png", hex: ["#FF3C8B", "#C5356E"] },
+  { name: "Gamer", href: "/flarial-icons/gamer-logo.png", hex: ["#A750CA", "#9039B3"] },
 ];
 
 const wordmarkVariants = [
@@ -288,6 +288,21 @@ export const mediaKitArticle: DocsArticle = {
               </div>
               <div className="font-display text-sm font-semibold text-white group-hover:text-[var(--color-accent)]">
                 {variant.name}
+              </div>
+              <div className="mt-2 flex flex-wrap justify-center gap-1.5">
+                {variant.hex.map((hex) => (
+                  <span
+                    key={hex}
+                    className="inline-flex items-center gap-1 rounded-full bg-black/30 px-2 py-1 font-mono text-[10px] text-[var(--color-text-mute)]"
+                  >
+                    <span
+                      className="size-2 rounded-full border border-white/20"
+                      style={{ backgroundColor: hex }}
+                      aria-hidden="true"
+                    />
+                    {hex}
+                  </span>
+                ))}
               </div>
             </Link>
           ))}
