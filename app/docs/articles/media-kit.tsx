@@ -56,6 +56,24 @@ const iconVariants = [
   { name: "Gamer", href: "/flarial-icons/gamer-logo.png" },
 ];
 
+const wordmarkVariants = [
+  {
+    name: "Scenic background",
+    description: "Flarial Client wordmark on a blurred scenic background.",
+    href: "/media-kit/logo-variants/flarial-wordmark-scenic-bg.png",
+  },
+  {
+    name: "Light background",
+    description: "Flarial Client wordmark on a clean white background.",
+    href: "/media-kit/logo-variants/flarial-wordmark-light-bg.png",
+  },
+  {
+    name: "Dark background",
+    description: "Flarial Client wordmark on a clean black background.",
+    href: "/media-kit/logo-variants/flarial-wordmark-dark-bg.png",
+  },
+];
+
 const clientScreenshots = [
   {
     title: "Module list",
@@ -104,6 +122,7 @@ export const mediaKitArticle: DocsArticle = {
     { title: "Brand assets", href: "#brand-assets" },
     { title: "Client screenshots", href: "#client-screenshots" },
     { title: "Logo variants", href: "#logo-variants" },
+    { title: "Wordmark backgrounds", href: "#wordmark-backgrounds" },
     { title: "Typography", href: "#typography" },
     { title: "Usage notes", href: "#usage-notes" },
   ],
@@ -148,6 +167,7 @@ export const mediaKitArticle: DocsArticle = {
               <li>• High-resolution banner artwork</li>
               <li>• Client screenshots</li>
               <li>• Flarial icon variants</li>
+              <li>• Wordmark background variants</li>
               <li>• Space Grotesk typography notes</li>
             </ul>
           </div>
@@ -261,6 +281,47 @@ export const mediaKitArticle: DocsArticle = {
                 {variant.name}
               </div>
             </Link>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className={sectionFrameClass}
+        style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}
+      >
+        <DocsHeading id="wordmark-backgrounds">Wordmark background variants</DocsHeading>
+        <p>
+          Use these Flarial Client wordmarks when you need a ready-to-place banner-style mark with a
+          light, dark, or scenic background already included.
+        </p>
+        <div className="grid gap-4 md:grid-cols-3">
+          {wordmarkVariants.map((variant) => (
+            <div key={variant.href} className="overflow-hidden rounded-[var(--radius-xl)] bg-black/25">
+              <div className="relative aspect-[464/82] bg-black/35">
+                <Image
+                  src={variant.href}
+                  alt={variant.name}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="space-y-3 p-4">
+                <div>
+                  <div className="font-display text-[17px] font-semibold text-white">{variant.name}</div>
+                  <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-accent)]">
+                    PNG · 464×82
+                  </div>
+                </div>
+                <p className="text-sm">{variant.description}</p>
+                <Link
+                  href={variant.href}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-white/[0.06] hover:text-[var(--color-accent)]"
+                >
+                  Download PNG <ExternalLink size={13} />
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
       </section>

@@ -1,12 +1,17 @@
 Flarial Media Kit
 
-Official Flarial logos, high-resolution transparent logo PNG exports, icon variants, banner artwork, client screenshots, and typography notes for creators, videos, thumbnails, social posts, guides, articles, and community projects.
+Official Flarial logos, high-resolution transparent logo PNG exports, icon variants, wordmark background variants, banner artwork, client screenshots, and typography notes for creators, videos, thumbnails, social posts, guides, articles, and community projects.
 
 Logo exports:
 - logos/logo.svg
 - logos/flarial-logo-1024.png
 - logos/flarial-logo-2048.png
 - logos/flarial-logo-4096.png
+
+Wordmark background variants:
+- wordmarks/flarial-wordmark-scenic-bg.png
+- wordmarks/flarial-wordmark-light-bg.png
+- wordmarks/flarial-wordmark-dark-bg.png
 
 Client screenshots:
 - screenshots/client-module-list.jpg
