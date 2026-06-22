@@ -10,7 +10,7 @@ import {
 export const troubleshootingMobileBetaArticle: DocsArticle = {
   slug: "troubleshooting-mobile-beta",
   title: "Troubleshooting: Mobile",
-  summary: "Android/iOS support status, APK access, and mobile-specific issues.",
+  summary: "Android/iOS support status, Google Play access, and mobile-specific issues.",
   icon: Smartphone,
   toc: [
     { title: "Android & iOS support", href: "#flarial-mobile-android-ios" },
@@ -32,7 +32,7 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
           </li>
         </ul>
         <p>
-          Flarial mobile is released for Android through the official APK download, and there is no iOS release yet. iOS is harder because
+          Flarial mobile is released for Android through the official Google Play listing, and there is no iOS release yet. iOS is harder because
           Apple does not allow the same client injection and modding path Flarial relies on, and the
           sideload or jailbreak requirements would limit how it could be installed. Mobile app-store policy
           also restricts arbitrary native-code loaders, so custom <InlineCode>lib.so</InlineCode> modules
@@ -45,7 +45,7 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
             which a texture or behavior pack could not replicate.
           </li>
           <li>
-            Flarial cannot patch or support an arbitrary Minecraft APK on request. Use the official APK release path instead.
+            Flarial cannot patch or support an arbitrary Minecraft APK on request. Use the official Google Play release path instead.
           </li>
           <li>
             There is no supported plan for loading arbitrary native modules (custom <InlineCode>lib.so</InlineCode>)
@@ -63,32 +63,32 @@ export const troubleshootingMobileBetaArticle: DocsArticle = {
         <p>You might be wondering:</p>
         <ul className="list-disc space-y-1 pl-5">
           <li>How do I get or download Flarial for Android?</li>
-          <li>Where is the official Android APK?</li>
+          <li>Where is the official Android Google Play listing?</li>
           <li>Do I still need tester access?</li>
-          <li>Can I install a standalone APK?</li>
+          <li>Should I install a standalone APK?</li>
         </ul>
         <p>
-          Flarial for Android is available through the official APK download. You do not need
+          Flarial for Android is available through the official Google Play listing. You do not need
           to submit a tester application for the public Android release.
         </p>
         <ol className="list-decimal space-y-1 pl-5">
           <li>
             Open the{" "}
             <a
-              href="https://cdn.flarial.xyz/android/Flarial.apk"
+              href="https://play.google.com/store/apps/details?id=com.flarialmc.flarial_launcher"
               className="font-semibold text-white underline decoration-[var(--color-accent)] decoration-2 underline-offset-4"
             >
-              official Flarial APK download
+              official Flarial Launcher Google Play listing
             </a>{" "}
             for Flarial Launcher.
           </li>
-          <li>Open Flarial.apk from downloads and install it.</li>
+          <li>Install Flarial Launcher from Google Play and open it.</li>
           <li>Launch Minecraft Bedrock through Flarial and open the in-game menu to configure modules.</li>
-          <li>Only use cdn.flarial.xyz or official Flarial links. Avoid third-party APK mirrors.</li>
+          <li>Only use Google Play or official Flarial links. Avoid third-party APK mirrors.</li>
         </ol>
         <InfoCard icon={<Smartphone size={16} className="text-[var(--color-accent)]" />} title="Note">
           <p>
-            Only download Flarial mobile from cdn.flarial.xyz or a link the team has published officially.
+            Only install Flarial mobile from Google Play or a link the team has published officially.
           </p>
         </InfoCard>
       </section>

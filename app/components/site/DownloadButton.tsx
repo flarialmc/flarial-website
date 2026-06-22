@@ -39,10 +39,10 @@ export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
           <AndroidGlyph size={Math.round(iconSize * 1.45)} />
           <span className="relative text-left leading-tight">
             <span className={`block font-display font-semibold tracking-tight ${text}`}>
-              Download Android APK
+              Get it on Google Play
             </span>
             <span className={`block font-mono uppercase tracking-[0.18em] text-white/70 ${meta}`}>
-              Android - APK - Free
+              Android - Play Store - Free
             </span>
           </span>
         </PrimaryLink>

@@ -101,13 +101,13 @@ const CATEGORIES: FAQCategory[] = [
       },
       {
         q: "How do I install Flarial on Android, and does iOS work?",
-        short: "Use the official Android APK path only; iOS is not supported.",
-        a: "Use the official Android APK/download path from Flarial only; do not install random patched APKs or reposts. Android support may depend on the currently supported Minecraft version, so update or switch versions if staff announces that a build is required. iOS is not supported because Apple’s sandbox blocks the same client/modding approach, and we do not recommend jailbreak or sideload workarounds.",
+        short: "Use the official Google Play listing; iOS is not supported.",
+        a: "Install Flarial for Android from the official Google Play listing or official Flarial links only; do not install random patched APKs or reposts. Android support may depend on the currently supported Minecraft version, so update or switch versions if staff announces that a build is required. iOS is not supported because Apple’s sandbox blocks the same client/modding approach, and we do not recommend jailbreak or sideload workarounds.",
       },
       {
         q: "How do I become a Flarial mobile tester?",
         short: "Use official tester forms/pins only, and wait if applications are closed.",
-        a: "If tester applications are open, use the official tester form or pinned tester instructions. If applications are closed, wait for a public release or the next tester opening. Do not use unofficial APK links. If the form asks whether you have a PC, answer honestly.",
+        a: "If tester applications are open, use the official tester form or pinned tester instructions. If applications are closed, wait for a public release or the next tester opening. Do not use unofficial APK links or third-party mirrors. If the form asks whether you have a PC, answer honestly.",
       },
     ],
   },

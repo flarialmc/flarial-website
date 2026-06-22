@@ -4,12 +4,11 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const WINDOWS_URL = "https://cdn.flarial.xyz/launcher/Flarial.Launcher.exe";
-const ANDROID_URL = "https://cdn.flarial.xyz/android/Flarial.apk";
-const ANDROID_FILE_NAME = "Flarial.apk";
+const ANDROID_URL = "https://play.google.com/store/apps/details?id=com.flarialmc.flarial_launcher";
 
 /*
   Equal-priority platform downloads. Windows goes straight to the launcher
-  download, and Android opens a quick APK install guide before downloading.
+  download, and Android opens a quick Google Play install prompt before leaving.
 */
 export function GigaDownload() {
   const [showAndroidHelp, setShowAndroidHelp] = useState(false);
@@ -21,14 +20,8 @@ export function GigaDownload() {
     }
   }, []);
 
-  const downloadAndroidApk = () => {
-    const link = document.createElement("a");
-    link.href = ANDROID_URL;
-    link.download = ANDROID_FILE_NAME;
-    link.rel = "noopener noreferrer";
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
+  const openAndroidPlayStore = () => {
+    window.location.href = ANDROID_URL;
   };
 
   return (
@@ -45,8 +38,8 @@ export function GigaDownload() {
         </DownloadCard>
 
         <DownloadCard
-          title="Download Android APK"
-          meta="Android - APK - Free"
+          title="Get it on Google Play"
+          meta="Android - Play Store - Free"
           className="order-1 md:order-2"
           onClick={() => setShowAndroidHelp(true)}
         >
@@ -57,7 +50,7 @@ export function GigaDownload() {
       {showAndroidHelp ? (
         <AndroidInstallModal
           onClose={() => setShowAndroidHelp(false)}
-          onDownload={downloadAndroidApk}
+          onDownload={openAndroidPlayStore}
         />
       ) : null}
     </>
@@ -135,7 +128,7 @@ function AndroidInstallModal({
       className="fixed inset-0 z-50 grid place-items-center bg-black/70 px-4 py-6 backdrop-blur-md"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="android-apk-title"
+      aria-labelledby="android-play-title"
     >
       <div
         className="w-full max-w-lg overflow-hidden rounded-[24px] border border-white/[0.08] p-5 text-left text-white sm:p-6"
@@ -144,17 +137,17 @@ function AndroidInstallModal({
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--color-accent)]">
-              Android APK
+              Android on Google Play
             </div>
-            <h2 id="android-apk-title" className="mt-2 font-display text-[26px] font-semibold leading-tight">
-              How to install Flarial on Android
+            <h2 id="android-play-title" className="mt-2 font-display text-[26px] font-semibold leading-tight">
+              Install Flarial from Google Play
             </h2>
           </div>
           <button
             type="button"
             onClick={onClose}
             className="grid h-9 w-9 shrink-0 place-items-center rounded-[var(--radius-md)] bg-black/25 text-[20px] leading-none text-white/70 hover:text-white"
-            aria-label="Close Android install instructions"
+            aria-label="Close Android Google Play prompt"
           >
             x
           </button>
@@ -162,10 +155,10 @@ function AndroidInstallModal({
 
         <ol className="mt-5 grid gap-3">
           {[
-            "Tap Download APK below. If your browser asks, keep the file.",
-            "Open Flarial.apk from your downloads or notification bar.",
-            "If Android blocks it, tap Settings and allow installs from this browser/files app.",
-            "Tap Install, then Open Flarial and launch Minecraft through Flarial.",
+            "Tap Open Google Play below to view the official Flarial Launcher listing.",
+            "Install Flarial Launcher from Google Play like any other Android app.",
+            "Open Flarial Launcher after install and finish any required setup.",
+            "Launch Minecraft through Flarial when the launcher is ready.",
           ].map((step, index) => (
             <li
               key={step}
@@ -180,8 +173,8 @@ function AndroidInstallModal({
         </ol>
 
         <div className="mt-5 rounded-[var(--radius-xl)] border border-[rgba(255,35,58,0.28)] bg-black/25 p-4 text-[13px] leading-relaxed text-[var(--color-text-mute)]">
-          Only download Flarial from <span className="text-white">cdn.flarial.xyz</span> or official Flarial links.
-          Random APK mirrors can be fake or unsafe.
+          Only install Flarial from the official <span className="text-white">Google Play</span> listing or official Flarial links.
+          Random APK mirrors can be fake, outdated, or unsafe.
         </div>
 
         <div className="mt-5 grid gap-3 sm:grid-cols-[1fr_auto]">
@@ -190,7 +183,7 @@ function AndroidInstallModal({
             onClick={onDownload}
             className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-accent)] px-5 font-display text-[14px] font-semibold text-white shadow-[var(--shadow-glow)]"
           >
-            Download APK
+            Open Google Play
           </button>
           <button
             type="button"

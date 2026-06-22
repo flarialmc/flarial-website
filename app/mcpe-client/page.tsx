@@ -5,11 +5,11 @@ import { ArrowRight, Smartphone, Download, ShieldCheck, Apple, BookOpen } from "
 export const metadata: Metadata = {
   title: "Flarial for MCPE — Minecraft Bedrock Client for Android",
   description:
-    "Flarial is a Minecraft Bedrock (MCPE) client for Android. Learn how the Android APK works, the official install path, and the iOS situation.",
+    "Flarial is a Minecraft Bedrock (MCPE) client for Android. Learn how the Android Google Play release works, the official install path, and the iOS situation.",
   keywords: [
     "mcpe client",
     "flarial client mobile",
-    "flarial client apk",
+    "flarial client android",
     "flarial client android",
     "minecraft bedrock client mobile",
     "mcpe client android",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Flarial for MCPE — Minecraft Bedrock Client for Android",
     description:
-      "Flarial is released on Android through the official APK download. Learn how it installs, APK safety, and why iOS is not supported.",
+      "Flarial is released on Android through Google Play. Learn how it installs, app safety, and why iOS is not supported.",
     type: "website",
     url: "https://flarial.xyz/mcpe-client",
   },
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    q: "Is there a Flarial client APK for Android?",
-    a: "Yes. Flarial mobile is distributed as an official APK from Flarial. Only install from cdn.flarial.xyz or links the Flarial team has published officially — any other \"Flarial APK\" is unofficial and unsafe.",
+    q: "Is Flarial on Google Play for Android?",
+    a: "Yes. Flarial mobile is distributed through the official Google Play listing. Only install from Google Play or links the Flarial team has published officially — random \"Flarial APK\" mirrors are unofficial and unsafe.",
   },
   {
     q: "Does Flarial work on iOS (iPhone / iPad)?",
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "How do I install Flarial on Android?",
-    a: "Download the official Flarial APK, open Flarial.apk from your downloads, allow installs from your browser or files app if Android asks, then launch Minecraft Bedrock through Flarial.",
+    a: "Install Flarial Launcher from the official Google Play listing, open it, finish any required setup, then launch Minecraft Bedrock through Flarial.",
   },
 ];
 
@@ -113,13 +113,13 @@ export default function McpeClientPage() {
         <div className="rounded-[var(--radius-2xl)] p-5 sm:p-7" style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
           <p className="text-[14px] leading-relaxed text-[var(--color-text-mute)]">
             Flarial mobile is <span className="text-white">Android-first</span> and is
-            released as an official APK download. It behaves like the
+            released through Google Play. It behaves like the
             Windows client — not a texture pack or behavior pack — so you get real modules and the
             in-game menu rather than a cosmetic overlay.
           </p>
           <ul className="mt-4 grid gap-3 text-[14px] text-[var(--color-text)]">
             {[
-              "Android-only for now — the build is distributed as an official APK download.",
+              "Android-only for now — the build is distributed through the official Google Play listing.",
               "Works like the desktop client, with the same module-based design and an in-game menu.",
               "Free, like the Windows client — no paid tier and no cosmetics paywall.",
               "TOS-compliant by default: the standard module set is quality-of-life, not combat hacks.",
@@ -145,10 +145,10 @@ export default function McpeClientPage() {
                 <Link href="/download/" className="font-semibold text-white underline decoration-[var(--color-accent)] decoration-2 underline-offset-4">
                   download page
                 </Link>{" "}
-                and switch to the Android option, or tap “Download Android APK.”
+                and switch to the Android option, or tap “Get it on Google Play.”
               </>,
-              "Download Flarial.apk from the official Flarial CDN.",
-              "Do not sideload a random \"Flarial APK\" from third-party sites; only use cdn.flarial.xyz or links the team has published.",
+              "Install Flarial Launcher from the official Google Play listing.",
+              "Do not sideload a random \"Flarial APK\" from third-party sites; only use Google Play or links the team has published.",
               "Launch Minecraft Bedrock through Flarial and open the in-game menu to configure your modules.",
             ].map((step, index) => (
               <li key={index} className="flex gap-3">
@@ -162,10 +162,10 @@ export default function McpeClientPage() {
           <div className="mt-5 rounded-[var(--radius-xl)] border border-[rgba(255,35,58,0.28)] bg-black/25 p-4">
             <div className="flex items-center gap-2 font-display text-[15px] font-semibold text-white">
               <ShieldCheck size={16} className="text-[var(--color-accent)]" />
-              APK safety
+              App safety
             </div>
             <p className="mt-1 text-[14px] leading-relaxed text-[var(--color-text-mute)]">
-              The official standalone APK is published by the Flarial team. Files labeled
+              The official Android app is published through Google Play. Files labeled
               “Flarial client APK” on other sites are not from us — installing them is a security risk.
             </p>
           </div>
