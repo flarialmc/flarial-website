@@ -77,9 +77,9 @@ const ROLE_DETAILS: Record<TeamRole, {
     label: "Volunteer Support",
     icon: "💬",
     background: "var(--color-bg-panel)",
-    color: "#88d8ee",
-    iconSrc: "/team-icons/marketing.png",
-    avatarFallback: "/team-icons/marketing.png",
+    color: "#ffffff",
+    iconSrc: "/flarial-icons/white-logo.png",
+    avatarFallback: "/flarial-icons/white-logo.png",
   },
   Contributor: {
     label: "Contributor",
