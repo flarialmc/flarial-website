@@ -96,7 +96,6 @@ export const mediaKitArticle: DocsArticle = {
             </div>
             <ul className="space-y-1.5">
               <li>• Primary SVG logo</li>
-              <li>• Transparent PNG logos</li>
               <li>• High-resolution banner artwork</li>
               <li>• Flarial icon variants</li>
             </ul>
@@ -148,7 +147,7 @@ export const mediaKitArticle: DocsArticle = {
       >
         <DocsHeading id="logo-variants">Logo variants</DocsHeading>
         <p>
-          These 128×128 transparent PNG variants are useful for credits, badges, small overlays, and community
+          These 128×128 icon variants are useful for credits, badges, small overlays, and community
           pages where a compact Flarial mark fits better than a full banner.
         </p>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
