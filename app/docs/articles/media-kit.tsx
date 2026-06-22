@@ -16,10 +16,16 @@ import {
 const brandAssets = [
   {
     title: "Primary logo",
-    description: "Main Flarial logo in scalable SVG format for overlays, thumbnails, and websites.",
+    description: "Main Flarial logo for overlays, thumbnails, websites, and high-resolution creator exports.",
     href: "/logo.svg",
     preview: "/logo.svg",
-    format: "SVG",
+    format: "SVG + transparent PNG exports",
+    downloads: [
+      { label: "SVG", href: "/logo.svg" },
+      { label: "PNG 1024", href: "/media-kit/flarial-logo-1024.png" },
+      { label: "PNG 2048", href: "/media-kit/flarial-logo-2048.png" },
+      { label: "PNG 4096", href: "/media-kit/flarial-logo-4096.png" },
+    ],
   },
   {
     title: "Embed/banner artwork",
@@ -27,6 +33,7 @@ const brandAssets = [
     href: "/flarial-client-embed.png",
     preview: "/flarial-client-embed.png",
     format: "PNG · 3170×1420",
+    downloads: [{ label: "PNG", href: "/flarial-client-embed.png" }],
   },
   {
     title: "Website hero artwork",
@@ -34,6 +41,7 @@ const brandAssets = [
     href: "/grafik-1.png",
     preview: "/grafik-1.png",
     format: "PNG · 3170×1420",
+    downloads: [{ label: "PNG", href: "/grafik-1.png" }],
   },
 ];
 
@@ -97,6 +105,7 @@ export const mediaKitArticle: DocsArticle = {
             </div>
             <ul className="space-y-1.5">
               <li>• Primary SVG logo</li>
+              <li>• High-resolution transparent PNG logo exports</li>
               <li>• High-resolution banner artwork</li>
               <li>• Flarial icon variants</li>
               <li>• Space Grotesk typography notes</li>
@@ -131,12 +140,17 @@ export const mediaKitArticle: DocsArticle = {
                   </div>
                 </div>
                 <p className="text-sm">{asset.description}</p>
-                <Link
-                  href={asset.href}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-[var(--color-accent)]"
-                >
-                  Download asset <ExternalLink size={14} />
-                </Link>
+                <div className="flex flex-wrap gap-2">
+                  {asset.downloads.map((download) => (
+                    <Link
+                      key={download.href}
+                      href={download.href}
+                      className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-white/[0.06] hover:text-[var(--color-accent)]"
+                    >
+                      {download.label} <ExternalLink size={13} />
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

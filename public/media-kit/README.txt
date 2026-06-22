@@ -1,6 +1,12 @@
 Flarial Media Kit
 
-Official Flarial logos, icon variants, banner artwork, and typography notes for creators, videos, thumbnails, social posts, guides, articles, and community projects.
+Official Flarial logos, high-resolution transparent logo PNG exports, icon variants, banner artwork, and typography notes for creators, videos, thumbnails, social posts, guides, articles, and community projects.
+
+Logo exports:
+- logos/logo.svg
+- logos/flarial-logo-1024.png
+- logos/flarial-logo-2048.png
+- logos/flarial-logo-4096.png
 
 Typography:
 - Primary brand/display font: Space Grotesk
