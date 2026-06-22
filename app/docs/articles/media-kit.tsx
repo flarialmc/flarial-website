@@ -28,6 +28,14 @@ const brandAssets = [
     ],
   },
   {
+    title: "Transparent wordmark",
+    description: "Flarial Client logo-and-name wordmark with a transparent background for overlays and creator graphics.",
+    href: "/media-kit/logo-variants/flarial-wordmark-transparent.png",
+    preview: "/media-kit/logo-variants/flarial-wordmark-transparent.png",
+    format: "PNG · transparent · 464×82",
+    downloads: [{ label: "PNG", href: "/media-kit/logo-variants/flarial-wordmark-transparent.png" }],
+  },
+  {
     title: "Embed/banner artwork",
     description: "High-resolution Flarial banner artwork for posts, video descriptions, and embeds.",
     href: "/flarial-client-embed.png",
@@ -163,6 +171,7 @@ export const mediaKitArticle: DocsArticle = {
             </div>
             <ul className="space-y-1.5">
               <li>• Primary SVG logo</li>
+              <li>• Transparent logo-and-name wordmark</li>
               <li>• High-resolution transparent PNG logo exports</li>
               <li>• High-resolution banner artwork</li>
               <li>• Client screenshots</li>
