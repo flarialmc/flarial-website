@@ -22,13 +22,6 @@ const brandAssets = [
     format: "SVG",
   },
   {
-    title: "In-game logo",
-    description: "Transparent PNG logo used for in-game and creator-facing placements.",
-    href: "/misc-imgs/ingame_logo.png",
-    preview: "/misc-imgs/ingame_logo.png",
-    format: "PNG",
-  },
-  {
     title: "Embed/banner artwork",
     description: "High-resolution Flarial banner artwork for posts, video descriptions, and embeds.",
     href: "/flarial-client-embed.png",
