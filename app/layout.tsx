@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { SiteFrame } from "./components/site/SiteFrame";
+import { WebsiteAnalytics } from "./components/site/WebsiteAnalytics";
 
 /*
   Limit font weights to the ones actually used in the design (grepped from
@@ -182,6 +183,7 @@ export default function RootLayout({
         ) : null}
       </head>
       <body className="min-h-full flex flex-col">
+        <WebsiteAnalytics />
         <SiteFrame>{children}</SiteFrame>
       </body>
     </html>
