@@ -95,14 +95,34 @@ const CATEGORIES: FAQCategory[] = [
         a: "Flarial can trigger SmartScreen or antivirus false positives because the launcher is unsigned or newly updated. Only download it from the official Flarial website/CDN. If SmartScreen appears, click More info, then Run anyway. If Defender or another antivirus quarantines it, only restore or allow it if the file came from the official source.",
       },
       {
+        q: "How do I update or redownload the launcher if auto-update fails?",
+        short: "Restart the launcher first; if it still fails, download a fresh copy from the official site.",
+        a: "Close Minecraft and the launcher completely, then reopen the official launcher so it can check for updates. If the launcher still cannot update, download a fresh copy from the official Flarial website or official CDN link. Do not use reposted launcher files. If downloads fail too, troubleshoot network/CDN blocking first.",
+      },
+      {
         q: "How do I fully reinstall Flarial?",
         short: "Delete local Flarial folders, then reinstall from the official website.",
         a: "Close Minecraft and the Flarial launcher first. Delete the Flarial folders in %localappdata% and %appdata%, then download the latest launcher again from the official website. This resets configs, cached files, and broken local state, so only do it when normal config resets or launcher restarts do not help.",
       },
       {
         q: "How do I install Flarial on Android, and does iOS work?",
-        short: "Use the official Google Play listing; iOS is not supported.",
+        short: "Use official Flarial links only; Android support depends on the current build, and iOS is not supported.",
         a: "Install Flarial for Android from the official Google Play listing or official Flarial links only; do not install random patched apps or reposts. Android support may depend on the currently supported Minecraft version, so update or switch versions if staff announces that a build is required. iOS is not supported because Apple’s sandbox blocks the same client/modding approach, and we do not recommend jailbreak or sideload workarounds.",
+      },
+      {
+        q: "Why does Android say there was a problem parsing the package?",
+        short: "Your device must be on Android 9.0 or newer, and the APK must come from an official source.",
+        a: "Flarial's Android build requires Android 9.0 or newer. Android 8 and older can fail with 'There was a problem parsing the package' even if Play Protect is disabled. Check your Android version, update the device OS if possible, and re-download Flarial from the official source. If the device cannot update past Android 8, that mobile build will not install on that device.",
+      },
+      {
+        q: "Why does Android Zoom leave my FOV stuck low?",
+        short: "Try the quick perspective button after unzooming, then update/relaunch and report it if it persists.",
+        a: "On Android, Zoom can sometimes return to a lower FOV instead of the original value after unzooming. The reported workaround is to tap the quick perspective button after unzooming; if that snaps the view back, use it until a newer build fixes the state. If it still happens after updating and relaunching, report your Android version, Flarial version, and a short clip.",
+      },
+      {
+        q: "Why do Android OTG keybinds not fire?",
+        short: "Some mobile binds need both options enabled in the keybind editor before OTG input works.",
+        a: "If a module keybind works from touch input but not from an attached keyboard or mouse, open that module's keybind settings and enable both options shown for the bind, then test again with the keyboard/mouse attached through OTG. If it still does not trigger, send support a screenshot of the keybind configuration.",
       },
       {
         q: "How do I downgrade Minecraft on Android?",
@@ -139,6 +159,11 @@ const CATEGORIES: FAQCategory[] = [
         q: "How do I import Flarial config files?",
         short: "Put .flarial files in %localappdata%\\Flarial\\Client\\Config.",
         a: "Press Win + R, paste %localappdata%\\Flarial\\Client\\Config, and press Enter. Put the downloaded .flarial config file in that folder, then relaunch Minecraft/Flarial or reopen the config menu. If it still does not show, make sure the file is actually a .flarial config and not a zip or wrapper file.",
+      },
+      {
+        q: "Why do my Flarial settings reset every time I open Minecraft?",
+        short: "Check config saving, close cleanly, and reset config if the saved state is corrupted.",
+        a: "First, change one small setting, close Minecraft and the launcher normally, then reopen and check whether it saved. If nothing saves, make sure antivirus or controlled-folder access is not blocking Flarial's config folder. If only some settings are broken or the client crashes before saving, export any configs you care about, then reset or delete the Flarial config folder and set things up again.",
       },
       {
         q: "Can I add or change module keybinds outside a world?",
