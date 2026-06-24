@@ -24,8 +24,10 @@ export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
     <div className="flex flex-col items-center gap-5">
       <div className="flex w-full max-w-[360px] flex-col items-stretch justify-center gap-2.5 sm:max-w-none sm:flex-row">
         <PrimaryLink href={WINDOWS_URL} h={h} padX={downloadPadX} className="order-2 sm:order-1">
-          <WindowsGlyph size={iconSize} />
-          <span className="relative text-left leading-tight">
+          <span className="relative grid shrink-0 place-items-center" style={{ width: Math.round(iconSize * 1.45), height: Math.round(iconSize * 1.45) }}>
+            <WindowsGlyph size={iconSize} />
+          </span>
+          <span className="relative min-w-0 text-left leading-tight">
             <span className={`block font-display font-semibold tracking-tight ${text}`}>
               Download for Windows
             </span>
@@ -36,8 +38,10 @@ export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
         </PrimaryLink>
 
         <PrimaryLink href={ANDROID_URL} h={h} padX={downloadPadX} className="order-1 sm:order-2">
-          <AndroidGlyph size={Math.round(iconSize * 1.45)} />
-          <span className="relative text-left leading-tight">
+          <span className="relative grid shrink-0 place-items-center" style={{ width: Math.round(iconSize * 1.45), height: Math.round(iconSize * 1.45) }}>
+            <AndroidGlyph size={Math.round(iconSize * 1.45)} />
+          </span>
+          <span className="relative min-w-0 text-left leading-tight">
             <span className={`block font-display font-semibold tracking-tight ${text}`}>
               Get it on Google Play
             </span>
@@ -59,7 +63,7 @@ export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
             className="block text-[#5865F2]"
           />
         </span>
-        <span className="relative text-left leading-tight">
+        <span className="relative min-w-0 text-left leading-tight">
           <span className={`block font-display font-semibold tracking-tight ${text}`}>
             Join Discord
           </span>
@@ -94,7 +98,7 @@ function PrimaryLink({
     >
       <Link
         href={href}
-        className={`group relative inline-flex w-full items-center gap-3 overflow-hidden rounded-[14px] text-white sm:w-auto ${padX} ${h}`}
+        className={`group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-[14px] text-white sm:w-auto ${padX} ${h}`}
         style={{
           background: "var(--color-accent)",
           boxShadow: [
@@ -125,7 +129,7 @@ function SecondaryShell({
   return (
     <span
       {...rest}
-      className={`group relative inline-flex w-full items-center gap-3 overflow-hidden rounded-[14px] text-white sm:w-auto ${padX} ${h} cursor-pointer`}
+      className={`group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-[14px] text-white sm:w-auto ${padX} ${h} cursor-pointer`}
       style={{
         background: "var(--color-bg-nav)",
         boxShadow: [

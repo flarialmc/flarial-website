@@ -9,11 +9,11 @@ import { cn } from "../util/cn";
 import { FlarialLogo } from "./FlarialLogo";
 
 const NAV = [
+  { href: "/modules", label: "Modules" },
+  { href: "/blog", label: "Blog" },
   { href: "/changelog", label: "Changelog" },
   { href: "/docs", label: "Docs" },
-  { href: "/partnerships", label: "Partnerships" },
   { href: "/faq", label: "FAQ" },
-  { href: "/team", label: "Team" },
 ];
 
 const docsStorageKey = "flarial:last-docs-article";

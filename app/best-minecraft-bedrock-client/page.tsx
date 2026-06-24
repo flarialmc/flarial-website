@@ -28,11 +28,11 @@ const clients = [
     name: "Flarial",
     tag: "Our client",
     blurb:
-      "Flarial is a free, TOS-compliant Bedrock utility client with 140+ modules, a real-time ClickGUI, and a Lua scripting marketplace. Full disclosure: this is Flarial's own site, so treat this entry as the maker's pitch — the comparison table below keeps the criteria identical for everyone.",
+      "Flarial is a free, TOS-compliant Bedrock utility client with 140+ modules, a real-time ClickGUI, FPS tools, HUDs, and quality-of-life features. Full disclosure: this is Flarial's own site, so treat this entry as the maker's pitch — the comparison table below keeps the criteria identical for everyone.",
     points: [
       "Free forever — no paid tier, no cosmetics paywall.",
       "Windows plus an official Android (MCPE) Google Play release.",
-      "140+ modules and a Lua scripting marketplace for custom modules.",
+      "140+ modules across HUDs, FPS tools, visuals, movement helpers, and utilities.",
       "Quality-of-life by default; not a combat-hack client.",
     ],
     accent: "#ff233a",
@@ -94,7 +94,7 @@ const tableRows: { feature: string; cells: Cell[] }[] = [
   { feature: "Windows", cells: [true, true, true, true, true] },
   { feature: "Android / mobile", cells: [true, false, false, false, false] },
   { feature: "Open source", cells: [false, true, false, false, false] },
-  { feature: "Scripting / plugins", cells: ["Lua marketplace", "JS/TS", "Community modules", "—", "—"] },
+  { feature: "Scripting / plugins", cells: ["Lua scripting", "JS/TS", "Community modules", "—", "—"] },
   { feature: "Native Bedrock client", cells: [true, true, true, false, false] },
 ];
 const columns = ["Flarial", "Latite", "Onix", "Lunar", "Badlion"];
@@ -250,8 +250,8 @@ export default function BestBedrockClientPage() {
             If you want an open-source Windows client, Latite is a strong pick. If you&apos;re happy to
             pay for a deep Windows feature set, Onix is worth a look. Lunar and Badlion are really
             Java-first projects, so don&apos;t expect a full native Bedrock client from them. Flarial&apos;s
-            case is that it&apos;s free forever, runs on Windows and Android, ships 140+ modules with a
-            Lua scripting marketplace, and stays TOS-compliant by default. Read the{" "}
+            case is that it&apos;s free forever, runs on Windows and Android, ships 140+ modules focused on
+            HUDs, FPS tools, visuals, movement helpers, and utilities, and stays TOS-compliant by default. Read the{" "}
             <Link href="/docs/" className="font-semibold text-white underline decoration-[var(--color-accent)] decoration-2 underline-offset-4">
               docs
             </Link>{" "}

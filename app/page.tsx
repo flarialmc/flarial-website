@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Showcase } from "./components/site/Showcase";
 import { HeroBackground } from "./components/site/HeroBackground";
 import { DownloadButton } from "./components/site/DownloadButton";
 import { DiscordCommunity } from "./components/site/DiscordCommunity";
+import { FeaturePreviewGrid } from "./components/site/FeaturePreviewGrid";
 
 export const metadata: Metadata = {
   title: {
@@ -33,6 +36,27 @@ const FEATURES: { title: string; body: string }[] = [
   },
 ];
 
+function ProofStat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="rounded-[var(--radius-xl)] bg-black/20 p-4">
+      <div className="font-display text-[26px] font-semibold text-white">{value}</div>
+      <div className="mt-1 font-mono text-[9.5px] uppercase tracking-[0.18em] text-[var(--color-text-mute)]">{label}</div>
+    </div>
+  );
+}
+
+function HomeLink({ href, title, body }: { href: string; title: string; body: string }) {
+  return (
+    <Link href={href} className="group flex items-center justify-between gap-4 rounded-[var(--radius-xl)] p-5" style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
+      <span>
+        <span className="block font-display text-[17px] font-semibold text-white">{title}</span>
+        <span className="mt-1 block text-[12.5px] leading-relaxed text-[var(--color-text-mute)]">{body}</span>
+      </span>
+      <ArrowRight size={17} className="shrink-0 text-[var(--color-text-mute)] transition-colors group-hover:text-[var(--color-accent)]" />
+    </Link>
+  );
+}
+
 export default function Home() {
   return (
     <div className="relative">
@@ -58,6 +82,33 @@ export default function Home() {
 
       {/* ── Showcase ──────────────────────────────────────────────── */}
       <Showcase />
+      <FeaturePreviewGrid />
+
+      {/* ── Social proof / quick links ────────────────────────────── */}
+      <section className="relative mx-auto max-w-7xl px-4 pb-20 sm:px-6 sm:pb-24">
+        <div className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[28px] p-6 sm:p-8" style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}>
+            <div className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[var(--color-accent)] mb-3">
+              Trusted by Bedrock players
+            </div>
+            <h2 className="font-display text-[30px] font-semibold tracking-tight text-white sm:text-[42px]">
+              Free, active, and easy to verify.
+            </h2>
+            <p className="mt-4 text-[14.5px] leading-relaxed text-[var(--color-text-mute)]">
+              Flarial already has the hard parts: a huge Discord community, Android + Windows support, YouTube coverage, and open documentation. The site now makes those signals easier to find before someone downloads.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              <ProofStat value="100k+" label="Discord members" />
+              <ProofStat value="140+" label="Modules" />
+              <ProofStat value="24/7" label="Community" />
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+            <HomeLink href="/modules" title="Browse modules" body="Search HUDs, FPS tools, visuals, movement, and utilities." />
+            <HomeLink href="/blog" title="Read guides" body="SEO-friendly setup guides, troubleshooting, and comparison posts." />
+          </div>
+        </div>
+      </section>
 
       {/* ── SEO / topical content ─────────────────────────────────── */}
       <section className="relative mx-auto max-w-5xl px-4 pb-20 sm:px-6 sm:pb-24">

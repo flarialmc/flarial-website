@@ -35,7 +35,7 @@ const SITE_URL = "https://flarial.xyz";
 const SITE_NAME = "Flarial";
 const EMBED_IMAGE = "/flarial-client-embed.png";
 const DESCRIPTION =
-  "The Minecraft Bedrock client. 140+ modules, a real-time ClickGUI, and a scripting marketplace. Free, forever — for Windows and Android.";
+  "The Minecraft Bedrock client. 140+ modules, a real-time ClickGUI, FPS tools, HUDs, and quality-of-life features. Free, forever — for Windows and Android.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
