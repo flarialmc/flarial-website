@@ -17,7 +17,7 @@ export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
   const downloadPadX = "px-4";
   const secondaryPadX = "px-4";
   const text = size === "lg" ? "text-[15.5px]" : "text-[13.5px]";
-  const meta = size === "lg" ? "text-[10px]" : "text-[9.5px]";
+  const meta = size === "lg" ? "text-[9.5px]" : "text-[9px]";
   const iconSize = size === "lg" ? 20 : 18;
   const iconBoxSize = Math.round(iconSize * 1.45);
 
@@ -97,7 +97,7 @@ function ButtonContent({
         <span className={`block whitespace-nowrap font-display font-semibold tracking-tight ${textClassName}`}>
           {title}
         </span>
-        <span className={`block whitespace-nowrap font-mono uppercase tracking-[0.18em] ${mutedMeta ? "text-white/55" : "text-white/70"} ${metaClassName}`}>
+        <span className={`block whitespace-nowrap font-mono uppercase tracking-[0.08em] ${mutedMeta ? "text-white/55" : "text-white/70"} ${metaClassName}`}>
           {meta}
         </span>
       </span>
