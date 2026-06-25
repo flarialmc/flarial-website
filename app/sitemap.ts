@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllChangelogs } from "./lib/changelog";
 import { docsArticles } from "./docs/articles";
+import { BLOG_POSTS } from "./blog/blog-data";
 
 const BASE = "https://flarial.xyz";
 
@@ -14,11 +15,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/`, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE}/download`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
     { url: `${BASE}/changelog`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/modules`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.85 },
     { url: `${BASE}/docs`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/mcpe-client`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/best-minecraft-bedrock-client`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/bedrock-launcher`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/partnerships`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/support-flarial`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/team`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
@@ -35,6 +39,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
+  const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+    url: `${BASE}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  }));
+
   const changelogRoutes: MetadataRoute.Sitemap = entries.map((e) => ({
     url: `${BASE}/changelog#${e.slug}`,
     lastModified: new Date(e.date),
@@ -42,5 +53,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.4,
   }));
 
-  return [...staticRoutes, ...docsRoutes, ...changelogRoutes];
+  return [...staticRoutes, ...docsRoutes, ...blogRoutes, ...changelogRoutes];
 }

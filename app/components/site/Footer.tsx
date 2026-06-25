@@ -13,11 +13,11 @@ const COLS = [
     label: "Product",
     links: [
       { href: "/download", label: "Download" },
+      { href: "/modules", label: "Modules" },
+      { href: "/blog", label: "Blog" },
       { href: "/changelog", label: "Changelog" },
-      { href: "/partnerships", label: "Partnerships" },
       { href: "/faq", label: "FAQ" },
       { href: "/docs", label: "Docs" },
-      { href: "/team", label: "Team" },
     ],
   },
   {
@@ -62,8 +62,8 @@ export function Footer() {
             </span>
           </div>
           <p className="text-[13px] leading-relaxed text-[var(--color-text-mute)] max-w-sm">
-            The Minecraft Bedrock client. 140+ modules, a real ClickGUI, and a
-            scripting marketplace — free, forever.
+            The Minecraft Bedrock client. 140+ modules, a real ClickGUI, FPS
+            tools, HUDs, and active support — free, forever.
           </p>
           <p className="text-[11px] leading-relaxed text-[var(--color-text-dim)] max-w-sm">
             Not affiliated with Mojang or Microsoft. &quot;Minecraft&quot; is a

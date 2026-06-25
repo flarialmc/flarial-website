@@ -170,7 +170,7 @@ export function Showcase() {
           href="https://www.youtube.com/results?search_query=flarial+client"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[var(--radius-4xl)] font-mono text-[10.5px] uppercase tracking-widest text-[var(--color-text-mute)] hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[var(--radius-md)] font-mono text-[10.5px] uppercase tracking-widest text-[var(--color-text-mute)] hover:text-white transition-colors"
           style={{ background: "var(--color-bg-nav)" }}
         >
           <ExternalLink size={11} />
@@ -180,7 +180,7 @@ export function Showcase() {
           href={TIKTOK_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[var(--radius-4xl)] font-mono text-[10.5px] uppercase tracking-widest text-[var(--color-text-mute)] hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-[var(--radius-md)] font-mono text-[10.5px] uppercase tracking-widest text-[var(--color-text-mute)] hover:text-white transition-colors"
           style={{ background: "var(--color-bg-nav)" }}
         >
           <ExternalLink size={11} />

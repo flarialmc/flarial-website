@@ -77,7 +77,7 @@ export function DiscordCommunity() {
             href="https://discord.gg/flarial"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center rounded-[16px] bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-black transition hover:bg-[#4d82ff] sm:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-[16px] bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#4d82ff] sm:w-auto"
           >
             Join Discord
           </a>
