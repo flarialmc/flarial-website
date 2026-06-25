@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 };
 
-const UPDATED = "May 17, 2026";
+const UPDATED = "June 23, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -43,9 +43,11 @@ export default function PrivacyPage() {
         <Section title="What the website collects">
           <ul className="list-disc pl-6 space-y-2 marker:text-[var(--color-accent)]">
             <li>
-              <strong>Usage data</strong>: pages viewed, referring URL, approximate
-              region, browser and device type. Collected via standard analytics
-              and server logs.
+              <strong>Usage data</strong>: pages viewed and referring site. Collected
+              through first-party analytics at <code className="font-mono text-[13px] text-[var(--color-accent)]">api.flarial.xyz/website/events/pageview</code> and
+              standard server logs. Website analytics uses rotating anonymous
+              visitor hashes for daily/monthly counts and does not store raw IPs,
+              names, Discord IDs, or tracking cookies.
             </li>
             <li>
               <strong>Local storage</strong>: cosmetic preferences (favorite
@@ -160,7 +162,7 @@ export default function PrivacyPage() {
 
         <Section title="Ads (Google AdSense)">
           <p>
-            The <Link href="/download" className="text-[var(--color-accent)] underline-offset-4 hover:underline">/download</Link> page may serve ads via Google AdSense.
+            The <Link href="/download" className="text-[var(--color-accent)] underline-offset-4 hover:underline">/download</Link> and <Link href="/support-flarial" className="text-[var(--color-accent)] underline-offset-4 hover:underline">/support-flarial</Link> pages may serve ads via Google AdSense.
             AdSense is a third-party provider that uses cookies and similar
             technologies to serve ads based on your prior visits.
           </p>
@@ -209,8 +211,8 @@ export default function PrivacyPage() {
 
         <Section title="Cookies">
           <p>
-            We use a small number of cookies for analytics and, on /download, for
-            ads via Google AdSense. You can clear or disable cookies in your
+            We use a small number of cookies for analytics and, on pages with ad
+            placements, for ads via Google AdSense. You can clear or disable cookies in your
             browser settings — Site functionality will continue to work.
           </p>
         </Section>

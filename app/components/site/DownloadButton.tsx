@@ -14,65 +14,94 @@ const DISCORD_URL = "https://discord.gg/flarial";
 
 export function DownloadButton({ size = "lg" }: { size?: "md" | "lg" }) {
   const h = size === "lg" ? "h-[60px]" : "h-[52px]";
-  const downloadPadX = "px-3 sm:px-4";
-  const secondaryPadX = size === "lg" ? "px-5 sm:px-6" : "px-4";
+  const downloadPadX = "px-4";
+  const secondaryPadX = "px-4";
   const text = size === "lg" ? "text-[15.5px]" : "text-[13.5px]";
   const meta = size === "lg" ? "text-[10px]" : "text-[9.5px]";
   const iconSize = size === "lg" ? 20 : 18;
+  const iconBoxSize = Math.round(iconSize * 1.45);
 
   return (
     <div className="flex flex-col items-center gap-5">
-      <div className="flex w-full max-w-[360px] flex-col items-stretch justify-center gap-2.5 sm:max-w-none sm:flex-row">
+      <div className="flex w-full flex-col items-center justify-center gap-2.5 sm:flex-row">
         <PrimaryLink href={WINDOWS_URL} h={h} padX={downloadPadX} className="order-2 sm:order-1">
-          <span className="relative grid shrink-0 place-items-center" style={{ width: Math.round(iconSize * 1.45), height: Math.round(iconSize * 1.45) }}>
-            <WindowsGlyph size={iconSize} />
-          </span>
-          <span className="relative min-w-0 text-left leading-tight">
-            <span className={`block font-display font-semibold tracking-tight ${text}`}>
-              Download for Windows
-            </span>
-            <span className={`block font-mono uppercase tracking-[0.18em] text-white/70 ${meta}`}>
-              Free · 10 / 11 · 64-bit
-            </span>
-          </span>
+          <ButtonContent
+            icon={<WindowsGlyph size={iconSize} />}
+            title="Download for Windows"
+            meta="Free · 10 / 11 · 64-bit"
+            textClassName={text}
+            metaClassName={meta}
+            iconBoxSize={iconBoxSize}
+          />
         </PrimaryLink>
 
         <PrimaryLink href={ANDROID_URL} h={h} padX={downloadPadX} className="order-1 sm:order-2">
-          <span className="relative grid shrink-0 place-items-center" style={{ width: Math.round(iconSize * 1.45), height: Math.round(iconSize * 1.45) }}>
-            <AndroidGlyph size={Math.round(iconSize * 1.45)} />
-          </span>
-          <span className="relative min-w-0 text-left leading-tight">
-            <span className={`block font-display font-semibold tracking-tight ${text}`}>
-              Get it on Google Play
-            </span>
-            <span className={`block font-mono uppercase tracking-[0.18em] text-white/70 ${meta}`}>
-              Android - Play Store - Free
-            </span>
-          </span>
+          <ButtonContent
+            icon={<AndroidGlyph size={iconBoxSize} />}
+            title="Get it on Google Play"
+            meta="Android - Play Store - Free"
+            textClassName={text}
+            metaClassName={meta}
+            iconBoxSize={iconBoxSize}
+          />
         </PrimaryLink>
       </div>
 
       <SecondaryLink href={DISCORD_URL} h={h} padX={secondaryPadX}>
-        <span
-          className="relative shrink-0 grid place-items-center"
-          style={{ width: iconSize, height: iconSize }}
-        >
-          <DiscordIcon
-            width={iconSize * 1.18}
-            height={iconSize * 1.18}
-            className="block text-[#5865F2]"
-          />
-        </span>
-        <span className="relative min-w-0 text-left leading-tight">
-          <span className={`block font-display font-semibold tracking-tight ${text}`}>
-            Join Discord
-          </span>
-          <span className={`block font-mono uppercase tracking-[0.18em] text-white/55 ${meta}`}>
-            discord.gg/flarial
-          </span>
-        </span>
+        <ButtonContent
+          icon={
+            <DiscordIcon
+              width={iconSize * 1.18}
+              height={iconSize * 1.18}
+              className="block text-[#5865F2]"
+            />
+          }
+          title="Join Discord"
+          meta="discord.gg/flarial"
+          textClassName={text}
+          metaClassName={meta}
+          iconBoxSize={iconBoxSize}
+          mutedMeta
+        />
       </SecondaryLink>
     </div>
+  );
+}
+
+function ButtonContent({
+  icon,
+  title,
+  meta,
+  textClassName,
+  metaClassName,
+  iconBoxSize,
+  mutedMeta = false,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  meta: string;
+  textClassName: string;
+  metaClassName: string;
+  iconBoxSize: number;
+  mutedMeta?: boolean;
+}) {
+  return (
+    <span className="relative grid w-[236px] max-w-full grid-cols-[32px_minmax(0,1fr)] items-center gap-3 text-left">
+      <span
+        className="grid shrink-0 place-items-center justify-self-center"
+        style={{ width: iconBoxSize, height: iconBoxSize }}
+      >
+        {icon}
+      </span>
+      <span className="min-w-0 leading-tight">
+        <span className={`block whitespace-nowrap font-display font-semibold tracking-tight ${textClassName}`}>
+          {title}
+        </span>
+        <span className={`block whitespace-nowrap font-mono uppercase tracking-[0.18em] ${mutedMeta ? "text-white/55" : "text-white/70"} ${metaClassName}`}>
+          {meta}
+        </span>
+      </span>
+    </span>
   );
 }
 
@@ -94,11 +123,11 @@ function PrimaryLink({
       whileHover={{ y: -2 }}
       whileTap={{ y: 1, scale: 0.985 }}
       transition={{ type: "spring", stiffness: 200, damping: 26, mass: 0.85 }}
-      className={`w-full sm:w-auto ${className}`}
+      className={`w-full max-w-[360px] sm:w-[284px] ${className}`}
     >
       <Link
         href={href}
-        className={`group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-[14px] text-white sm:w-auto ${padX} ${h}`}
+        className={`group relative inline-flex w-full items-center justify-center overflow-hidden rounded-[14px] text-white ${padX} ${h}`}
         style={{
           background: "var(--color-accent)",
           boxShadow: [
@@ -129,7 +158,7 @@ function SecondaryShell({
   return (
     <span
       {...rest}
-      className={`group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-[14px] text-white sm:w-auto ${padX} ${h} cursor-pointer`}
+      className={`group relative inline-flex w-full items-center justify-center overflow-hidden rounded-[14px] text-white ${padX} ${h} cursor-pointer`}
       style={{
         background: "var(--color-bg-nav)",
         boxShadow: [
@@ -161,7 +190,7 @@ function SecondaryLink({
       whileHover={{ y: -2 }}
       whileTap={{ y: 1, scale: 0.985 }}
       transition={{ type: "spring", stiffness: 200, damping: 26, mass: 0.85 }}
-      className="w-full max-w-[360px] sm:w-auto sm:max-w-none"
+      className="w-full max-w-[360px] sm:w-[284px]"
     >
       <Link
         href={href}

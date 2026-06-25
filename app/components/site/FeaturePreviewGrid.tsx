@@ -10,28 +10,28 @@ type Preview = {
 const previews: Preview[] = [
   {
     title: "ClickGUI tuning",
-    type: "Clip added",
+    type: "PC demo",
     icon: "/mod-icons/clickgui.png",
     video: "/showcase/pc-clickgui.mp4",
     note: "PC ClickGUI flow: open the in-game menu, browse modules, and adjust settings live.",
   },
   {
     title: "HUD layout",
-    type: "Screenshot added",
+    type: "HUD preview",
     icon: "/mod-icons/keystrokes.png",
     image: "/showcase/pc-hud.jpg",
     note: "Clean PC HUD view with FPS, ping, armor durability, keystrokes, CPS, and hotbar overlays.",
   },
   {
     title: "FPS / render settings",
-    type: "GIF added",
+    type: "Render preview",
     icon: "/mod-icons/fps.png",
     image: "/showcase/pc-fps-render.gif",
     note: "PC render demo with the FPS counter visible while lighting/visual settings change in-game.",
   },
   {
     title: "Android experience",
-    type: "Clip added",
+    type: "Android demo",
     icon: "/mod-icons/android.png",
     video: "/showcase/android-clickgui.mp4",
     note: "Mobile Flarial flow: open the Android controls, enter ClickGUI, and toggle a safe HUD module.",
