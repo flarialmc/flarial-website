@@ -86,7 +86,7 @@ function ButtonContent({
   mutedMeta?: boolean;
 }) {
   return (
-    <span className="relative grid w-full grid-cols-[32px_minmax(0,1fr)] items-center gap-3 text-left">
+    <span className="relative grid w-[236px] max-w-full grid-cols-[32px_minmax(0,1fr)] items-center gap-3 text-left">
       <span
         className="grid shrink-0 place-items-center justify-self-center"
         style={{ width: iconBoxSize, height: iconBoxSize }}
