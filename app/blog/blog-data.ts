@@ -72,17 +72,17 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         label: "LiteByte Premium",
         value: "$1.50/GB/mo",
-        body: "Premium Minecraft plans advertise Ryzen 9 7950X, DDR5 RAM, NVMe storage, DDoS protection, free offsite backups, and a billing start of $1.50 monthly.",
+        body: "Premium Minecraft plans advertise Ryzen 9 7950X at $1.50/GB/mo with DDR5 RAM, 4 CPU threads, 100GB NVMe storage, DDoS protection, free offsite backups, and 5 MySQL databases.",
       },
       {
         label: "LiteByte Extreme",
         value: "$2/GB/mo",
-        body: "Extreme plans move to Ryzen 9 9950X, DDR5 RAM, Gen4 NVMe storage, DDoS protection, free offsite backups, and a billing start of $2.00 monthly.",
+        body: "Extreme plans move to Ryzen 9 9950X at $2/GB/mo with DDR5 RAM, 4 CPU threads, 100GB Gen4 NVMe storage, DDoS protection, free offsite backups, and 5 MySQL databases.",
       },
       {
-        label: "Budget entry",
-        value: "$0.75/GB/mo",
-        body: "LiteByte's billing page lists Budget from $0.75 monthly with Dual Xeon 2670v3 hardware, DDR4 memory, 4 vCores, DDoS protection, 3 MySQL databases, and offsite backups.",
+        label: "Included extras",
+        value: "Split + scale",
+        body: "Premium and Extreme include server splitting, and LiteByte support can grant more than the default 5 databases when a server needs it.",
       },
     ],
     comparisons: [
@@ -91,13 +91,14 @@ export const BLOG_POSTS: BlogPost[] = [
         badge: "Best overall value",
         href: "https://litebyte.co/minecraft",
         bestFor: "Flarial players who want performance per dollar",
-        startingPrice: "Website: from $0.75/GB/mo; billing: from $0.75 monthly",
+        startingPrice: "Budget from $0.75/GB/mo; Premium 7950X at $1.50/GB/mo; Extreme 9950X at $2/GB/mo",
         summary:
-          "LiteByte is the easy recommendation in this comparison because the public plans and billing page line up well with what Minecraft servers actually need: high single-core Ryzen CPU tiers, DDR5/NVMe options, DDoS protection, instant setup, backups, MySQL, mod/plugin support, and 24/7 support.",
+          "LiteByte is the easy recommendation in this comparison because the public plans and billing page line up well with what Minecraft servers actually need: high single-core Ryzen CPU tiers, DDR5/NVMe options, DDoS protection, instant setup, backups, included databases, server splitting, mod/plugin support, and 24/7 support.",
         strengths: [
-          "Billing lists Premium on Ryzen 9 7950X @ 5.7 GHz and Extreme on Ryzen 9 9950X @ 5.7 GHz.",
+          "Premium is Ryzen 9 7950X at $1.50/GB/mo; Extreme is Ryzen 9 9950X at $2/GB/mo.",
+          "Premium and Extreme include 4 CPU threads, 100GB storage, and 5 MySQL databases by default.",
           "Transparent per-GB pricing that is easy to scale up.",
-          "Good feature mix for Minecraft communities: backups, DDoS protection, MySQL, and mod/plugin support.",
+          "Good feature mix for Minecraft communities: backups, DDoS protection, server splitting, MySQL, and mod/plugin support.",
         ],
         watchFor:
           "LiteByte is the focused partner pick here, not the biggest legacy brand. If your server needs a very specific region or enterprise workflow, compare locations before buying.",
@@ -172,6 +173,7 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: "Why LiteByte fits Minecraft communities",
         body: [
           "Minecraft server performance is usually bottlenecked by single-thread CPU speed, storage responsiveness, network stability, and support when something breaks before an event. LiteByte's public Minecraft plans are built around exactly those points: Ryzen 9 CPUs, NVMe storage, DDoS protection, instant setup, backups, and support.",
+          "Premium is the Ryzen 9 7950X plan at $1.50/GB/mo, while Extreme moves to Ryzen 9 9950X at $2/GB/mo. On those higher tiers, LiteByte includes 4 CPU threads, 100GB storage, 5 MySQL databases, and server splitting, with support able to add more databases when needed.",
           "That makes LiteByte a strong match for Flarial's audience. A small SMP, practice server, creator community, or Bedrock/Java crossplay community does not need confusing enterprise hosting. It needs a server that starts quickly, scales by RAM, survives common attacks, and does not make basic Minecraft features feel like paid add-ons.",
         ],
       },
@@ -179,7 +181,7 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: "How to choose the right host",
         body: [
           "Do not pick a Minecraft host from price alone. The cheapest 8GB server can still feel bad if it is on weak hardware, overloaded storage, or a far-away location. Start with where your players are, then look at CPU generation, storage, DDoS protection, backups, and how support is handled.",
-          "LiteByte wins this comparison for value because its Premium and Extreme plans publish a strong price-to-hardware story. PebbleHost is a good established budget comparison. Shockbyte, BisectHosting, and Apex are worth considering when you prefer a bigger brand, more locations, or more guided onboarding.",
+          "LiteByte wins this comparison for value because its Premium and Extreme plans publish a strong price-to-hardware story and include practical resources up front: 4 CPU threads, 100GB storage, 5 databases, backups, and server splitting. PebbleHost is a good established budget comparison. Shockbyte, BisectHosting, and Apex are worth considering when you prefer a bigger brand, more locations, or more guided onboarding.",
         ],
         bullets: [
           "For the best Flarial partner pick: choose LiteByte Premium or Extreme.",
@@ -191,7 +193,7 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         heading: "The practical recommendation",
         body: [
-          "For most Flarial players starting a Minecraft server today, LiteByte Hosting is the first plan we would price out. Start with Premium if you want the best balance of cost and performance, move to Extreme if your community is larger or plugin-heavy, and use Budget only for small private groups where cost matters more than peak performance.",
+          "For most Flarial players starting a Minecraft server today, LiteByte Hosting is the first plan we would price out. Start with Premium at $1.50/GB/mo if you want the best balance of cost and Ryzen 9 7950X performance, move to Extreme at $2/GB/mo if your community is larger or plugin-heavy and you want Ryzen 9 9950X hardware, and use Budget only for small private groups where cost matters more than peak performance.",
           "The larger hosts are not bad choices. They just solve slightly different problems. If your priority is the cleanest value-to-performance ratio for a Minecraft community, LiteByte deserves to be near the top of the shortlist.",
         ],
       },

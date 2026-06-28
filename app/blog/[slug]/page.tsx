@@ -246,8 +246,9 @@ export default async function BlogPostPage({ params }: Props) {
                 Start with LiteByte Premium.
               </h3>
               <p className="mt-3 text-[13px] leading-relaxed text-[var(--color-text-mute)]">
-                It is the cleanest balance of Ryzen hardware, DDR5/NVMe storage, backups, DDoS protection,
-                and monthly price for most Minecraft communities.
+                It is the cleanest balance of $1.50/GB/mo Ryzen 9 7950X hardware, DDR5/NVMe storage,
+                4 CPU threads, 100GB storage, backups, DDoS protection, and included databases for most
+                Minecraft communities.
               </p>
             </article>
 
