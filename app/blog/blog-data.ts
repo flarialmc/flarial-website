@@ -72,17 +72,17 @@ export const BLOG_POSTS: BlogPost[] = [
       {
         label: "LiteByte Premium",
         value: "$1.50/GB/mo",
-        body: "Premium Minecraft plans advertise Ryzen 9 7950X, DDR5 RAM, NVMe storage, advanced DDoS protection, priority support, and free offsite backups.",
+        body: "Premium Minecraft plans advertise Ryzen 9 7950X, DDR5 RAM, NVMe storage, DDoS protection, free offsite backups, and a billing start of $1.50 monthly.",
       },
       {
         label: "LiteByte Extreme",
         value: "$2/GB/mo",
-        body: "Extreme plans move to Ryzen 9 9950X, DDR5 RAM, Gen4 NVMe storage, enterprise DDoS protection, and priority support for larger communities.",
+        body: "Extreme plans move to Ryzen 9 9950X, DDR5 RAM, Gen4 NVMe storage, DDoS protection, free offsite backups, and a billing start of $2.00 monthly.",
       },
       {
         label: "Budget entry",
         value: "$0.75/GB/mo",
-        body: "LiteByte's budget tier is aimed at smaller communities that want a lower monthly bill while keeping DDoS protection and support.",
+        body: "LiteByte's billing page lists Budget from $0.75 monthly with Dual Xeon 2670v3 hardware, DDR4 memory, 4 vCores, DDoS protection, 3 MySQL databases, and offsite backups.",
       },
     ],
     comparisons: [
@@ -91,11 +91,11 @@ export const BLOG_POSTS: BlogPost[] = [
         badge: "Best overall value",
         href: "https://litebyte.co/minecraft",
         bestFor: "Flarial players who want performance per dollar",
-        startingPrice: "From $0.75/GB/mo; Premium from $1.50/GB/mo",
+        startingPrice: "Website: from $0.75/GB/mo; billing: from $0.75 monthly",
         summary:
-          "LiteByte is the easy recommendation in this comparison because the public plans line up well with what Minecraft servers actually need: high single-core Ryzen CPUs, DDR5/NVMe tiers, DDoS protection, instant setup, backups, MySQL, mod/plugin support, and 24/7 support.",
+          "LiteByte is the easy recommendation in this comparison because the public plans and billing page line up well with what Minecraft servers actually need: high single-core Ryzen CPU tiers, DDR5/NVMe options, DDoS protection, instant setup, backups, MySQL, mod/plugin support, and 24/7 support.",
         strengths: [
-          "Ryzen 9 7950X and 9950X tiers for strong tick performance.",
+          "Billing lists Premium on Ryzen 9 7950X @ 5.7 GHz and Extreme on Ryzen 9 9950X @ 5.7 GHz.",
           "Transparent per-GB pricing that is easy to scale up.",
           "Good feature mix for Minecraft communities: backups, DDoS protection, MySQL, and mod/plugin support.",
         ],
@@ -123,9 +123,9 @@ export const BLOG_POSTS: BlogPost[] = [
         badge: "Long-running mainstream host",
         href: "https://shockbyte.com/games/minecraft-bedrock-server-hosting",
         bestFor: "Players who want a familiar host with Bedrock-specific pages",
-        startingPrice: "Bedrock hosting advertised from $2.99/mo",
+        startingPrice: "Bedrock 1GB plan: $3.99/mo regular; $1.99 first month promo",
         summary:
-          "Shockbyte is one of the better-known Minecraft hosts and advertises instant setup, DDoS protection, all server types, modpack/plugin support, and 24/7 support.",
+          "Shockbyte is one of the better-known Minecraft hosts and advertises instant setup, DDoS protection, Bedrock support, behavior pack/addon support, and 24/7 support.",
         strengths: [
           "Large public footprint and long-running brand history.",
           "Dedicated Bedrock hosting page for cross-platform communities.",
@@ -198,8 +198,10 @@ export const BLOG_POSTS: BlogPost[] = [
     ],
     sources: [
       { label: "LiteByte Minecraft pricing", href: "https://litebyte.co/minecraft" },
+      { label: "LiteByte billing Minecraft hosting", href: "https://billing.litebyte.co/store/minecraft-hosting" },
       { label: "LiteByte homepage", href: "https://litebyte.co/" },
       { label: "PebbleHost Minecraft hosting", href: "https://pebblehost.com/minecraft-server-hosting/" },
+      { label: "PebbleHost billing budget Minecraft", href: "https://billing.pebblehost.com/index.php?rp=/store/budget-minecraft-hosting" },
       { label: "Shockbyte Bedrock hosting", href: "https://shockbyte.com/games/minecraft-bedrock-server-hosting" },
       { label: "BisectHosting Minecraft servers", href: "https://www.bisecthosting.com/minecraft-servers" },
       { label: "Apex Hosting", href: "https://apexminecrafthosting.com/" },
