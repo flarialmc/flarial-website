@@ -32,6 +32,7 @@ const COLS = [
     label: "Company",
     links: [
       { href: "/about", label: "About" },
+      { href: "/team", label: "Team" },
       { href: "/contact", label: "Contact" },
       { href: "https://discord.gg/flarial", label: "Discord", external: true },
       { href: "https://www.youtube.com/@flarialclient", label: "YouTube", external: true },
