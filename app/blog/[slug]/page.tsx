@@ -133,7 +133,7 @@ export default async function BlogPostPage({ params }: Props) {
           </section>
         ) : null}
 
-        <section className="grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
+        <section className="grid items-start gap-4 lg:grid-cols-[1.15fr_0.85fr]">
           <article
             className="rounded-[var(--radius-2xl)] p-6 sm:p-8"
             style={{ background: "var(--color-bg-nav)", boxShadow: "var(--shadow-rest)" }}

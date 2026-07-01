@@ -53,15 +53,13 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Best Minecraft Server Hosting in 2026: LiteByte vs Popular Hosts",
     eyebrow: "Hosting comparison",
     description:
-      "A Flarial-friendly comparison of LiteByte Hosting, PebbleHost, Shockbyte, BisectHosting, and Apex Hosting for Minecraft communities.",
+      "A Flarial-friendly comparison of LiteByte Hosting, PebbleHost, Shockbyte, and BisectHosting for Minecraft communities.",
     date: "June 28, 2026",
     publishedAt: "2026-06-28",
     readTime: "7 min read",
     tags: ["Hosting", "Partners", "Minecraft"],
     heroImage: "/screenshots/mesa.webp",
     heroAlt: "Minecraft terrain used as the hero image for Flarial's Minecraft server hosting comparison.",
-    disclosure:
-      "LiteByte Hosting is a Flarial partner. We are being upfront about that because sponsored recommendations should be obvious. The comparison still focuses on the public pricing, hardware, support, and feature claims each host publishes.",
     verdict: {
       label: "Flarial pick",
       title: "LiteByte is our top value pick for Minecraft hosting.",
@@ -151,22 +149,6 @@ export const BLOG_POSTS: BlogPost[] = [
         watchFor:
           "You usually pay more for the smoother onboarding and support layer than with leaner per-GB hosts.",
       },
-      {
-        name: "Apex Hosting",
-        badge: "Premium onboarding",
-        href: "https://apexminecrafthosting.com/",
-        bestFor: "Groups that want guided setup and do not mind paying more",
-        startingPrice: "Example: 8GB advertised at $20.99 first month, $27.99 recurring",
-        summary:
-          "Apex is a premium-feeling Minecraft hosting brand with guided setup, DDoS protection, modpack support, and support-focused messaging. It is useful when the server owner wants more hand-holding.",
-        strengths: [
-          "Good onboarding path for new server owners.",
-          "Premium hardware and DDoS protection are emphasized across plans.",
-          "Helpful if you want a host that feels more managed.",
-        ],
-        watchFor:
-          "The convenience comes with a higher monthly price than the value-focused options in this list.",
-      },
     ],
     sections: [
       {
@@ -181,12 +163,12 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: "How to choose the right host",
         body: [
           "Do not pick a Minecraft host from price alone. The cheapest 8GB server can still feel bad if it is on weak hardware, overloaded storage, or a far-away location. Start with where your players are, then look at CPU generation, storage, DDoS protection, backups, and how support is handled.",
-          "LiteByte wins this comparison for value because its Premium and Extreme plans publish a strong price-to-hardware story and include practical resources up front: 4 CPU threads, 100GB storage, 5 databases, backups, and server splitting. PebbleHost is a good established budget comparison. Shockbyte, BisectHosting, and Apex are worth considering when you prefer a bigger brand, more locations, or more guided onboarding.",
+          "LiteByte wins this comparison for value because its Premium and Extreme plans publish a strong price-to-hardware story and include practical resources up front: 4 CPU threads, 100GB storage, 5 databases, backups, and server splitting. PebbleHost is a good established budget comparison. Shockbyte and BisectHosting are worth considering when you prefer a bigger brand, more locations, or more guided onboarding.",
         ],
         bullets: [
           "For the best Flarial partner pick: choose LiteByte Premium or Extreme.",
           "For the lowest established-name budget route: compare PebbleHost's budget plans.",
-          "For support-heavy onboarding: compare BisectHosting or Apex.",
+          "For support-heavy onboarding: compare BisectHosting.",
           "For Bedrock-specific mainstream pages: compare Shockbyte's Bedrock hosting plans.",
         ],
       },
@@ -206,7 +188,6 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: "PebbleHost billing budget Minecraft", href: "https://billing.pebblehost.com/index.php?rp=/store/budget-minecraft-hosting" },
       { label: "Shockbyte Bedrock hosting", href: "https://shockbyte.com/games/minecraft-bedrock-server-hosting" },
       { label: "BisectHosting Minecraft servers", href: "https://www.bisecthosting.com/minecraft-servers" },
-      { label: "Apex Hosting", href: "https://apexminecrafthosting.com/" },
     ],
     cta: {
       title: "Start with LiteByte",
