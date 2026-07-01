@@ -106,6 +106,7 @@ export default function Home() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
             <HomeLink href="/modules" title="Browse modules" body="Search HUDs, FPS tools, visuals, movement, and utilities." />
             <HomeLink href="/blog" title="Read guides" body="SEO-friendly setup guides, troubleshooting, and comparison posts." />
+            <HomeLink href="/team" title="Meet the team" body="See the developers, designers, marketing, and support volunteers behind Flarial." />
           </div>
         </div>
       </section>
